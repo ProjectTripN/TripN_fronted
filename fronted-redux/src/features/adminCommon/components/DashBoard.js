@@ -12,13 +12,6 @@ export default function Dashboard() {
       <Helmet>
         <title>Dashboard | TripN Admin</title>
       </Helmet>
-      <Box
-        sx={{
-          backgroundColor: 'background.default',
-          minHeight: '100%',
-          py: 3
-        }}
-      >
         <div className='container' >
           <Navigation/>
           <Container maxWidth={false} className='item1' >
@@ -92,7 +85,6 @@ export default function Dashboard() {
             </Grid>
           </Container>
         </div>
-      </Box>
     </>
   );
 }

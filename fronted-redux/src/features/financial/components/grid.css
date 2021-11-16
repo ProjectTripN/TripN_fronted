@@ -7,8 +7,3 @@
 .item1{
     grid-column: 2 / 3;
 }
-.navi{
-    display: grid;
-    place-items: center;
-    min-height: 100vh;
-}
