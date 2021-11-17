@@ -4,6 +4,3 @@
     grid-template-rows: 1fr, 1fr;
 
 }
-.item1{
-    grid-column: 2 / 3;
-}
