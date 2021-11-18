@@ -1,36 +1,54 @@
 import React from 'react'
 import { Navigation, AppAppBar } from 'features/adminCommon'
-import 'features/adminCommon/components/grid.css'
 import styled from 'styled-components'
+import { Chart1, Chart2, Chart3, Chart4, ChartData1, ChartData2, ChartData3, ChartData4 } from 'features/financial'
 
 export default function SalesManagement() {
     return (<>
         <AppAppBar />
         <div className='container' >
-            <Navigation className='navi' />
-            <Table>
-                <Tr>
-                    <Chartth>차트1</Chartth>
-                    <Chartth>차트2</Chartth>
-                </Tr>
-                <Tr>
-                    <Chartth>차트3</Chartth>
-                    <Chartth>차트4</Chartth>
-                </Tr>
-            </Table>
+            <Navigation />
+            <ChartTable>
+                <Charttr>
+                    <Charttd>
+                        <Chartdiv><Chart4 data={ChartData4} /></Chartdiv>
+                    </Charttd>
+                    <Charttd>
+                        <Chartdiv><Chart2 data={ChartData2} /></Chartdiv>
+                    </Charttd>
+                </Charttr>
+                <Charttr>
+                    <Charttd>
+                        <Chartdiv><Chart3 data={ChartData3} /></Chartdiv>
+                    </Charttd>
+                    <Charttd>
+                        <Chartdiv><Chart1 data={ChartData1} /></Chartdiv>
+                    </Charttd>
+                </Charttr>
+            </ChartTable>
         </div>
     </>)
 }
 
-
-const Table = styled.table`
-    height:100%;
+const ChartTable = styled.table`
+    width: 98%;
+    height:700px;
 `
 
-const Tr = styled.tr`
+const Charttr = styled.tr`
+    width:100%;
     height:100%;
+    margin:auto;
 `
 
-const Chartth = styled.th`
-    height:400px;
+const Charttd = styled.td`
+    margin:auto;
+    padding:1%;
+`
+
+const Chartdiv = styled.div`
+    display:block;
+    margin:auto;
+    width:840px;
+    height:390px;
 `
