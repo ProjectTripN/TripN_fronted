@@ -10,8 +10,6 @@ function App() {
   return (<>
     <div className="App">
          <Routes>
-
-           
           {/* adminpage */}
           <Route path='/an' element={<AdminLogin />} />
           <Route path='/an/dash-board' element={<DashBoard />} />
