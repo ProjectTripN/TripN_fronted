@@ -21,13 +21,13 @@ const TotalProfit2 = (props) => (
             gutterBottom
             variant="h6"
           >
-            TOTAL PROFIT
+            총매출액
           </Typography>
           <Typography
             color="textPrimary"
             variant="h4"
           >
-            $23,200
+            1,789,456
           </Typography>
         </Grid>
         <Grid item>

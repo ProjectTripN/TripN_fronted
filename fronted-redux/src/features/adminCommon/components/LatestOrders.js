@@ -57,16 +57,13 @@ const LatestOrders = (props) => (
           <TableHead>
             <TableRow>
               <TableCell>
-                Order Ref
+                고객명
               </TableCell>
               <TableCell>
-                Customer
+                결제금액
               </TableCell>
               <TableCell>
-                Date
-              </TableCell>
-              <TableCell>
-                Status
+                예약날짜
               </TableCell>
             </TableRow>
           </TableHead>
@@ -84,13 +81,6 @@ const LatestOrders = (props) => (
                 </TableCell>
                 <TableCell>
                   {moment(order.createdAt).format('DD/MM/YYYY')}
-                </TableCell>
-                <TableCell>
-                  <Chip
-                    color="primary"
-                    label={order.status}
-                    size="small"
-                  />
                 </TableCell>
               </TableRow>
             ))}

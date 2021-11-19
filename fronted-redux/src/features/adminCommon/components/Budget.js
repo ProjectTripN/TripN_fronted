@@ -27,13 +27,13 @@ const Budget = (props) => (
             gutterBottom
             variant="h6"
           >
-            BUDGET
+            방문자수
           </Typography>
           <Typography
             color="textPrimary"
             variant="h4"
           >
-            $24,000
+            24
           </Typography>
         </Grid>
         <Grid item>

@@ -21,7 +21,7 @@ const TotalProfit = (props) => (
             gutterBottom
             variant="h6"
           >
-            TOTAL PROFIT
+            null
           </Typography>
           <Typography
             color="textPrimary"

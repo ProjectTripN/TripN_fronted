@@ -68,13 +68,19 @@ const UserList = (props) => {
                         <TableHead>
                             <TableRow>
                                 <TableCell>
-                                    Order Ref
+                                    이름
                                 </TableCell>
                                 <TableCell>
-                                    Customer
+                                    ID
                                 </TableCell>
                                 <TableCell>
-                                    Date
+                                    생년월일
+                                </TableCell>
+                                <TableCell>
+                                    전화번호
+                                </TableCell>
+                                <TableCell>
+                                    최근예약날짜
                                 </TableCell>
                             </TableRow>
                         </TableHead>

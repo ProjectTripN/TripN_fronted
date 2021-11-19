@@ -21,7 +21,7 @@ const TotalCustomers = (props) => (
             gutterBottom
             variant="h6"
           >
-            TOTAL CUSTOMERS
+            총 회원수
           </Typography>
           <Typography
             color="textPrimary"

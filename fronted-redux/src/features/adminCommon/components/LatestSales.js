@@ -35,7 +35,7 @@ const LatestSales = (props) => {
         maxBarThickness: 10
       }
     ],
-    labels: ['1 Aug', '2 Aug', '3 Aug', '4 Aug', '5 Aug', '6 Aug']
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June']
   };
 
   const options = {
@@ -92,7 +92,7 @@ const LatestSales = (props) => {
   return (
     <Card {...props}>
       <CardHeader
-        title="Latest Sales"
+        title="월별 매출현황"
       />
       <Divider />
       <CardContent>
