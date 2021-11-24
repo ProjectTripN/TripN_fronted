@@ -1,0 +1,8 @@
+export {default as MyPage} from 'features/myPage/components/MyPage'
+export {default as Account} from 'features/myPage/components/Account'
+export {default as Profile} from 'features/myPage/components/Profile'
+export {default as Header} from 'features/myPage/components/Header'
+export {default as InvoiceCancel} from 'features/myPage/components/InvoiceCancel'
+export {default as Faq} from 'features/myPage/components/Faq'
+export {default as Payment} from 'features/myPage/components/Payment'
+export {default as UserMF} from 'features/myPage/components/UserMF'

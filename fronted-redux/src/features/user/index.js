@@ -1,0 +1,8 @@
+export {default as JoinFrist} from 'features/user/components/JoinFrist'
+export {default as Join} from 'features/user/components/Join'
+export {default as JoinDetail} from 'features/user/components/JoinDetail'
+export {default as JoinPrivacyPolicy} from 'features/user/components/JoinPrivacyPolicy'
+export {default as Login} from 'features/user/components/Login'
+export {default as ForgotPassword} from 'features/user/components/ForgotPassword'
+export {default as Preference} from 'features/user/components/Preference'
+export {default as JoinTab} from 'features/user/components/JoinTab'
