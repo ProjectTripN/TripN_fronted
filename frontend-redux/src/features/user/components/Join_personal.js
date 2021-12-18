@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { Icon } from "@iconify/react";
 import eyeFill from "@iconify/icons-eva/eye-fill";
 import eyeOffFill from "@iconify/icons-eva/eye-off-fill";
+import { join } from "features/user/reducer/userSlice";
 import {
   Box,
   Typography,
@@ -20,33 +22,23 @@ import {
   Divider,
 } from "@mui/material";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-
 export default function JoinTab1() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [signup, setSignup] = useState({
     username: "",
     password: "",
     checkPassword: "",
     name: "",
-    last_Name: "",
-    first_Name: "",
-    phone: "",
+    last_name: "",
+    first_name: "",
+    phone_number: "",
     email: "",
     address: "",
     passport: "",
     birth: "",
-    gender: "여쟈",
-    card_company: "",
+    gender: "여자",
+    card_company: "visa",
     card_number: "",
   });
 
@@ -55,10 +47,10 @@ export default function JoinTab1() {
     password,
     checkPassword,
     name,
-    last_Name,
-    first_Name,
+    last_name,
+    first_name,
     email,
-    phone,
+    phone_number,
     address,
     passport,
     birth,
@@ -73,6 +65,10 @@ export default function JoinTab1() {
     e.preventDefault();
     e.stopPropagation();
     alert(JSON.stringify(signup));
+
+    await dispatch(join(signup));
+    alert(JSON.stringify(signup.name) + "님 회원가입을 환영합니다.");
+    navigate("/home");
   };
 
   // const RegisterSchema = Yup.object().shape({
@@ -111,8 +107,6 @@ export default function JoinTab1() {
     console.log(event.target.name);
     setSignup({ ...signup, [event.target.name]: event.target.value });
     console.log(signup);
-    // setphoneNumber(event.target.value);
-    // setSelectedValue(event.target.value);
   };
 
   // const [phoneNumber, setphoneNumber] = React.useState("");
@@ -130,7 +124,7 @@ export default function JoinTab1() {
         align="left"
         sx={{ my: 2 }}
       >
-        회원가입 정보dkwpswkd
+        회원가입 정보
       </Typography>
       <form>
         <Stack spacing={3}>
@@ -198,15 +192,15 @@ export default function JoinTab1() {
             <TextField
               fullWidth
               label="영문 성"
-              name="last_Name"
-              value={last_Name}
+              name="last_name"
+              value={last_name}
               onChange={handleChange}
             />
             <TextField
               fullWidth
               label="영문 이름"
-              name="first_Name"
-              value={first_Name}
+              name="first_name"
+              value={first_name}
               onChange={handleChange}
             />
           </Stack>
@@ -215,8 +209,8 @@ export default function JoinTab1() {
               fullWidth
               type="text"
               label="핸드폰 번호"
-              name="phone"
-              value={phone}
+              name="phone_number"
+              value={phone_number}
               onChange={handleChange}
             />
           </Stack>
@@ -258,9 +252,9 @@ export default function JoinTab1() {
             성별
             <Typography id="modal-modal-description" sx={{ mt: 1 }}>
               <Radio
-                checked={gender === "여쟈"}
+                checked={gender === "여자"}
                 onChange={handleChange}
-                value="여쟈"
+                value="여자"
                 name="gender"
                 // name="radio-buttons"
                 // inputProps={{ "aria-label": "A" }}
@@ -299,7 +293,7 @@ export default function JoinTab1() {
                   name="card_company"
                   value={card_company}
                   onChange={handleChange}
-                  defaultValue={"Visa"}
+                  defaultValue={"visa"}
                 >
                   <option value="visa">Visa</option>
                   <option value="master">Master</option>
@@ -438,7 +432,6 @@ export default function JoinTab1() {
             버튼을 누르시면 개인 맞춤 분석을 위한 페이지로 이동합니다.
           </Typography>
         </Container>
-        {/* ----------- */}
       </form>
     </>
   );
