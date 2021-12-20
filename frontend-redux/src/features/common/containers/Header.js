@@ -34,6 +34,8 @@ function Header() {
             >
               {"LOGIN"}
             </Link>
+            {/* {localStorage.length > 0 ? <></>
+              : <Link to="/mypage" component={RouterLink}>UserAdd</Link>} */}
             <Link
               variant="h6"
               underline="none"
