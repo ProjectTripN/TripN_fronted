@@ -24,6 +24,31 @@ function Header() {
             {"Trip N"}
           </Link>
           <Box sx={{ flex: 20, display: "flex", justifyContent: "flex-end" }}>
+            {/* {localStorage.length > 0 ? (
+              <Link
+                color="inherit"
+                variant="h6"
+                underline="none"
+                component={RouterLink}
+                to="/mypage"
+                sx={rightLink}
+              >
+                {"MYPAGE"}
+                {localStorage.length}
+              </Link>
+            ) : (
+              <Link
+                color="inherit"
+                variant="h6"
+                underline="none"
+                component={RouterLink}
+                to="/login"
+                sx={rightLink}
+              >
+                {"LOGIN"}
+              </Link>
+            )} */}
+
             <Link
               color="inherit"
               variant="h6"
@@ -33,9 +58,20 @@ function Header() {
               sx={rightLink}
             >
               {"LOGIN"}
+              {localStorage.length}
             </Link>
-            {/* {localStorage.length > 0 ? <></>
-              : <Link to="/mypage" component={RouterLink}>UserAdd</Link>} */}
+
+            <Link
+              color="inherit"
+              variant="h6"
+              underline="none"
+              component={RouterLink}
+              to="/mypage"
+              sx={rightLink}
+            >
+              {"MYPAGE"}
+            </Link>
+
             <Link
               variant="h6"
               underline="none"

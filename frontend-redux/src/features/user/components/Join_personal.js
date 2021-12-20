@@ -26,20 +26,20 @@ export default function JoinTab1() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [signup, setSignup] = useState({
-    username: "",
-    password: "",
-    checkPassword: "",
-    name: "",
-    last_name: "",
-    first_name: "",
-    phone_number: "",
-    email: "",
-    address: "",
-    passport: "",
-    birth: "",
+    username: "admin@gamil.com",
+    password: "admin",
+    checkPassword: "admin",
+    name: "admin",
+    last_name: "admin",
+    first_name: "admin",
+    phone_number: "01012345678",
+    email: "admin@gmail.com",
+    address: "서울 강남구",
+    passport: "m12345678",
+    birth: "211225",
     gender: "여자",
     card_company: "visa",
-    card_number: "",
+    card_number: "000000000000",
   });
 
   const {
