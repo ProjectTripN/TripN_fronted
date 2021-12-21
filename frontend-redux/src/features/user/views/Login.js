@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useFormik, Form, FormikProvider } from "formik";
 import eyeFill from "@iconify/icons-eva/eye-fill";
 import eyeOffFill from "@iconify/icons-eva/eye-off-fill";
+import { login } from "features/user/reducer/userSlice";
 import {
   Container,
   Typography,
@@ -35,37 +36,49 @@ const ContentStyle = styled("div")(({ theme }) => ({
 }));
 
 export default function Login() {
-  // const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   const LoginSchema = Yup.object().shape({
-    email: Yup.string()
-      .email("Email must be a valid email address")
-      .required("Email is required"),
+    username: Yup.string()
+      .min(2, "Too Short!")
+      .max(50, "Too Long!")
+      .required("First name required"),
+    // email: Yup.string()
+    //   .email("id must be a valid email address")
+    //   .required("Email is required"),
     password: Yup.string().required("Password is required"),
   });
 
   const formik = useFormik({
     initialValues: {
-      email: "admin@gmail.com",
+      username: "admin",
       password: "admin",
       remember: true,
     },
     validationSchema: LoginSchema,
-    onSubmit: (values) => {
-      // values.preventDefault();
-      // values.stopPropagation();
-      alert(JSON.stringify(values));
+    // -onSubmit: async (values) => {
+    // values.preventDefault();
+    // values.stopPropagation();
+    // alert(JSON.stringify(values));
 
-      // await dispatch(login(values));
-      alert(JSON.stringify(values.name) + "님 환영합니다.");
-      navigate("/home");
-    },
+    // -alert(JSON.stringify(values.username) + "님 환영합니다.");
+    // -await dispatch(login(values));
+    // navigate("/home");
+    // },
   });
 
-  const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } =
-    formik;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    alert(JSON.stringify(values));
+
+    await dispatch(login(values));
+  };
+
+  const { errors, touched, values, isSubmitting, getFieldProps } = formik;
 
   const handleShowPassword = () => {
     setShowPassword((show) => !show);
@@ -95,11 +108,11 @@ export default function Login() {
                   <TextField
                     fullWidth
                     autoComplete="username"
-                    type="email"
-                    label="Email address"
-                    {...getFieldProps("email")}
-                    error={Boolean(touched.email && errors.email)}
-                    helperText={touched.email && errors.email}
+                    type="string"
+                    label="username"
+                    {...getFieldProps("username")}
+                    error={Boolean(touched.username && errors.username)}
+                    helperText={touched.username && errors.username}
                   />
                   <TextField
                     fullWidth

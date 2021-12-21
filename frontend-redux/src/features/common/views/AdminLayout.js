@@ -1,6 +1,6 @@
 import { ChatBotIcon } from "features/chatbot";
 import { Footer, Header } from "..";
-import styles from "features/common/style/TripLayout.module.scss";
+import styles from "features/common/style/MyLayout.module.scss";
 
 const AdminLayout = (props) => {
   return (

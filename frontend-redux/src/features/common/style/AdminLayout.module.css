@@ -18,8 +18,8 @@
   display: grid;
   gap: 20px;
   height: 100vh;
-  grid-template: "header header header" 1fr "sidebar tripC ." 4fr ". footer chatbot" 1fr/1fr minmax(-webkit-max-content, 3.5fr) 1fr;
-  grid-template: "header header header" 1fr "sidebar tripC ." 4fr ". footer chatbot" 1fr/1fr minmax(max-content, 3.5fr) 1fr;
+  grid-template: "header header header" 1fr "tripC tripC tripC" 4fr ". footer ." 1fr/1fr minmax(-webkit-max-content, 3.5fr) 1fr;
+  grid-template: "header header header" 1fr "tripC tripC tripC" 4fr ". footer ." 1fr/1fr minmax(max-content, 3.5fr) 1fr;
   place-items: stretch / center;
   place-content: center / center;
 }
@@ -34,10 +34,6 @@
 
 .chatbot {
   grid-area: chatbot;
-}
-
-.sidebar {
-  grid-area: sidebar;
 }
 
 .footer {
@@ -55,4 +51,4 @@
     border-radius: 12px;
   }
 } */
-/*# sourceMappingURL=MyLayout.module.css.map */
+/*# sourceMappingURL=AdminLayout.module.css.map */

@@ -26,7 +26,7 @@ export default function JoinTab1() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [signup, setSignup] = useState({
-    username: "admin@gamil.com",
+    username: "admin",
     password: "admin",
     checkPassword: "admin",
     name: "admin",
@@ -40,6 +40,7 @@ export default function JoinTab1() {
     gender: "여자",
     card_company: "visa",
     card_number: "000000000000",
+    reg_date: new Date().toLocaleDateString(),
   });
 
   const {
@@ -68,7 +69,7 @@ export default function JoinTab1() {
 
     await dispatch(join(signup));
     alert(JSON.stringify(signup.name) + "님 회원가입을 환영합니다.");
-    navigate("/home");
+    navigate("/login");
   };
 
   // const RegisterSchema = Yup.object().shape({

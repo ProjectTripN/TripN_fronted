@@ -10,3 +10,4 @@ export { default as Footer } from "features/common/containers/Footer";
 //views
 export { default as TripLayout } from "features/common/views/TripLayout";
 export { default as MyLayout } from "features/common/views/MyLayout";
+export { default as AdminLayout } from "features/common/views/AdminLayout";

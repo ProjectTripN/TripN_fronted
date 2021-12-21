@@ -7,6 +7,7 @@ const JOIN = async (x) => {
 };
 const LOGIN = async (x) => {
   const res = await userAPI.login(x);
+  console.log("login fulfilled22222");
   return res.data;
 };
 // const EXIST = async (x) => {
@@ -31,7 +32,8 @@ const LOGIN = async (x) => {
 // }
 
 export const join = createAsyncThunk("joinDetail", JOIN);
-export const login = createAsyncThunk("users/login", LOGIN);
+export const login = createAsyncThunk("login", LOGIN);
+console.log("login fulfilled");
 // export const exist = createAsyncThunk('user/exist', EXIST)
 // export const detail = createAsyncThunk('users/one', DETAIL)
 // export const list = createAsyncThunk('users/list', LIST)
@@ -62,6 +64,9 @@ const userSlice = createSlice({
       gender: "",
       card_company: "",
       card_number: "",
+      reg_date: "",
+      token: "fefefe ",
+      mbti: "fefefe",
     },
     usersState: [],
     type: "",
@@ -75,15 +80,28 @@ const userSlice = createSlice({
       // window.location.href = `/joinDetail`;
     },
 
-    [login.fulfilled]: (state, { meta, payload }) => {
+    [login.fulfilled]: (state, { payload }) => {
+      console.log(payload);
+      console.log("login fulfilled333333");
       state.userState = payload;
       window.localStorage.setItem("sessionUser", JSON.stringify(payload)); // window 전역
-      if (payload.username != null) {
-        alert(`${payload.name}님 환영합니다`);
-        // window.location.href = `/users/detail`;
-      } else {
-        alert("아이디, 비번 오류로 로그인 실패  ");
+      if (payload.token != "" && payload.mbti != "") {
+        alert("아이디, 비번 오류로 로그인 실패");
+        // window.location.href = `/users/detail`; - 이전페이지로 이동 가능
+        // location.replace('abc.php') - 이전페이지로 이동 불가능
+      } else if ((payload.token = "" && payload.mbti != "")) {
+        console.log(payload.token);
+        alert(
+          `${payload.username}님을 위한 개인 맞춤 분석을 위한 페이지로 이동합니다.`
+        );
         changeNull(["username", "password"]);
+        window.location.href = `/login`;
+      } else if (payload.token == "" && payload.mbti == "") {
+        alert(`${payload.username}님 환영합니다`);
+        changeNull(["username", "password"]);
+        window.location.href("/mbti/home");
+      } else {
+        alert("로그인 실패 사이트로 문의해주세요");
       }
     },
 
