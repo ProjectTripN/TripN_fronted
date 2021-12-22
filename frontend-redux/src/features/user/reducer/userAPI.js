@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const SERVER = "http://localhost:8080";
+const SERVER = "http://localhost:8080/";
 
 const headers = {
   "Content-type": "application/json",

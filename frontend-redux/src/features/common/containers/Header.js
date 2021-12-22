@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link, Box, AppBar, Toolbar } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
+import { Logout } from "features/user";
 
 const rightLink = {
   fontSize: 15,
@@ -49,38 +50,47 @@ function Header() {
               </Link>
             )} */}
 
-            <Link
-              color="inherit"
-              variant="h6"
-              underline="none"
-              component={RouterLink}
-              to="/login"
-              sx={rightLink}
-            >
-              {"LOGIN"}
-              {localStorage.length}
-            </Link>
+            {localStorage.length > 0 ? (
+              <span>
+                <Link
+                  variant="h6"
+                  underline="none"
+                  component={RouterLink}
+                  to="/join"
+                  sx={{ ...rightLink }}
+                >
+                  {"JOIN"}
+                </Link>
+                <Link
+                  color="inherit"
+                  variant="h6"
+                  underline="none"
+                  component={RouterLink}
+                  to="/login"
+                  sx={rightLink}
+                >
+                  {"LOGIN"}
+                </Link>
+              </span>
+            ) : (
+              <>
+                <span>
+                  <Link
+                    color="inherit"
+                    variant="h6"
+                    underline="none"
+                    component={RouterLink}
+                    to="/mypage"
+                    sx={rightLink}
+                  >
+                    {"MYPAGE"}
+                  </Link>
 
-            <Link
-              color="inherit"
-              variant="h6"
-              underline="none"
-              component={RouterLink}
-              to="/mypage"
-              sx={rightLink}
-            >
-              {"MYPAGE"}
-            </Link>
+                  <Logout />
+                </span>
+              </>
+            )}
 
-            <Link
-              variant="h6"
-              underline="none"
-              component={RouterLink}
-              to="/join"
-              sx={{ ...rightLink }}
-            >
-              {"JOIN"}
-            </Link>
             <Link
               variant="h6"
               underline="none"

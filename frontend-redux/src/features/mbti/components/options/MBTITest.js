@@ -37,6 +37,8 @@ const MBTITest = () => {
       }
     }
     alert(mbti);
+    mbti.triggerNextStep({ trigger: "" });
+
     for (let count in map) {
       if (map[count] >= 2) {
         result.push(count);
