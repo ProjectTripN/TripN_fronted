@@ -11,22 +11,24 @@ export default function SalesManagement() {
             <ChartTable>
                 <Charttr>
                     <Charttd>
-                        <h3>MBTI</h3>
-                        <Chartdiv><Chart4 data={ChartData4} /></Chartdiv>
-                    </Charttd>
-                    <Charttd>
-                        <h3>월별 매출</h3>
+                        <h3>항목별 상세 매출</h3>
                         <Chartdiv><Chart2 data={ChartData2} /></Chartdiv>
+                    </Charttd>
+                    <Charttd rowSpan={2}>
+                        <h3>MBTI</h3>
+                        <Chartdiv><Chart3 data={ChartData3} /></Chartdiv>
                     </Charttd>
                 </Charttr>
                 <Charttr>
                     <Charttd>
-                        <h3>관계유형</h3>
-                        <Chartdiv><Chart3 data={ChartData3} /></Chartdiv>
-                    </Charttd>
-                    <Charttd>
-                        <h3>연간 이익</h3>
+                        <h3>6개월 매출</h3>
                         <Chartdiv><Chart1 data={ChartData1} /></Chartdiv>
+                    </Charttd>
+                </Charttr>
+                <Charttr>
+                    <Charttd colSpan='2'>
+                        <h3>연간 이익</h3>
+                        <Chartdiv><Chart4 data={ChartData4} /></Chartdiv>
                     </Charttd>
                 </Charttr>
             </ChartTable>

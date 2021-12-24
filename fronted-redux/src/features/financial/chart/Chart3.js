@@ -1,5 +1,4 @@
 import React from 'react'
-
 // install (please make sure versions match peerDependencies)
 // yarn add @nivo/core @nivo/radar
 import { ResponsiveRadar } from '@nivo/radar'
