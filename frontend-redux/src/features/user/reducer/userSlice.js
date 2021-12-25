@@ -10,6 +10,16 @@ const LOGIN = async (x) => {
   console.log("login fulfilled22222");
   return res.data;
 };
+const MODIFY = async (x) => {
+  const res = await userAPI.modify(x);
+  console.log(" 값이 돌아온다 뿅뿅뿅 " + JSON.stringify(res.data));
+  return res.data;
+};
+const LISTMODIFY = async (x) => {
+  const res = await userAPI.listModify(x);
+  console.log(" 값이 돌아온다 뿅뿅뿅 " + JSON.stringify(res.data));
+  return res.data;
+};
 // const EXIST = async (x) => {
 //   const res = await userAPI.exist(x)
 //   return res.data
@@ -33,7 +43,10 @@ const LOGIN = async (x) => {
 
 export const join = createAsyncThunk("users/join", JOIN);
 export const login = createAsyncThunk("users/login", LOGIN);
-console.log("login fulfilled");
+export const modify = createAsyncThunk("users/modify", MODIFY); //mbti
+// console.log("login fulfilled");
+export const listModify = createAsyncThunk("users/update", LISTMODIFY); //mbti
+
 // export const exist = createAsyncThunk('user/exist', EXIST)
 // export const detail = createAsyncThunk('users/one', DETAIL)
 // export const list = createAsyncThunk('users/list', LIST)
@@ -50,6 +63,7 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     userState: {
+      userId: "",
       username: "",
       password: "",
       checkPassword: "",
@@ -65,8 +79,9 @@ const userSlice = createSlice({
       card_company: "",
       card_number: "",
       regDate: "",
-      token: "JWT fefefe",
-      mbti: "fefef",
+      token: "",
+      mbti: "",
+      mbti_list: "",
     },
     usersState: [],
     type: "",
@@ -81,27 +96,40 @@ const userSlice = createSlice({
     },
 
     [login.fulfilled]: (state, { meta, payload }) => {
-      console.log("login fulfilled333333");
-      if (payload.token != "" && payload.mbti != "") {
+      console.log("토큰: " + JSON.stringify(payload.token));
+      console.log("데이터: " + JSON.stringify(payload.mbti));
+      if (payload.token !== "" && payload.mbti != null) {
         alert(`${payload.username}님 환영합니다`);
         window.localStorage.setItem("sessionUser", JSON.stringify(payload)); // window 전역
-        window.location.href("/");
+
+        window.location.href = `/`;
         // window.location.href = `/users/detail`; - 이전페이지로 이동 가능
         // location.replace('abc.php') - 이전페이지로 이동 불가능
-      } else if ((payload.token = "" && payload.mbti != "")) {
+      } else if (payload.token !== "" && payload.mbti == null) {
         alert(
           `${payload.username}님을 위한 개인 맞춤 분석을 위한 페이지로 이동합니다.`
         );
-        window.location.href("/mbti/home");
-      } else if (payload.token == "" && payload.mbti == "") {
+        window.localStorage.setItem("sessionUser", JSON.stringify(payload)); // window 전역
+        window.location.href = `/mbti/home`;
+      } else if (payload.token === "" && payload.mbti == null) {
         alert("아이디, 비번 오류로 로그인 실패");
         changeNull(["username", "password"]);
         // } else {
         //   alert("로그인 실패 사이트로 문의해주세요");
-      } else if (payload.token == "" && payload.mbti != "") {
+      } else if (payload.token === "" && payload.mbti !== null) {
         alert("에이 요 웰컴브로 사이트가 이상행 깔깔깔");
         changeNull(["username", "password"]);
       }
+    },
+    [modify.fulfilled]: (state, action) => {
+      // localStorage.setItem("sessionUser", JSON.stringify(action.payload));
+      window.location.href = "/home";
+    },
+
+    [listModify.fulfilled]: (state, action) => {
+      // localStorage.setItem('sessionUser', JSON.stringify(action.payload))
+      console.log("수정된 상태를 확인해보쟙쟙쟙 + ");
+      // window.location.href = "/";
     },
 
     // [detailPage.fulfilled]: ( state, {meta, payload} ) => { state.userState = payload },

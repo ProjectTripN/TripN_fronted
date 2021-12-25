@@ -1,5 +1,4 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import * as Yup from "yup";
 import { Formik } from "formik";
 import { AdminLayout } from "features/common";
@@ -14,7 +13,6 @@ import eyeOffFill from "@iconify/icons-eva/eye-off-fill";
 import {
   Container,
   Typography,
-  Divider,
   Link,
   Stack,
   Checkbox,
@@ -64,8 +62,14 @@ export default function AdminLogin() {
     },
   });
 
-  const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } =
-    formik;
+  const {
+    errors,
+    touched,
+    values,
+    isSubmitting,
+    handleSubmit,
+    getFieldProps,
+  } = formik;
 
   const handleShowPassword = () => {
     setShowPassword((show) => !show);

@@ -40,9 +40,6 @@ export default function JoinTab1() {
     gender: "여자",
     card_company: "visa",
     card_number: "000000000000",
-    // token: "",
-    // mbti: "",
-    // mbti_list: "",
     regDate: new Date().toLocaleDateString(),
   });
 
@@ -61,7 +58,7 @@ export default function JoinTab1() {
     gender,
     card_company,
     card_number,
-    reDate,
+    regDate,
   } = signup;
 
   const [showPassword, setShowPassword] = useState(false);

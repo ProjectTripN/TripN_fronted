@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const SERVER = "http://localhost:8080/";
+const SERVER = "http://localhost:8080";
 
 const headers = {
   "Content-type": "application/json",
@@ -11,6 +11,10 @@ const join = (x) =>
   axios.post(`${SERVER}/users/join`, JSON.stringify(x), { headers });
 const login = (x) =>
   axios.post(`${SERVER}/users/login`, JSON.stringify(x), { headers });
+const modify = (x) =>
+  axios.put(`${SERVER}/users/mbti`, JSON.stringify(x), { headers });
+const listModify = (x) =>
+  axios.put(`${SERVER}/users/update`, JSON.stringify(x), { headers });
 //   const exist = x => axios.get(`${SERVER}/users/exist/${x}`)
 //   const detail = x => axios.get(`${SERVER}/users/${x.userId}`)
 //   const list = x => axios.get(`${SERVER}/users/list/${x}`)
@@ -20,6 +24,8 @@ const login = (x) =>
 export default {
   join,
   login,
+  modify,
+  listModify,
   // exist,
   // detail,
   // list,

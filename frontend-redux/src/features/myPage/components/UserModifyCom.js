@@ -11,17 +11,19 @@ import {
   InputLabel,
   NativeSelect,
   InputAdornment,
+  Button,
   FormControl,
   Divider,
   Radio,
-  Button,
 } from "@mui/material";
 import { useFormik, Form, FormikProvider } from "formik";
+import { useDispatch } from "react-redux";
 import eyeFill from "@iconify/icons-eva/eye-fill";
 import eyeOffFill from "@iconify/icons-eva/eye-off-fill";
 import * as Yup from "yup";
 import { Link as RouterLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import { listModify } from "features/user/reducer/userSlice";
 
 const ContentStyle = styled("div")(({ theme }) => ({
   maxWidth: 480,
@@ -33,60 +35,63 @@ const ContentStyle = styled("div")(({ theme }) => ({
 }));
 
 export default function UserModifyCom() {
-  const [value, setValue] = React.useState(0);
+  const dispatch = useDispatch();
+  // const [value, setValue] = React.useState(0);
   const [showPassword, setShowPassword] = useState(false);
-  const LoginSchema = Yup.object().shape({
-    email: Yup.string()
-      .email("Email must be a valid email address")
-      .required("Email is required"),
-    password: Yup.string().required("Password is required"),
-  });
-  const RegisterSchema = Yup.object().shape({
-    firstName: Yup.string()
-      .min(2, "Too Short!")
-      .max(50, "Too Long!")
-      .required("First name required"),
-    lastName: Yup.string()
-      .min(2, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Last name required"),
-    email: Yup.string()
-      .email("Email must be a valid email address")
-      .required("Email is required"),
-    password: Yup.string().required("Password is required"),
-  });
-  const formik = useFormik(
-    {
-      initialValues: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        Passport: "",
-      },
-      validationSchema: RegisterSchema,
-      onSubmit: () => {},
+
+  // const handleChange = (e) => {
+  //   setCardCompany({ [e.target.nam]: e.target.val });
+  // };
+  // const [cardCompany, setCardCompany] = useState("");
+  // console.log(JSON.stringify(cardCompany));
+  // const [cardCompany] = cardCompany;
+
+  // const handleChange = (e) => {
+  //   setCardCompany({ [e.target.nam]: e.target.val });
+  // };
+  const user = JSON.parse(window.localStorage.getItem("sessionUser"));
+  // console.log(user["userId"]);
+
+  const formik = useFormik({
+    initialValues: {
+      userId: user["userId"],
+      password: "admin",
+      checkPassword: "admin",
+      name: "admin",
+      last_name: "admin",
+      first_name: "admin",
+      phone_number: "01012345678",
+      email: "admin@gmail.com",
+      address: "서울 강남구",
+      passport: "m12345678",
+      birth: "211225",
+      gender: "여자",
+      card_company: "visa",
+      card_number: "000000000000",
     },
-    {
-      initialValues: {
-        email: "",
-        password: "",
-        remember: true,
-      },
-      validationSchema: LoginSchema,
-      onSubmit: () => {},
-    }
-  );
+  });
 
-  const { errors, touched, handleSubmit, getFieldProps } = formik;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-    setphoneNumber(event.target.value);
-    setSelectedValue(event.target.value);
+    // console.log(JSON.stringify(values));
+
+    alert(JSON.stringify(values));
+
+    await dispatch(listModify(values));
   };
-  const [phoneNumber, setphoneNumber] = React.useState("");
-  const [selectedValue, setSelectedValue] = React.useState("a");
+
+  const { errors, touched, values, isSubmitting, getFieldProps } = formik;
+
+  // const handleChange = (event, newValue) => {
+  // setValue(newValue);
+  // setphoneNumber(event.target.value);
+  // setSelectedValue(event.target.value);
+  // };
+  // const [phoneNumber, setphoneNumber] = React.useState("");
+  // const [selectedValue, setSelectedValue] = React.useState("a");
+
   return (
     <>
       <Box sx={{ width: "100vh", height: "130vh" }}>
@@ -98,14 +103,6 @@ export default function UserModifyCom() {
           <FormikProvider value={formik}>
             <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
               <Stack spacing={3}>
-                <TextField
-                  fullWidth
-                  type="email"
-                  label="이메일 (아이디)"
-                  {...getFieldProps("email")}
-                  error={Boolean(touched.email && errors.email)}
-                  helperText={touched.email && errors.email}
-                />
                 <TextField
                   fullWidth
                   type={showPassword ? "text" : "password"}
@@ -128,9 +125,9 @@ export default function UserModifyCom() {
                 />
                 <TextField
                   fullWidth
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword ? "text" : "checkPassword"}
                   label="비밀번호 확인"
-                  {...getFieldProps("password")}
+                  {...getFieldProps("checkPassword")}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -157,86 +154,53 @@ export default function UserModifyCom() {
                   <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
                     <TextField
                       fullWidth
-                      label="성"
-                      {...getFieldProps("firstName")}
+                      label="성명"
+                      text="name"
+                      {...getFieldProps("name")}
+                      error={Boolean(touched.firstName && errors.firstName)}
+                      helperText={touched.firstName && errors.firstName}
+                    />
+                  </Stack>
+                  <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+                    <TextField
+                      fullWidth
+                      label="영문 성"
+                      text="last_name"
+                      {...getFieldProps("last_name")}
                       error={Boolean(touched.firstName && errors.firstName)}
                       helperText={touched.firstName && errors.firstName}
                     />
                     <TextField
                       fullWidth
-                      label="이름"
-                      {...getFieldProps("lastName")}
+                      label="영문 성 "
+                      text="first_name"
+                      {...getFieldProps("first_name")}
                       error={Boolean(touched.lastName && errors.lastName)}
                       helperText={touched.lastName && errors.lastName}
                     />
                   </Stack>
-                  <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-                    <Box sx={{ minWidth: 100 }}>
-                      <FormControl fullWidth>
-                        <InputLabel
-                          variant="standard"
-                          htmlFor="uncontrolled-native"
-                        ></InputLabel>
-                        <NativeSelect
-                          defaultValue={10}
-                          inputProps={{
-                            name: "PhoneNumber",
-                            id: "uncontrolled-native",
-                          }}
-                        >
-                          <option value={10}>010</option>
-                          <option value={20}>011</option>
-                          <option value={30}>019</option>
-                        </NativeSelect>
-                      </FormControl>
-                    </Box>
-                    <TextField
-                      fullWidth
-                      autoComplete="username"
-                      type="text"
-                      label="휴대전화 번호"
-                    />
-                  </Stack>
                   <TextField
                     fullWidth
-                    autoComplete="username"
                     type="text"
                     label="주소"
+                    text="address"
+                    {...getFieldProps("address")}
                   />
                   <TextField
                     fullWidth
-                    autoComplete="username"
                     type="text"
                     label="여권번호"
+                    text="passport"
+                    {...getFieldProps("passport")}
                   />
 
                   <TextField
                     fullWidth
-                    autoComplete="username"
                     type="text"
                     label="생년월일"
+                    text="birth"
+                    {...getFieldProps("birth")}
                   />
-                  <Typography variant="text" fontWeight="Bold" align="left">
-                    성별
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                      <Radio
-                        checked={selectedValue === "a"}
-                        onChange={handleChange}
-                        value="a"
-                        name="radio-buttons"
-                        inputProps={{ "aria-label": "A" }}
-                      />
-                      여자 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <Radio
-                        checked={selectedValue === "b"}
-                        onChange={handleChange}
-                        value="b"
-                        name="radio-buttons"
-                        inputProps={{ "aria-label": "B" }}
-                      />
-                      남자
-                    </Typography>
-                  </Typography>
 
                   {/* 결제 수단 관리 */}
                   <Typography
@@ -253,38 +217,53 @@ export default function UserModifyCom() {
                           variant="standard"
                           htmlFor="uncontrolled-native"
                         ></InputLabel>
-                        <NativeSelect defaultValue={10}>
-                          <option value={10}>Visa</option>
-                          <option value={20}>Master</option>
-                          <option value={30}>Union</option>
+                        <NativeSelect
+                          defaultValue={"visa"}
+                          // value={cardCompany}
+                          // onChange={handleChange}
+                          // name="cardCompany"
+                          // value={card_company}
+                          label="card_company"
+                          text="card_company"
+
+                          // name="card_company"
+                          // values={card_company}
+                          // values={card_company}
+                          // --------
+                          // text=card_company
+                        >
+                          <option value="visa">Visa</option>
+                          <option value="master">Master</option>
+                          <option value="union">Union</option>
                         </NativeSelect>
                       </FormControl>
                     </Box>
-                    <TextField fullWidth type="text" label="카드번호" />
-                  </Stack>
-                  <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-                    <TextField fullWidth label="만료일 MM/YY" />
-                    <TextField fullWidth label="CVV 123" />
-                    <TextField fullWidth label="우편번호" />
+                    <TextField
+                      fullWidth
+                      type="text"
+                      label="카드번호"
+                      text="card_number"
+                      {...getFieldProps("card_number")}
+                    />
                   </Stack>
                 </Stack>
               </Grid>
-              <Stack
-                direction={{ xs: "column", sm: "row" }}
-                spacing={2}
-              ></Stack>
+              <Typography
+                variant="subtitle2"
+                sx={{ mt: 3, textAlign: "center" }}
+              >
+                <Button
+                  size="large"
+                  type="submit"
+                  variant="contained"
+                  loading={isSubmitting}
+                >
+                  회원정보 수정 완료
+                </Button>
+              </Typography>
             </Form>
           </FormikProvider>
         </ContentStyle>
-        <br />
-        <br />
-        <Typography variant="subtitle2" sx={{ mt: 3, textAlign: "center" }}>
-          <button>
-            <Link to="/Mypage" component={RouterLink}>
-              회원정보 수정 완료
-            </Link>
-          </button>
-        </Typography>
       </Box>
     </>
   );

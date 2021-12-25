@@ -1,6 +1,6 @@
-import moment from 'moment';
-import { v4 as uuid } from 'uuid';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import moment from "moment";
+import { v4 as uuid } from "uuid";
+import PerfectScrollbar from "react-perfect-scrollbar";
 import {
   Box,
   Card,
@@ -11,76 +11,64 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  TableRow
-} from '@material-ui/core';
+  TableRow,
+} from "@material-ui/core";
 
 const orders = [
   {
     id: uuid(),
-    ref: 'CDD1049',
+    ref: "CDD1049",
     amount: 30.5,
     customer: {
-      name: 'Ekaterina Tankova'
+      name: "Ekaterina Tankova",
     },
     createdAt: 1555016400000,
-    status: 'pending'
+    status: "pending",
   },
   {
     id: uuid(),
-    ref: 'CDD1048',
+    ref: "CDD1048",
     amount: 25.1,
     customer: {
-      name: 'Cao Yu'
+      name: "Cao Yu",
     },
     createdAt: 1555016400000,
-    status: 'delivered'
+    status: "delivered",
   },
   {
     id: uuid(),
-    ref: 'CDD1047',
+    ref: "CDD1047",
     amount: 10.99,
     customer: {
-      name: 'Alexa Richardson'
+      name: "Alexa Richardson",
     },
     createdAt: 1554930000000,
-    status: 'refunded'
-  }
+    status: "refunded",
+  },
 ];
 
 const LatestOrders = (props) => (
   <Card {...props}>
-    <CardHeader title="Latest Orders" />
+    {/* <CardHeader title="Latest Orders" /> */}
+    <h1 align="center">Latest Orders</h1>
     <Divider />
     <PerfectScrollbar>
       <Box sx={{ minWidth: 800 }}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>
-                고객명
-              </TableCell>
-              <TableCell>
-                결제금액
-              </TableCell>
-              <TableCell>
-                예약날짜
-              </TableCell>
+              <TableCell>고객명</TableCell>
+              <TableCell>결제금액</TableCell>
+              <TableCell>예약날짜</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {orders.map((order) => (
-              <TableRow
-                hover
-                key={order.id}
-              >
+              <TableRow hover key={order.id}>
+                <TableCell>{order.ref}</TableCell>
+                <TableCell>{order.customer.name}</TableCell>
                 <TableCell>
-                  {order.ref}
-                </TableCell>
-                <TableCell>
-                  {order.customer.name}
-                </TableCell>
-                <TableCell>
-                  {moment(order.createdAt).format('DD/MM/YYYY')}
+                  {moment(order.createdAt).format("DD/MM/YYYY")}
                 </TableCell>
               </TableRow>
             ))}

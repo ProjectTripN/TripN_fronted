@@ -44,7 +44,7 @@ export default function Login() {
     username: Yup.string()
       .min(2, "Too Short!")
       .max(50, "Too Long!")
-      .required("First name required"),
+      .required("ID required"),
     // email: Yup.string()
     //   .email("id must be a valid email address")
     //   .required("Email is required"),
@@ -107,16 +107,15 @@ export default function Login() {
                 <Stack spacing={3}>
                   <TextField
                     fullWidth
-                    autoComplete="username"
                     type="string"
-                    label="username"
+                    text="username" //
+                    label="ID"
                     {...getFieldProps("username")}
                     error={Boolean(touched.username && errors.username)}
                     helperText={touched.username && errors.username}
                   />
                   <TextField
                     fullWidth
-                    autoComplete="current-password"
                     type={showPassword ? "text" : "password"}
                     label="Password"
                     {...getFieldProps("password")}

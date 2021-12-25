@@ -1,11 +1,10 @@
 import React from "react";
-import { Navigation, AppAppBar } from "features/adminCommon";
+import { AppAppBar } from "features/adminCommon";
 import moment from "moment";
 import { v4 as uuid } from "uuid";
 import {
   Box,
   Card,
-  CardHeader,
   Divider,
   Table,
   TableBody,
@@ -52,7 +51,6 @@ const UserList = (props) => {
     <>
       <AppAppBar />
       <div className="container">
-        <Navigation />
         {/* <h1>User List</h1> */}
         <Card {...props}>
           <h1 align="center">User List</h1>
@@ -102,6 +100,12 @@ const UserList = (props) => {
                   <TableRow hover key={order.id}>
                     <TableCell>{order.ref}</TableCell>
                     <TableCell>{order.customer.name}</TableCell>
+                    <TableCell>
+                      {moment(order.createdAt).format("DD/MM/YYYY")}
+                    </TableCell>
+                    <TableCell>
+                      {moment(order.createdAt).format("DD/MM/YYYY")}
+                    </TableCell>
                     <TableCell>
                       {moment(order.createdAt).format("DD/MM/YYYY")}
                     </TableCell>

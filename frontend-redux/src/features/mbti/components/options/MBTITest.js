@@ -25,7 +25,7 @@ const MBTITest = () => {
     slideRef.current.style.transform += "translateX(-100vw)";
   };
 
-  const mbtiChecker = () => {
+  const mbtiChecker = (props) => {
     setLoading(true);
     let map = {};
     let result = [];
@@ -36,8 +36,8 @@ const MBTITest = () => {
         map[mbti[i]] = 1;
       }
     }
-    alert(mbti);
-    mbti.triggerNextStep({ trigger: "" });
+
+    window.localStorage.setItem("mbti", mbti);
 
     for (let count in map) {
       if (map[count] >= 2) {

@@ -9,6 +9,4 @@ export { default as TotalProfit2 } from "features/adminCommon/components/TotalPr
 export { default as TrafficByDevice } from "features/adminCommon/components/TrafficByDevice";
 
 // layout
-export { default as AppAppBar } from "features/adminCommon/layout/AppAppBar";
-export { default as AppBar } from "features/adminCommon/layout/AppBar";
-export { default as Toolbar } from "features/adminCommon/layout/Toolbar";
+export { default as AppAppBar } from "features/adminCommon/layout/AdminLayout";

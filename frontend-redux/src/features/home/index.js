@@ -1,9 +1,6 @@
 //views
-export { Home } from 'features/home/views/Home'
+export { Home } from "features/home/pages/Home";
 
 //components
-
 //containers
-export { default as ProductHero } from 'features/home/containers/ProductHero'
-
 //reducers

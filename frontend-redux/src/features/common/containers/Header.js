@@ -1,7 +1,8 @@
 import * as React from "react";
-import { Link, Box, AppBar, Toolbar } from "@mui/material";
+import { Link, Box, AppBar, Toolbar, Button } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
-import { Logout } from "features/user";
+import { useNavigate } from "react-router-dom";
+import Logout from "features/user/components/Logout";
 
 const rightLink = {
   fontSize: 15,
@@ -10,6 +11,8 @@ const rightLink = {
 };
 
 function Header() {
+  const navigate = useNavigate();
+
   return (
     <div>
       <AppBar style={{ background: "transparent", boxShadow: "none" }}>
@@ -25,32 +28,7 @@ function Header() {
             {"Trip N"}
           </Link>
           <Box sx={{ flex: 20, display: "flex", justifyContent: "flex-end" }}>
-            {/* {localStorage.length > 0 ? (
-              <Link
-                color="inherit"
-                variant="h6"
-                underline="none"
-                component={RouterLink}
-                to="/mypage"
-                sx={rightLink}
-              >
-                {"MYPAGE"}
-                {localStorage.length}
-              </Link>
-            ) : (
-              <Link
-                color="inherit"
-                variant="h6"
-                underline="none"
-                component={RouterLink}
-                to="/login"
-                sx={rightLink}
-              >
-                {"LOGIN"}
-              </Link>
-            )} */}
-
-            {localStorage.length > 0 ? (
+            {localStorage.getItem("sessionUser") == null ? (
               <span>
                 <Link
                   variant="h6"
@@ -71,6 +49,16 @@ function Header() {
                 >
                   {"LOGIN"}
                 </Link>
+
+                <Link
+                  variant="h6"
+                  underline="none"
+                  component={RouterLink}
+                  to="/an/admin-login"
+                  sx={{ ...rightLink }}
+                >
+                  {"ADMIN"}
+                </Link>
               </span>
             ) : (
               <>
@@ -86,20 +74,39 @@ function Header() {
                     {"MYPAGE"}
                   </Link>
 
-                  <Logout />
+                  <Link
+                    variant="h6"
+                    underline="none"
+                    component={RouterLink}
+                    to="/an/admin-login"
+                    sx={{ ...rightLink }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      localStorage.clear(e);
+                      alert(
+                        localStorage.length == 0
+                          ? "로그아웃 되었습니다"
+                          : "로그아웃 실패"
+                      );
+                      navigate("/");
+                    }}
+                  >
+                    {"LOGOUT"}
+                  </Link>
+
+                  <Link
+                    variant="h6"
+                    underline="none"
+                    component={RouterLink}
+                    to="/an/admin-login"
+                    sx={{ ...rightLink }}
+                  >
+                    {"ADMIN"}
+                  </Link>
                 </span>
               </>
             )}
-
-            <Link
-              variant="h6"
-              underline="none"
-              component={RouterLink}
-              to="/an/admin-login"
-              sx={{ ...rightLink }}
-            >
-              {"ADMIN"}
-            </Link>
           </Box>
         </Toolbar>
       </AppBar>
