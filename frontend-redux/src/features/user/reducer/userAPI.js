@@ -11,10 +11,11 @@ const join = (x) =>
   axios.post(`${SERVER}/users/join`, JSON.stringify(x), { headers });
 const login = (x) =>
   axios.post(`${SERVER}/users/login`, JSON.stringify(x), { headers });
-const modify = (x) =>
+const mbti = (x) =>
   axios.put(`${SERVER}/users/mbti`, JSON.stringify(x), { headers });
-const listModify = (x) =>
+const userModify = (x) =>
   axios.put(`${SERVER}/users/update`, JSON.stringify(x), { headers });
+const list = (x) => axios.get(`${SERVER}/users/list/${x}`);
 //   const exist = x => axios.get(`${SERVER}/users/exist/${x}`)
 //   const detail = x => axios.get(`${SERVER}/users/${x.userId}`)
 //   const list = x => axios.get(`${SERVER}/users/list/${x}`)
@@ -24,8 +25,9 @@ const listModify = (x) =>
 export default {
   join,
   login,
-  modify,
-  listModify,
+  mbti,
+  userModify,
+  list,
   // exist,
   // detail,
   // list,

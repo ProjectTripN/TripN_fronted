@@ -1,6 +1,5 @@
 import { Link as RouterLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Icon } from "@iconify/react";
 import * as Yup from "yup";

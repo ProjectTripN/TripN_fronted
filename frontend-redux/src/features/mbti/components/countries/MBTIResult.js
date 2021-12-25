@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Countries from "../../api/mbtiResultApi";
 import { Button, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { modify } from "features/user/reducer/userSlice";
+import { mbti } from "features/user/reducer/userSlice";
 
 const MBTIResult = ({}) => {
   // const { countryName } = match.params;
@@ -27,7 +27,7 @@ const MBTIResult = ({}) => {
     e.preventDefault();
     e.stopPropagation();
 
-    await dispatch(modify(personMbti));
+    await dispatch(mbti(personMbti));
     alert(JSON.stringify(personMbti));
 
     // await dispatch(join(signup));

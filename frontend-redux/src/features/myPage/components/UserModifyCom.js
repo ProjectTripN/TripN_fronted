@@ -23,7 +23,7 @@ import eyeOffFill from "@iconify/icons-eva/eye-off-fill";
 import * as Yup from "yup";
 import { Link as RouterLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { listModify } from "features/user/reducer/userSlice";
+import { userModify } from "features/user/reducer/userSlice";
 
 const ContentStyle = styled("div")(({ theme }) => ({
   maxWidth: 480,
@@ -79,7 +79,7 @@ export default function UserModifyCom() {
 
     alert(JSON.stringify(values));
 
-    await dispatch(listModify(values));
+    await dispatch(userModify(values));
   };
 
   const { errors, touched, values, isSubmitting, getFieldProps } = formik;

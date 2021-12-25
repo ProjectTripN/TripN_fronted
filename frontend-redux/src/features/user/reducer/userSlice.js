@@ -10,14 +10,18 @@ const LOGIN = async (x) => {
   console.log("login fulfilled22222");
   return res.data;
 };
-const MODIFY = async (x) => {
-  const res = await userAPI.modify(x);
+const MBTI = async (x) => {
+  const res = await userAPI.mbti(x);
   console.log(" 값이 돌아온다 뿅뿅뿅 " + JSON.stringify(res.data));
   return res.data;
 };
-const LISTMODIFY = async (x) => {
-  const res = await userAPI.listModify(x);
+const USERMODIFY = async (x) => {
+  const res = await userAPI.userModify(x);
   console.log(" 값이 돌아온다 뿅뿅뿅 " + JSON.stringify(res.data));
+  return res.data;
+};
+const LIST = async ({ page }) => {
+  const res = await userAPI.list(page);
   return res.data;
 };
 // const EXIST = async (x) => {
@@ -43,9 +47,10 @@ const LISTMODIFY = async (x) => {
 
 export const join = createAsyncThunk("users/join", JOIN);
 export const login = createAsyncThunk("users/login", LOGIN);
-export const modify = createAsyncThunk("users/modify", MODIFY); //mbti
+export const mbti = createAsyncThunk("users/modify", MBTI); //mbti
 // console.log("login fulfilled");
-export const listModify = createAsyncThunk("users/update", LISTMODIFY); //mbti
+export const userModify = createAsyncThunk("users/update", USERMODIFY); //mbti
+export const list = createAsyncThunk("users/list", LIST);
 
 // export const exist = createAsyncThunk('user/exist', EXIST)
 // export const detail = createAsyncThunk('users/one', DETAIL)
@@ -121,15 +126,18 @@ const userSlice = createSlice({
         changeNull(["username", "password"]);
       }
     },
-    [modify.fulfilled]: (state, action) => {
+    [mbti.fulfilled]: (state, action) => {
       // localStorage.setItem("sessionUser", JSON.stringify(action.payload));
       window.location.href = "/home";
     },
 
-    [listModify.fulfilled]: (state, action) => {
+    [userModify.fulfilled]: (state, action) => {
       // localStorage.setItem('sessionUser', JSON.stringify(action.payload))
       console.log("수정된 상태를 확인해보쟙쟙쟙 + ");
       // window.location.href = "/";
+    },
+    [list.fulfilled]: (state, { meta, payload }) => {
+      state.usersState = payload;
     },
 
     // [detailPage.fulfilled]: ( state, {meta, payload} ) => { state.userState = payload },
@@ -157,4 +165,7 @@ const userSlice = createSlice({
   },
 });
 
+export const currentUserState = state => state.users.userState
+export const currentUsersState = state => state.users.usersState
+export const currentUserParam = state => state.user.param
 export default userSlice.reducer;

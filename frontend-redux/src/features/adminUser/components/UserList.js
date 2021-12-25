@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { list } from 'features/user/reducer/userSlice'
 import { AppAppBar } from "features/adminCommon";
 import moment from "moment";
 import { v4 as uuid } from "uuid";
@@ -47,6 +49,20 @@ const orders = [
 ];
 
 const UserList = (props) => {
+
+  const dispatch = useDispatch()
+
+  const users = useSelector(state => state.user.usersState);
+  const type = useSelector(state => state.user.type) // 자바의 레포지토리의 타입 
+  const keyword = useSelector( state => state.user.keyword) // 레포지토리의 키 
+  const page = 1;
+
+  useEffect(() => {
+      const param = {type: type, keyword: keyword, page: page}
+      dispatch(list(param))
+    },[]);
+console.log(users)
+console.log(type)
   return (
     <>
       <AppAppBar />
@@ -88,6 +104,8 @@ const UserList = (props) => {
               </TableHead>
               <TableHead>
                 <TableRow>
+                  
+                  <TableCell>사용자번호</TableCell>
                   <TableCell>이름</TableCell>
                   <TableCell>ID</TableCell>
                   <TableCell>생년월일</TableCell>
@@ -96,18 +114,18 @@ const UserList = (props) => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {orders.map((order) => (
-                  <TableRow hover key={order.id}>
-                    <TableCell>{order.ref}</TableCell>
-                    <TableCell>{order.customer.name}</TableCell>
+                {users.map((i, userId) => (
+                  <TableRow hover key={userId}>
+                    <TableCell>{i.username}</TableCell>
+                    <TableCell>{i.name}</TableCell>
                     <TableCell>
-                      {moment(order.createdAt).format("DD/MM/YYYY")}
+                      {/* {moment(users.createdAt).format("DD/MM/YYYY")} */}
                     </TableCell>
                     <TableCell>
-                      {moment(order.createdAt).format("DD/MM/YYYY")}
+                      {/* {moment(users.createdAt).format("DD/MM/YYYY")} */}
                     </TableCell>
                     <TableCell>
-                      {moment(order.createdAt).format("DD/MM/YYYY")}
+                      {/* {moment(users.createdAt).format("DD/MM/YYYY")} */}
                     </TableCell>
                   </TableRow>
                 ))}
