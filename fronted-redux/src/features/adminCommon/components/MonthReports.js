@@ -21,21 +21,11 @@ const MonthReports = (props) => {
         borderRadius: 4,
         categoryPercentage: 0.5,
         data: [18, 20, 19, 37, 29, 29],
-        label: '매출액',
-        maxBarThickness: 10
-      },
-      {
-        backgroundColor: colors.grey[200],
-        barPercentage: 0.5,
-        barThickness: 12,
-        borderRadius: 4,
-        categoryPercentage: 0.5,
-        data: [11, 5, 12, 29, 20, 25],
-        label: '영업이익',
+        label: '예약건수',
         maxBarThickness: 10
       }
     ],
-    labels: ['6월', '7월', '8월', '9월', '10월', '11월']
+    labels: ['7월', '8월', '9월', '10월', '11월', '12월']
   };
 
   const options = {
@@ -65,12 +55,12 @@ const MonthReports = (props) => {
             min: 0
           },
           gridLines: {
-            borderDash: [2],
-            borderDashOffset: [2],
+            borderDash: [1],
+            borderDashOffset: [1],
             color: theme.palette.divider,
             drawBorder: false,
-            zeroLineBorderDash: [2],
-            zeroLineBorderDashOffset: [2],
+            zeroLineBorderDash: [1],
+            zeroLineBorderDashOffset: [1],
             zeroLineColor: theme.palette.divider
           }
         }
@@ -92,7 +82,7 @@ const MonthReports = (props) => {
   return (
     <Card {...props}>
       <CardHeader
-        title="월별 매출현황"
+        title="최근 6개월 예약 건수"
       />
       <Divider />
       <CardContent>
