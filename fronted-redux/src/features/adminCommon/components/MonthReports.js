@@ -21,7 +21,17 @@ const MonthReports = (props) => {
         borderRadius: 4,
         categoryPercentage: 0.5,
         data: [18, 20, 19, 37, 29, 29],
-        label: '예약건수',
+        label: '이번년도',
+        maxBarThickness: 10
+      },
+      {
+        backgroundColor: colors.grey[200],
+        barPercentage: 0.5,
+        barThickness: 12,
+        borderRadius: 4,
+        categoryPercentage: 0.5,
+        data: [11, 5, 12, 29, 20, 25],
+        label: '전년도',
         maxBarThickness: 10
       }
     ],
@@ -55,12 +65,12 @@ const MonthReports = (props) => {
             min: 0
           },
           gridLines: {
-            borderDash: [1],
-            borderDashOffset: [1],
+            borderDash: [2],
+            borderDashOffset: [2],
             color: theme.palette.divider,
             drawBorder: false,
-            zeroLineBorderDash: [1],
-            zeroLineBorderDashOffset: [1],
+            zeroLineBorderDash: [2],
+            zeroLineBorderDashOffset: [2],
             zeroLineColor: theme.palette.divider
           }
         }
