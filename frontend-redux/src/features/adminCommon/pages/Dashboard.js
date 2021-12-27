@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Box, Container, Grid } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import {
   Budget,
   LatestOrders,
@@ -10,8 +10,9 @@ import {
   TrafficByDevice,
   TotalProfit2,
 } from "features/adminCommon";
-import AppAppBar from "../layout/AdminLayout";
+
 import "features/adminCommon/components/grid.css";
+import AppAppBar from "../layout/AdminLayout";
 
 export default function Dashboard() {
   return (
@@ -35,15 +36,13 @@ export default function Dashboard() {
             <Grid item lg={3} sm={6} xl={3} xs={12}>
               <TotalProfit sx={{ height: "100%" }} />
             </Grid>
-
+            {/* ---- */}
             <Grid item lg={8} md={12} xl={9} xs={12}>
               <LatestSales />
             </Grid>
-
             <Grid item lg={4} md={6} xl={3} xs={12}>
               <TrafficByDevice sx={{ height: "100%" }} />
             </Grid>
-
             <Grid item lg={12} md={18} xl={12} xs={24}>
               <LatestOrders />
             </Grid>

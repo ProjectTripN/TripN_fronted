@@ -1,5 +1,4 @@
 //components
-export { default as JoinTab } from "features/user/components/JoinTab";
 export { default as Join_button } from "features/user/components/Join_button";
 export { default as EmailApi } from "features/user/components/EmailApi";
 export { default as Join_personal } from "features/user/components/Join_personal";

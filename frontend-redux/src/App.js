@@ -1,11 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { AdminLogin } from "features/admin";
-import { DashBoard } from "features/adminCommon";
+import { DashBoard, UserList } from "features/adminCommon";
 import { FinancialReports, SalesManagement } from "features/financial";
 import { Home } from "features/home";
 import { Recommand } from "features/recommand";
-import { UserList } from "features/adminUser";
 import { TotalValue } from "features/totalValue";
 import {
   EnterPassword,

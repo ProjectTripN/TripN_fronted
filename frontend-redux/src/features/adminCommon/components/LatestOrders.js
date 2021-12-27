@@ -27,6 +27,26 @@ const orders = [
   },
   {
     id: uuid(),
+    ref: "CDD1049",
+    amount: 30.5,
+    customer: {
+      name: "Ekaterina Tankova",
+    },
+    createdAt: 1555016400000,
+    status: "pending",
+  },
+  {
+    id: uuid(),
+    ref: "CDD1049",
+    amount: 30.5,
+    customer: {
+      name: "Ekaterina Tankova",
+    },
+    createdAt: 1555016400000,
+    status: "pending",
+  },
+  {
+    id: uuid(),
     ref: "CDD1048",
     amount: 25.1,
     customer: {
@@ -49,8 +69,7 @@ const orders = [
 
 const LatestOrders = (props) => (
   <Card {...props}>
-    {/* <CardHeader title="Latest Orders" /> */}
-    <h1 align="center">Latest Orders</h1>
+    <CardHeader title="Latest Orders" />
     <Divider />
     <PerfectScrollbar>
       <Box sx={{ minWidth: 800 }}>

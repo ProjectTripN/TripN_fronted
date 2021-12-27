@@ -165,7 +165,7 @@ const userSlice = createSlice({
   },
 });
 
-export const currentUserState = state => state.users.userState
-export const currentUsersState = state => state.users.usersState
-export const currentUserParam = state => state.user.param
+export const currentUserState = (state) => state.users.userState;
+export const currentUsersState = (state) => state.users.usersState;
+export const currentUserParam = (state) => state.user.param;
 export default userSlice.reducer;

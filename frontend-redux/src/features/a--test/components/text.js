@@ -12,9 +12,13 @@ const UserListForm = () => {
     const page = 1;
 
     useEffect(() => {
-        const param = {type: type, keyword: keyword, page: page}
-        dispatch(list(param))
+        dispatch(list())
       },[]);
+
+    //   useEffect(() => {
+    //     const param = {type: type, keyword: keyword, page: page}
+    //     dispatch(list(param))
+    //   },[]);
 
     
     return (<table border='1px' style={{textAlign:'center'}}>
