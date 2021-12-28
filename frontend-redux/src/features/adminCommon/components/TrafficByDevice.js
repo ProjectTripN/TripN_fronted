@@ -3,7 +3,6 @@ import {
   Box,
   Card,
   CardContent,
-  CardHeader,
   Divider,
   Typography,
   colors,
@@ -12,6 +11,9 @@ import {
 import LaptopMacIcon from "@material-ui/icons/LaptopMac";
 import PhoneIcon from "@material-ui/icons/Phone";
 import TabletIcon from "@material-ui/icons/Tablet";
+import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
+import HomeIcon from '@mui/icons-material/Home';
+import SurfingIcon from '@mui/icons-material/Surfing';
 
 const TrafficByDevice = (props) => {
   const theme = useTheme();
@@ -59,19 +61,19 @@ const TrafficByDevice = (props) => {
     {
       title: "항공",
       value: 63,
-      icon: LaptopMacIcon,
+      icon: AirplanemodeActiveIcon,
       color: colors.indigo[500],
     },
     {
       title: "숙박",
       value: 15,
-      icon: TabletIcon,
+      icon: HomeIcon,
       color: colors.red[600],
     },
     {
       title: "액티비티",
       value: 22,
-      icon: PhoneIcon,
+      icon: SurfingIcon,
       color: colors.orange[600],
     },
   ];

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { list } from "features/user/reducer/userSlice";
 import { AppAppBar } from "features/adminCommon";
@@ -20,10 +20,25 @@ const UserList = () => {
   const users = useSelector((state) => state.user.usersState);
   const type = useSelector((state) => state.user.type); // 자바의 레포지토리의 타입
   const keyword = useSelector((state) => state.user.keyword); // 레포지토리의 키
+  const [usersearch, setUsersearch] = useState({
+    name: "NONE",
+    birth: "NONE",
+    phone: "NONE"
+  });
+  const {name, birth, phone} = usersearch;
+
   const page = 1;
+  const handleChange = (event) => {
+    console.log(event.target.name);
+    setUsersearch({ ...usersearch, [event.target.id]: event.target.value });
+    console.log(usersearch);
+  };
+  // useEffect(() => {
+  //   const param = { type: type, keyword: keyword, page: page };
+  //   dispatch(list(param));
+  // }, []);
   useEffect(() => {
-    const param = { type: type, keyword: keyword, page: page };
-    dispatch(list(param));
+    dispatch(list(usersearch));
   }, []);
 
   console.log(JSON.stringify(users.userId));
@@ -43,13 +58,13 @@ const UserList = () => {
               <TableCell>
                 <label>
                   이름:
-                  <input type="text" title="search" />
+                  <input type="text" id="name" value={name} onChange={handleChange} />
                 </label>
                 <br />
                 <br />
                 <label>
                   생년월일:
-                  <input type="text" title="search" placeholder="No Hyphen" />
+                  <input type="text" id="birth" value={birth} onChange={handleChange} placeholder="No Hyphen" />
                 </label>
                 <br />
                 <br />
@@ -58,13 +73,13 @@ const UserList = () => {
                   <input
                     type="tel"
                     id="phone"
+                    value={phone}
+                    onChange={handleChange}
                     pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
                     placeholder="No Hyphen"
                   />
-                </label>
-                <p>
-                  <input type="submit" value="search" />
-                </p>
+                </label><br />
+                  <button onClick={()=>{dispatch(list(usersearch));}}>search</button>
               </TableCell>
             </TableHead>
           </Table>

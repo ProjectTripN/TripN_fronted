@@ -25,15 +25,6 @@ const TotalProfit2 = () => {
               {total}원
             </Typography>
           </Grid>
-          <Grid item>
-            <Avatar
-              sx={{
-                backgroundColor: indigo[600],
-                height: 56,
-                width: 56,
-              }}
-            ></Avatar>
-          </Grid>
         </Grid>
       </CardContent>
     </Card>

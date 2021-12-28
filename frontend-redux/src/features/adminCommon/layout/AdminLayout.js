@@ -3,6 +3,10 @@ import { AppBar, Toolbar, Box, Link } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 
 export default function AppAppBar() {
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    window.location.href = "/"
+  }
   return (
     <div>
       <AppBar position="fixed">
@@ -14,15 +18,7 @@ export default function AppAppBar() {
           }}
         >
           <Box sx={{ justifyContent: "flex-start" }}>
-            <Link
-              component={RouterLink}
-              variant="h4"
-              underline="none"
-              color="inherit"
-              to="/home"
-            >
-              {"Trip N Admin"}
-            </Link>
+            <div onClick={handleSubmit} ><h1>Trip N Admin</h1></div>
           </Box>
           <Box sx={{ justifyContent: "flex-end" }}>
             <span sx={{ margin: 2 }}>

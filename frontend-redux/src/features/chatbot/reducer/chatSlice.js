@@ -46,7 +46,8 @@ const chatSlice = createSlice({
     // 아래 세개는 필수
     type: '',
     keyword: '',
-    params: {}
+    params: {},
+    departure_plane:[],
   },
   reducers: {}, // 필수
   extraReducers: {
@@ -54,6 +55,13 @@ const chatSlice = createSlice({
     [tour.fulfilled]: (state, action) => {
       console.log(`redux data: ${JSON.stringify(action.payload[0])}`)
       state.dataState = [...state.dataState, action.payload]
+
+    // [tour.fulfilled]: (state, action) => {
+    //   console.log(`redux data: ${JSON.stringify(action.payload[0])}`)
+    //   const dataState = action.payload
+    //   state.departure_plane = dataState.departure_plane
+    //   state.
+    
      // console.log(`redux data: ${JSON.stringify(action.payload[2])['accommodation']}`)
      // state.dataState = {...state.dataState, departure_plane: JSON.stringify(action.payload)[0],
      // arrival_plane:JSON.stringify(action.payload)[1], accommodation: JSON.stringify(action.payload)[2], day: JSON.stringify(action.payload)[3],

@@ -25,9 +25,33 @@ export default function LabTabs() {
               <Tab label="Activity" value="3" />
             </TabList>
           </Box>
-          <TabPanel value="1"> 비행기 티켓 자리입니당 </TabPanel>
-          <TabPanel value="2"> 숙소 자리입니당 </TabPanel>
-          <TabPanel value="3"> 엑비티비 자리입니당 </TabPanel>
+          <TabPanel value="1">
+            {"출발편"}
+            비행편: <br />
+            비행시간:{}-{} <br />
+            요금: <br />
+            {"도착편"}
+            비행편: <br />
+            비행시간:{}-{} <br />
+            요금: <br />
+          </TabPanel>
+          <TabPanel value="2">
+            {"숙소"}
+            이름 : <br />
+            주소 : <br />
+            박당가격 : {}₩/박
+            <br />
+            전화번호 : <br />
+          </TabPanel>
+          <TabPanel value="3">
+            {" 엑티비티 "}
+            이름 : <br />
+            영업시간 : {}-{}
+            <br />
+            체험시간 : <br />
+            주소 :<br />
+            가격 : {}₩<br />
+          </TabPanel>
         </TabContext>
       </Box>
     </div>

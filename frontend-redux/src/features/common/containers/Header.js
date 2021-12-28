@@ -13,20 +13,19 @@ const rightLink = {
 function Header() {
   const navigate = useNavigate();
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    window.location.href = "/";
+  };
+
   return (
     <div>
       <AppBar style={{ background: "transparent", boxShadow: "none" }}>
         <Toolbar sx={{ justifyContent: "space-between", margin: "40px" }}>
           <Box sx={{ flex: 1 }} />
-          <Link
-            variant="h4"
-            underline="none"
-            color="common.black"
-            component={RouterLink}
-            to="/"
-          >
-            {"Trip N"}
-          </Link>
+          <div onClick={handleSubmit} style={{ color: "black" }}>
+            <h1>Trip N</h1>
+          </div>
           <Box sx={{ flex: 20, display: "flex", justifyContent: "flex-end" }}>
             {localStorage.getItem("sessionUser") == null ? (
               <span>

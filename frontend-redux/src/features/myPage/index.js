@@ -4,6 +4,7 @@ export { default as InvoiceCancel } from "features/myPage/components/InvoiceCanc
 export { default as UserModifyCom } from "features/myPage/components/UserModifyCom";
 export { default as FAQcom } from "features/myPage/components/FAQcom";
 export { default as FAQPagination } from "features/myPage/components/FAQPagination";
+export { default as PreInvoice } from "features/myPage/components/PreInvoice";
 
 //pages
 export { default as MyPage } from "features/myPage/pages/MyPage";

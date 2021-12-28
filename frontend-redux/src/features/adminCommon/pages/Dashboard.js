@@ -21,6 +21,8 @@ export default function Dashboard() {
       <Helmet>
         <title>Dashboard | TripN Admin</title>
       </Helmet>
+      <br />
+      <br />
       <div className="container">
         <Container maxWidth={false} className="item1">
           <Grid container spacing={1}>
@@ -28,7 +30,7 @@ export default function Dashboard() {
               <Budget />
             </Grid>
             <Grid item lg={3} sm={6} xl={3} xs={12}>
-              <TotalProfit2 />
+              <TotalProfit2/>
             </Grid>
             <Grid item lg={3} sm={6} xl={3} xs={12}>
               <TotalCustomers />

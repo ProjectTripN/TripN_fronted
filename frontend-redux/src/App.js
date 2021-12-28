@@ -1,19 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { AdminLogin } from "features/admin";
-import { DashBoard } from "features/adminCommon";
+import { DashBoard, UserList } from "features/adminCommon";
 import { FinancialReports, SalesManagement } from "features/financial";
 import { Home } from "features/home";
 import { Recommand } from "features/recommand";
-import { UserList } from "features/adminUser";
 import { TotalValue } from "features/totalValue";
-import {
-  EnterPassword,
-  FAQ,
-  MyPage,
-  Reservation,
-  UserModify,
-} from "features/myPage";
+import { EnterPassword, FAQ, MyPage, Reservation, UserModify } from "features/myPage";
 import { JoinDetail, Join, Login, ForgotPassword } from "features/user";
 import TestA from "features/a--test/TestA";
 import { Consultant } from "features/chatbot/pages/Consultant";
@@ -22,6 +14,7 @@ import MBTITest from "features/mbti/components/options/MBTITest";
 import MBTIResult from "features/mbti/components/countries/MBTIResult";
 import { RecommandReservation } from "features/recReservation";
 import TestB from "features/a--test/components/TestB";
+import { AdminLogin } from "features/common";
 
 function App() {
   return (

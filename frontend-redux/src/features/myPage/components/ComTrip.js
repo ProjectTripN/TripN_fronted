@@ -45,7 +45,7 @@ export default function ComTrip(props) {
           <Typography color="textPrimary" gutterBottom variant="body1">
             <h4 id="count" />
           </Typography>
-          <h1>바우처 / 지도 / 스케줄 넣어주기 </h1>
+          <h1>바우처 / 스케줄 넣어주기 </h1>
         </Grid>
       </Box>
     </>

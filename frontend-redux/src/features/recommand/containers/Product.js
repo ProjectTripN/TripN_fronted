@@ -1,185 +1,81 @@
-import * as React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { positions } from '@mui/system';
+import { tour } from 'features/chatbot/reducer/chatSlice';
+import * as React from 'react';
+import { useDispatch, useSelector } from "react-redux"
 import { ProductCategories } from "..";
-import { useEffect, useState } from "react";
-import Modal from "../components/Modal";
-import { Button, Box } from "@mui/material";
-// import { positions } from "@mui/system";
-import { tour } from "features/chatbot/reducer/chatSlice";
-import "features/recommand/styles/Product.scss";
+import { useEffect, useState, } from "react"
+import DeparturePlaneCategories from './DeparturePlaneCategories';
 
 export default function Product() {
-  // ---------------------------------------- 토오통토토통
+   const dispatch = useDispatch()
+   //const departure_plane = useSelector(state=>state.chatSlice.dataState['accommodation'])
+   const recommand = useSelector(state=>state.chatSlice.dataState[0])
+   const day = recommand[0]['day']
+   const departure_plane = recommand[1]
+   const arrival_plane = recommand[2]
+   const accommodation_sever = recommand[3]
+   const activity_sever = recommand[4]
+   // const olle = recommand[5]
+   console.log(`departure_plane==========${JSON.stringify(departure_plane[0])}`)
+   console.log(`day==========${JSON.stringify(day)}`)
+    // useEffect(()=>{
+       //  dispatch(tour({
+          //   "date1": localStorage.getItem("start"),
+       //      "date2": localStorage.getItem("end"),
+    //         "start": localStorage.getItem("airstart"),
+    //         "Number": localStorage.getItem("number"),
+    //         "user": 2,
+    //         "mbti": "IEESSNFFFJJJ",
+    //         "relationship": localStorage.getItem("relationship")
+    //     }))},[]
+   // )
+     // ---------------------------------------- 토오통토토통
   const [depAirplane, setDepAirplane] = useState("");
   const [arrAirplane, setArrAirplane] = useState("");
   const [accomodation, setAccomodation] = useState("");
-
-  const [activity, setActivity] = useState();
-  const [activity2, setActivity2] = useState();
+//   const [tourist, setTourist] = useState("");
+  const [activity, setActivity] = useState([]);
   const [olle, setOlle] = useState("");
-
   const a = {
     plane: [depAirplane, arrAirplane],
     accomodation: accomodation,
-    activity: [activity, activity2],
+   //  tourist: tourist,
+    activity: activity,
     olle: olle,
   };
-
   console.log(a);
-
-
-  return (
-    <>
-      <div align="center">
-        <h1>Departure Flight</h1>
-        <div name="tourist">
-          <Button
-            onClick={(() => setDepAirplane("1"))}
-          >
-            <div >
-            비행편: <br/>
-            비행시간:{}-{} <br/>
-            금액: <br/>
-            요금: <br/>
+         return (<>
+         <h1>Departure Flight</h1>
+            <div name="departure_plane">
+               <button onClick={() => setDepAirplane(JSON.parse(departure_plane[0]['id']))}>{JSON.stringify(departure_plane[0]['id'])}</button>
+               <button onClick={() => setDepAirplane(JSON.parse(departure_plane[1]['id']))}>{JSON.stringify(departure_plane[1]['id'])}</button>
+               <button onClick={() => setDepAirplane(JSON.parse(departure_plane[2]['id']))}>{JSON.stringify(departure_plane[2]['id'])}</button>
             </div>
-          </Button>
-          <Button
-            onClick={(() => setDepAirplane("2"))}
-          >
-            <div >
-            비행편: <br/>
-            비행시간:{}-{} <br/>
-            금액: <br/>
-            요금: <br/>
+            <div name="arrival_plane">
+               <button onClick={() => setArrAirplane(JSON.parse(arrival_plane[0]['id']))}>{JSON.stringify(arrival_plane[0]['id'])}</button>
+               <button onClick={() => setArrAirplane(JSON.parse(arrival_plane[1]['id']))}>{JSON.stringify(arrival_plane[1]['id'])}</button>
+               <button onClick={() => setArrAirplane(JSON.parse(arrival_plane[2]['id']))}>{JSON.stringify(arrival_plane[2]['id'])}</button>
             </div>
-          </Button>
-        
-          <Button
-            onClick={(() => setDepAirplane("3"))}
-          >
-            <div >
-            비행편: <br/>
-            비행시간:{}-{} <br/>
-            금액: <br/>
-            요금: <br/>
+            <div align="center">
+               {/* <h1>{JSON.stringify(departure_plane[0][0]['departure_plane'][0]['id'])}</h1> */}
+               <h1>{JSON.stringify(day)}</h1>
+               <h1>{JSON.stringify(departure_plane[0]['id'])}</h1>
+               <h1>{JSON.stringify(arrival_plane[0]['id'])}</h1>
+               <h1>{JSON.stringify(accommodation_sever[0]['id'])}</h1>
+               <h1>{JSON.stringify(activity_sever[0]['id'])}</h1>
+               /
+               <h1>Departure Flight</h1>
+               <DeparturePlaneCategories/>
+               <h1>Arrival Flight</h1>
+               <ProductCategories/>
+               <h1>Accomodation</h1>
+               <ProductCategories/>
+               <h1>Tourist Site</h1>
+               <ProductCategories/>
+               <h1>Activity</h1>
+               <ProductCategories/>
+               <h1>Shopping</h1>
+               <ProductCategories/>
             </div>
-          </Button>
-          <br/>출발 비행편 {} 이 선택되었습니다 
-        
-        </div>
-        <h1>Arrival Flight</h1>
-        <div name="tourist">
-          <Button onClick={() => setArrAirplane("1")}>
-          <div >
-            비행편: <br/>
-            비행시간:{}-{} <br/>
-            금액: <br/>
-            요금: <br/>
-            </div>
-          </Button>
-          <Button onClick={() => setArrAirplane("2")}>
-          <div >
-            비행편: <br/>
-            비행시간:{}-{} <br/>
-            금액: <br/>
-            요금: <br/>
-            </div>
-          </Button>
-          <Button onClick={() => setArrAirplane("3")}>
-          <div >
-            비행편: <br/>
-            비행시간:{}-{} <br/>
-            금액: <br/>
-            요금: <br/>
-            </div>
-          </Button>
-          <br/>도착 비행편 {} 이 선택되었습니다 
-        </div>
-        <h1>Accomodation</h1>
-        <div name="tourist">
-          <Button onClick={() => setAccomodation("1")}>
-          <Box
-              sx={{
-                position: "absolute",
-                left: 0,
-                right: 0,
-                top: 0,
-                bottom: 0,
-                backgroundSize: "cover",
-                backgroundPosition: "center 40%",
-                backgroundImage: `url()`,
-                // marginTop: '-30px'
-              }}/>
-            이름 : <br/>
-            주소 : <br/>
-            박당가격 : {}₩/박 <br/>
-            전화번호 : <br/>
-          </Button>
-          <Button onClick={() => setAccomodation("2")}>
-            이름 : <br/>
-            주소 : <br/>
-            박당가격 : {}₩/박<br/>
-            전화번호 : <br/>
-          </Button>
-          <Button onClick={() => setAccomodation("3")}>
-            이름 : <br/>
-            주소 : <br/>
-            박당가격 : {}₩/박<br/>
-            전화번호 : <br/>
-          </Button>
-          <br/>숙소 {} 이 선택되었습니다 
-        
-        </div>
-        <h1>Activity</h1>
-        <div name="tourist">
-          <Button onClick={() => setActivity("1")}>
-            이름 : <br/>
-            영업시간 : {}-{}<br/>
-            체험시간 : <br/>
-            주소 :<br/>
-            가격 : {}₩<br/>
-          </Button>
-          <Button onClick={() => setActivity("2")}>
-            이름 : <br/>
-            영업시간 : {}-{}<br/>
-            체험시간 : <br/>
-            주소 :<br/>
-            가격 : {}₩<br/>
-          </Button>
-          <Button onClick={() => setActivity("3")}>
-            이름 : <br/>
-            영업시간 : {}-{}<br/>
-            체험시간 : <br/>
-            주소 :<br/>
-            가격 : {}₩<br/>
-          </Button>
-          <Button onClick={() => setActivity2("3")}>
-            이름 : <br/>
-            영업시간 : {}-{}<br/>
-            체험시간 : <br/>
-            주소 :<br/>
-            가격 : {}₩<br/>
-          </Button>
-          <Button onClick={() => setActivity2("3")}>
-            이름 : <br/>
-            영업시간 : {}-{}<br/>
-            체험시간 : <br/>
-            주소 :<br/>
-            가격 : {}₩<br/>
-          </Button>
-          <br/>Activity {} 이 선택되었습다
-          </div>
-        <h1>olle</h1>
-        <div name="olle">
-          <Button onClick={() => setActivity("1")}>
-            이름 : <br/>
-            주소 :<br/>
-          </Button>
-      
-      </div>
-      <br/>Activity {}  선택되었습다
-        </div>
-       
-    </>
-  );
+         </>);
 }

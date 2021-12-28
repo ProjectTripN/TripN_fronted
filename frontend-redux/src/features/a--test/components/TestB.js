@@ -1,25 +1,11 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React from "react";
+import Navi from "./Navi";
+import styles from "../MyPage.css";
 
-const Main = () => {
-  const [color, setColor] = useState('red');
-
-  const onClick = () => {
-    color === 'red' ? setColor('yellow') : setColor('red');
-  };
-
-  return (<>
-    <Button color={color} onClick={onClick}>
-      button
-    </Button>
-     <Button color={color} onClick={onClick}>
-        button
-      </Button>
-      </>);
-};
-
-export default Main;
-
-const Button = styled.button`
-  background-color: ${props => props.color};
-`;
+export default function TestB() {
+  return (
+    <>
+      <Navi />
+    </>
+  );
+}

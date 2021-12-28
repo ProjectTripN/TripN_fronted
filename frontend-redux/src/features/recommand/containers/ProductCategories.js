@@ -103,8 +103,6 @@ const images = [
 
 export default function ProductCategories() {
   return (
-
-    
     <Container
       component="section"
       style={{ marginTop: "-30px" }}

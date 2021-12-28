@@ -11,3 +11,5 @@ export { default as RecommandLayout} from 'features/recommand/containers/Recomma
 export { default as ProductSmokingHero} from 'features/recommand/components/ProductSmokingHero'
 
 //reducer
+export { default as recommandAPI} from 'features/recommand/reducer/recommandAPI'
+export { default as recommandSlice} from 'features/recommand/reducer/recommandSlice'

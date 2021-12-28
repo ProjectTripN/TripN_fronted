@@ -103,7 +103,7 @@ export function End(props){
   console.log({ "date1": localStorage.getItem("start"),
   "date2": localStorage.getItem("end"),
   "start": localStorage.getItem("airstart"),
-  "Number": localStorage.getItem("number"), 
+  "Number": localStorage.getItem("number"),
   "user": JSON.parse(window.localStorage.getItem("user_id")),
   "mbti": JSON.parse(window.localStorage.getItem("user_mbti")),
   "relationship": localStorage.getItem("relationship")})

@@ -10,8 +10,8 @@ import {
 import { Invoice, VoucherTab } from "features/totalValue";
 import { ScheduleAcc } from "features/recommand";
 import "features/myPage/styles/Reservation.css";
-import PreInvoice from "../components/PreInvoice";
 import { MyLayout } from "features/common";
+import { PreInvoice } from "..";
 
 export default function Reservation(props) {
   return (
@@ -26,9 +26,9 @@ export default function Reservation(props) {
               </Grid>
               {/* <ScheduleAcc class='ScheduleAcc'/>
                 <VoucherTab class='VoucherTab'/> */}
-              예약날짜별 리스트형
               <div style={{ margin: "30px" }}>
-                <PreInvoice />
+                <Invoice/>
+                <VoucherTab/>
               </div>
               <div style={{ alignItems: "center" }}></div>
             </Grid>
