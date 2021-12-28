@@ -106,6 +106,8 @@ const userSlice = createSlice({
       if (payload.token !== "" && payload.mbti != null) {
         alert(`${payload.username}님 환영합니다`);
         window.localStorage.setItem("sessionUser", JSON.stringify(payload)); // window 전역
+        window.localStorage.setItem("user_id", JSON.stringify(payload.userId));
+        window.localStorage.setItem("user_mbti", JSON.stringify( payload.mbti));
 
         window.location.href = `/`;
         // window.location.href = `/users/detail`; - 이전페이지로 이동 가능

@@ -2,13 +2,14 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { Button, Typography } from "@mui/material";
 import { TripLayout } from "features/common";
-import { Widget } from "..";
+import { Chat } from "..";
+
 
 export function Consultant() {
   return (
     <TripLayout>
       <div align="center" style={{ margin: "30px" }}>
-        <Widget />
+        <Chat/>
         <br />
         <br />
         <br />

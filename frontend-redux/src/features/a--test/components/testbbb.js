@@ -8,14 +8,11 @@ const Main = () => {
     color === 'red' ? setColor('yellow') : setColor('red');
   };
 
-  return (<>
+  return (
     <Button color={color} onClick={onClick}>
       button
     </Button>
-     <Button color={color} onClick={onClick}>
-        button
-      </Button>
-      </>);
+  );
 };
 
 export default Main;

@@ -3,6 +3,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import Container from "@mui/material/Container";
+import { AiOutlineConsoleSql } from "react-icons/ai";
 // import Typography from '../components/Typography';
 
 const ImageBackdrop = styled("div")(({ theme }) => ({
@@ -55,7 +56,8 @@ const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
 
 const images = [
   {
-    url: "https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=400&q=80",
+    url:
+      "https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=400&q=80",
     title: "Snorkeling",
     width: "30%",
   },
@@ -70,8 +72,10 @@ const images = [
   //   width: '30%',
   // },
   {
-    url: "https://images.unsplash.com/photo-1453747063559-36695c8771bd?auto=format&fit=crop&w=400&q=80",
+    url:
+      "https://images.unsplash.com/photo-1453747063559-36695c8771bd?auto=format&fit=crop&w=400&q=80",
     title: "Tour",
+    text:"ahahahah",
     width: "40%",
   },
   // {
@@ -95,31 +99,40 @@ const images = [
   //   width: '20%',
   // },
   {
-    url: "https://images.unsplash.com/photo-1518136247453-74e7b5265980?auto=format&fit=crop&w=400&q=80",
+    url:
+      "https://images.unsplash.com/photo-1518136247453-74e7b5265980?auto=format&fit=crop&w=400&q=80",
     title: "Reading",
     width: "30%",
   },
 ];
 
 export default function ProductCategories() {
-  return (
+  const [product, setProduct] = useState({});
 
-    
+  const {} = product;
+
+  const handleChange = (e) => {
+    console.log(e);
+  };
+  return (
+    <><p>asfasd</p>
     <Container
       component="section"
       style={{ marginTop: "-30px" }}
       sx={{ mt: 8, mb: 4 }}
     >
+      <Box>dddd</Box>
       {/* <Typography variant="h4" marked="center" align="center" component="h2">
         For all tastes and all desires
       </Typography> */}
       <Box sx={{ mt: 8, display: "flex", flexWrap: "wrap" }}>
         {images.map((image) => (
-          <ImageIconButton
+          <Button
             key={image.title}
             style={{
               width: image.width,
             }}
+            onClick={handleChange}
           >
             <Box
               sx={{
@@ -134,7 +147,8 @@ export default function ProductCategories() {
                 // marginTop: '-30px'
               }}
             />
-            <ImageBackdrop className="imageBackdrop"/>
+            <h1>aasaaa</h1>
+            <ImageBackdrop className="imageBackdrop" />
             <Box
               sx={{
                 position: "absolute",
@@ -158,9 +172,9 @@ export default function ProductCategories() {
                 <div className="imageMarked" />
               </Typography> */}
             </Box>
-          </ImageIconButton>
+          </Button>
         ))}
       </Box>
     </Container>
-  );
+    </>);
 }

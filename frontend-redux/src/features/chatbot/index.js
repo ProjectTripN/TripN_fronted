@@ -1,10 +1,9 @@
 // components
-export {default as TextForm} from './components/TextForm'
-export {default as VideoForm} from './components/VideoForm'
-export {default as VoiceForm} from './components/VoiceForm'
-export {default as ChatBotIcon} from './components/ChatbotIcon'
+export { default as Chat } from 'features/chatbot/components/Chat'
+export { default as ChatBotTripN } from 'features/chatbot/components/ChatBotTripN'
 
-// container
-export { Widget } from 'features/chatbot/containers/Widget'
+// chatbot Reducer
+export { default as chatSlice } from 'features/chatbot/reducer/chatSlice'
 
-
+// chatbot API
+export { default as chatAPI } from 'features/chatbot/reducer/chatAPI'

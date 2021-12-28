@@ -7,7 +7,6 @@ export function RecommandReservation() {
   return (
     <TripLayout>
       <ScheduleAcc />
-      <h1>지도 들어가야행</h1>
       <MoveToPayBt />
     </TripLayout>
   );

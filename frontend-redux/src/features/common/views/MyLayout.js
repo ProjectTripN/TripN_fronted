@@ -1,6 +1,7 @@
-import { ChatBotIcon } from "features/chatbot";
+
 import { Footer, Header, Sidebar } from "..";
 import styles from "features/common/style/MyLayout.module.scss";
+import { ChatBotTripN } from "features/chatbot";
 
 const MyLayout = (props) => {
   return (
@@ -12,7 +13,7 @@ const MyLayout = (props) => {
           </div>
           <div className={styles.content}>{props.children}</div>
           <div className={styles.chatbot}>
-            <ChatBotIcon />
+            <ChatBotTripN/>
           </div>
           <div className={styles.sidebar}>
             <Sidebar />
