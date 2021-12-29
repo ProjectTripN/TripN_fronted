@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigation, AppAppBar } from "features/adminCommon";
+import { AppAppBar } from "features/adminCommon";
 import styled from "styled-components";
 import {
   Chart1,
@@ -20,28 +20,31 @@ export default function SalesManagement() {
         <ChartTable>
           <Charttr>
             <Charttd>
-              <Chartdiv>
-                <Chart4 data={ChartData4} />
-              </Chartdiv>
-            </Charttd>
-            <br />
-            <Charttd>
+              <h3>항목별 상세 매출</h3>
               <Chartdiv>
                 <Chart2 data={ChartData2} />
               </Chartdiv>
             </Charttd>
-          </Charttr>
-          <br />
-          <Charttr>
-            <Charttd>
+            <Charttd rowSpan={2}>
+              <h3>MBTI</h3>
               <Chartdiv>
                 <Chart3 data={ChartData3} />
               </Chartdiv>
             </Charttd>
-            <br />
+          </Charttr>
+          <Charttr>
             <Charttd>
+              <h3>6개월 매출</h3>
               <Chartdiv>
                 <Chart1 data={ChartData1} />
+              </Chartdiv>
+            </Charttd>
+          </Charttr>
+          <Charttr>
+            <Charttd colSpan="2">
+              <h3>연간 이익</h3>
+              <Chartdiv>
+                <Chart4 data={ChartData4} />
               </Chartdiv>
             </Charttd>
           </Charttr>

@@ -52,7 +52,7 @@ export default function Login() {
 
   const formik = useFormik({
     initialValues: {
-      username: "admin",
+      userName: "admin",
       password: "admin",
       remember: true,
     },
@@ -62,7 +62,7 @@ export default function Login() {
     // values.stopPropagation();
     // alert(JSON.stringify(values));
 
-    // -alert(JSON.stringify(values.username) + "님 환영합니다.");
+    // -alert(JSON.stringify(values.userName) + "님 환영합니다.");
     // -await dispatch(login(values));
     // navigate("/home");
     // },
@@ -107,11 +107,11 @@ export default function Login() {
                   <TextField
                     fullWidth
                     type="string"
-                    text="username" //
+                    text="userName" //
                     label="ID"
-                    {...getFieldProps("username")}
-                    error={Boolean(touched.username && errors.username)}
-                    helperText={touched.username && errors.username}
+                    {...getFieldProps("userName")}
+                    error={Boolean(touched.userName && errors.userName)}
+                    helperText={touched.userName && errors.userName}
                   />
                   <TextField
                     fullWidth

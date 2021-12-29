@@ -34,7 +34,7 @@ const UserListForm = () => {
         {users.map((i, userId) => (
                 <tr key={userId}>
                 <td>{i.userId}</td>
-                <td>{i.username}</td>
+                <td>{i.userName}</td>
                 <td>{i.name}</td>
                 <td>{i.email}</td></tr>
         ))}

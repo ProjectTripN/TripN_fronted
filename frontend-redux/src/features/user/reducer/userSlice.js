@@ -20,8 +20,16 @@ const USERMODIFY = async (x) => {
   console.log(" 값이 돌아온다 뿅뿅뿅 " + JSON.stringify(res.data));
   return res.data;
 };
-const LIST = async ({ page }) => {
-  const res = await userAPI.list(page);
+// const LIST = async ({ page }) => {
+//   console.log("값을 보냈다.")
+//   const res = await userAPI.list(page);
+//   console.log("값이 왔다.")
+//   return res.data;
+// };
+const LIST = async (x) => {
+  console.log("값을 보냈다.")
+  const res = await userAPI.list(x);
+  console.log("값이 왔다.")
   return res.data;
 };
 // const EXIST = async (x) => {
@@ -69,20 +77,20 @@ const userSlice = createSlice({
   initialState: {
     userState: {
       userId: "",
-      username: "",
+      userName: "",
       password: "",
       checkPassword: "",
       name: "",
-      last_name: "",
-      first_name: "",
-      phone_number: "",
+      lastName: "",
+      firstName: "",
+      phoneNumber: "",
       email: "",
       address: "",
       passport: "",
       birth: "",
       gender: "",
-      card_company: "",
-      card_number: "",
+      cardCompany: "",
+      cardNumber: "",
       regDate: "",
       token: "",
       mbti: "",
@@ -104,9 +112,9 @@ const userSlice = createSlice({
       console.log("토큰: " + JSON.stringify(payload.token));
       console.log("데이터: " + JSON.stringify(payload.mbti));
       if (payload.token !== "" && payload.mbti != null) {
-        alert(`${payload.username}님 환영합니다`);
+        alert(`${payload.userName}님 환영합니다`);
         window.localStorage.setItem("sessionUser", JSON.stringify(payload)); // window 전역
-        window.localStorage.setItem("user_id", JSON.stringify(payload.userId));
+        window.localStorage.setItem("userId", JSON.stringify(payload.userId));
         window.localStorage.setItem("user_mbti", JSON.stringify( payload.mbti));
 
         window.location.href = `/`;
@@ -114,18 +122,18 @@ const userSlice = createSlice({
         // location.replace('abc.php') - 이전페이지로 이동 불가능
       } else if (payload.token !== "" && payload.mbti == null) {
         alert(
-          `${payload.username}님을 위한 개인 맞춤 분석을 위한 페이지로 이동합니다.`
+          `${payload.userName}님을 위한 개인 맞춤 분석을 위한 페이지로 이동합니다.`
         );
         window.localStorage.setItem("sessionUser", JSON.stringify(payload)); // window 전역
         window.location.href = `/mbti/home`;
       } else if (payload.token === "" && payload.mbti == null) {
         alert("아이디, 비번 오류로 로그인 실패");
-        changeNull(["username", "password"]);
+        changeNull(["userName", "password"]);
         // } else {
         //   alert("로그인 실패 사이트로 문의해주세요");
       } else if (payload.token === "" && payload.mbti !== null) {
         alert("에이 요 웰컴브로 사이트가 이상행 깔깔깔");
-        changeNull(["username", "password"]);
+        changeNull(["userName", "password"]);
       }
     },
     [mbti.fulfilled]: (state, action) => {

@@ -26,38 +26,38 @@ export default function JoinTab1() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [signup, setSignup] = useState({
-    username: "admin",
+    userName: "admin",
     password: "admin",
     checkPassword: "admin",
     name: "admin",
-    last_name: "admin",
-    first_name: "admin",
-    phone_number: "01012345678",
+    lastName: "admin",
+    firstName: "admin",
+    phoneNumber: "01012345678",
     email: "admin@gmail.com",
     address: "서울 강남구",
     passport: "m12345678",
     birth: "211225",
     gender: "여자",
-    card_company: "visa",
-    card_number: "000000000000",
+    cardCompany: "visa",
+    cardNumber: "000000000000",
     regDate: new Date().toLocaleDateString(),
   });
 
   const {
-    username,
+    userName,
     password,
     checkPassword,
     name,
-    last_name,
-    first_name,
+    lastName,
+    firstName,
     email,
-    phone_number,
+    phoneNumber,
     address,
     passport,
     birth,
     gender,
-    card_company,
-    card_number,
+    cardCompany,
+    cardNumber,
     regDate,
   } = signup;
 
@@ -134,8 +134,8 @@ export default function JoinTab1() {
             fullWidth
             label="아이디"
             type="text"
-            name="username"
-            value={username}
+            name="userName"
+            value={userName}
             onChange={handleChange}
           />
           <TextField
@@ -194,15 +194,15 @@ export default function JoinTab1() {
             <TextField
               fullWidth
               label="영문 성"
-              name="last_name"
-              value={last_name}
+              name="lastName"
+              value={lastName}
               onChange={handleChange}
             />
             <TextField
               fullWidth
               label="영문 이름"
-              name="first_name"
-              value={first_name}
+              name="firstName"
+              value={firstName}
               onChange={handleChange}
             />
           </Stack>
@@ -211,8 +211,8 @@ export default function JoinTab1() {
               fullWidth
               type="text"
               label="핸드폰 번호"
-              name="phone_number"
-              value={phone_number}
+              name="phoneNumber"
+              value={phoneNumber}
               onChange={handleChange}
             />
           </Stack>
@@ -292,8 +292,8 @@ export default function JoinTab1() {
                   htmlFor="uncontrolled-native"
                 ></InputLabel>
                 <NativeSelect
-                  name="card_company"
-                  value={card_company}
+                  name="cardCompany"
+                  value={cardCompany}
                   onChange={handleChange}
                   defaultValue={"visa"}
                 >
@@ -307,8 +307,8 @@ export default function JoinTab1() {
               fullWidth
               type="text"
               label="카드번호"
-              name="card_number"
-              value={card_number}
+              name="cardNumber"
+              value={cardNumber}
               onChange={handleChange}
             />
           </Stack>

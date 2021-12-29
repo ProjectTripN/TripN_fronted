@@ -8,7 +8,6 @@ const TOTALPROFIT = async () => {
   // console.log("값 돌아왔다22222");
   return res.data;
 };
-
 const LASTSIXMONTH = async () => {
   console.log("값 들어간다11111");
   const res = await adminAPI.lastSixMonth();
@@ -20,6 +19,16 @@ const YEARCHART = async () => {
   console.log("YEARCHART 값 들어간다11111");
   const res = await adminAPI.yearchart();
   console.log("YEARCHART 값 돌아왔다22222");
+
+  return res.data;
+};
+
+
+//Sales Management
+const PROFITSIX = async () => {
+  console.log("PROFITSIX 값 들어간다11111");
+  const res = await adminAPI.profitSixmonth();
+  console.log("PROFITSIX 값 돌아왔다22222");
 
   return res.data;
 };
@@ -37,6 +46,12 @@ export const yearchart = createAsyncThunk(
   "admin/dashboard/yearchat",
   YEARCHART
 );
+//Sales Management
+export const profitSixmonth = createAsyncThunk(
+  "admin/salesManagement/profitSixmonth",
+  PROFITSIX
+);
+
 
 const adminSlice = createSlice({
   name: "admin",
@@ -73,6 +88,13 @@ const adminSlice = createSlice({
       );
       state.yearchartState = action.payload;
     },
+    [profitSixmonth.fulfilled]: (state, action) => {
+      console.log(`redux data: ${action.payload}`);
+      console.log(
+        `페이로드의 영번째를 알아보자: ${JSON.stringify(action.payload)}`
+      );
+      state.profitSixmonthState = action.payload;
+    },
   },
 });
 
@@ -80,6 +102,7 @@ export const currentTotalState = (state) => state.admin.totalProfitState;
 export const currentLastSixMonthState = (state) =>
   state.admin.lastSixMonthState;
 export const currentYearchartState = (state) => state.admin.yearchartState;
+export const currentProfitSixmonthState = (state) => state.admin.profitSixmonthState;
 // export const currentUserState = (state) => state.users.userState;
 // export const currentUsersState = (state) => state.users.usersState;
 // export const currentUserParam = (state) => state.user.param;

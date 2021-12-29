@@ -64,7 +64,7 @@ export default function RegisterForm() {
 
           <TextField
             fullWidth
-            autoComplete="username"
+            autoComplete="userName"
             type="email"
             label="Email address"
             {...getFieldProps('email')}

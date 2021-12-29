@@ -25,6 +25,7 @@ import { LoadingButton } from "@mui/lab";
 import {
   lastSixMonth,
   yearchart,
+  profitSixmonth
 } from "features/adminCommon/reducer/adminSlice";
 
 const ContentStyle = styled("div")(({ theme }) => ({
@@ -78,7 +79,8 @@ export default function AdminLogin() {
 
   useEffect(() => {
     dispatch(lastSixMonth());
-    dispatch(yearchart());
+    dispatch(yearchart()); // financial reports
+    dispatch(profitSixmonth()); // SM - six month reports
 
     console.log("보낸다");
   }, []);
@@ -102,7 +104,7 @@ export default function AdminLogin() {
                 <Stack spacing={3}>
                   <TextField
                     fullWidth
-                    autoComplete="username"
+                    autoComplete="userName"
                     type="email"
                     label="Email address"
                     {...getFieldProps("email")}

@@ -52,7 +52,6 @@ export default function ForgotPassword() {
           <Stack spacing={3}>
             <TextField
               fullWidth
-              autoComplete="username"
               type="email"
               label="아이디 (이메일 입력)"
               {...getFieldProps('email')}

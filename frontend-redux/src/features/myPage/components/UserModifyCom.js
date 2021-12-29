@@ -58,16 +58,16 @@ export default function UserModifyCom() {
       password: "admin",
       checkPassword: "admin",
       name: "admin",
-      last_name: "admin",
-      first_name: "admin",
-      phone_number: "01012345678",
+      lastName: "admin",
+      firstName: "admin",
+      phoneNumber: "01012345678",
       email: "admin@gmail.com",
       address: "서울 강남구",
       passport: "m12345678",
       birth: "211225",
       gender: "여자",
-      card_company: "visa",
-      card_number: "000000000000",
+      cardCompany: "visa",
+      cardNumber: "000000000000",
     },
   });
 
@@ -84,17 +84,27 @@ export default function UserModifyCom() {
 
   const { errors, touched, values, isSubmitting, getFieldProps } = formik;
 
-  // const handleChange = (event, newValue) => {
-  // setValue(newValue);
-  // setphoneNumber(event.target.value);
-  // setSelectedValue(event.target.value);
-  // };
-  // const [phoneNumber, setphoneNumber] = React.useState("");
-  // const [selectedValue, setSelectedValue] = React.useState("a");
+
+  //----------------프로필 사진 업로드
+  // 담을 state
+  const [selectedFile, setSelectedFile] = useState(null);
+  // onChange역할
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+  // formData라는 instance에 담아 보냄
+  const handleFileUpload = async (e ) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const formData = new FormData();
+    formData.append("userfile", selectedFile, selectedFile.name);
+    // await dispatch(uploadIMG(formData));
+  };
 
   return (
     <>
-      <Box sx={{ width: "100vh", height: "130vh" }}>
+      <Box sx={{ width: "100vh", height: "170vh" }}>
         <ContentStyle>
           <Box sx={{ mb: -5 }} />
           <Typography variant="h4">회원정보 수정</Typography>
@@ -165,16 +175,16 @@ export default function UserModifyCom() {
                     <TextField
                       fullWidth
                       label="영문 성"
-                      text="last_name"
-                      {...getFieldProps("last_name")}
+                      text="lastName"
+                      {...getFieldProps("lastName")}
                       error={Boolean(touched.firstName && errors.firstName)}
                       helperText={touched.firstName && errors.firstName}
                     />
                     <TextField
                       fullWidth
                       label="영문 성 "
-                      text="first_name"
-                      {...getFieldProps("first_name")}
+                      text="firstName"
+                      {...getFieldProps("firstName")}
                       error={Boolean(touched.lastName && errors.lastName)}
                       helperText={touched.lastName && errors.lastName}
                     />
@@ -201,7 +211,32 @@ export default function UserModifyCom() {
                     text="birth"
                     {...getFieldProps("birth")}
                   />
-
+<Divider sx={{ my: 3 }} />
+                  <Typography
+                    variant="subtitle1"
+                    fontWeight="Bold"
+                    align="left"
+                  >
+                    프로필 사진 변경
+                  </Typography>
+                  <input
+                    alignItems="center"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                  />
+                  <Button
+                    onClick={handleFileUpload}
+                    style={{ minWidth: "200px" }}
+                  >
+                    프로필 사진 변경
+                    <Icon
+                      icon="fluent:picture-in-picture-exit-20-regular"
+                      color="#553830"
+                      height={30}
+                    />
+                  </Button>
+                  <Divider />
                   {/* 결제 수단 관리 */}
                   <Typography
                     variant="subtitle1"
@@ -222,15 +257,15 @@ export default function UserModifyCom() {
                           // value={cardCompany}
                           // onChange={handleChange}
                           // name="cardCompany"
-                          // value={card_company}
-                          label="card_company"
-                          text="card_company"
+                          // value={cardCompany}
+                          label="cardCompany"
+                          text="cardCompany"
 
-                          // name="card_company"
-                          // values={card_company}
-                          // values={card_company}
+                          // name="cardCompany"
+                          // values={cardCompany}
+                          // values={cardCompany}
                           // --------
-                          // text=card_company
+                          // text=cardCompany
                         >
                           <option value="visa">Visa</option>
                           <option value="master">Master</option>
@@ -242,8 +277,8 @@ export default function UserModifyCom() {
                       fullWidth
                       type="text"
                       label="카드번호"
-                      text="card_number"
-                      {...getFieldProps("card_number")}
+                      text="cardNumber"
+                      {...getFieldProps("cardNumber")}
                     />
                   </Stack>
                 </Stack>

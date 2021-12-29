@@ -6,25 +6,17 @@ import { useSelector } from "react-redux";
 import { string } from "prop-types";
 
 const FinancialReports = () => {
-  const thisYear = useSelector(state=>state.admin.yearchartState[0])["price"]
-  const a = 1234235
+  const thisYear = useSelector((state) => state.admin.yearchartState[0]);
+  const a = toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-  String.prototype.comma = function() {
-    return this.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-};
-
-  
-  console.log(thisYear)
-  // console.log(thisYear.toLocalString())
-  // console.log("aaaaaaaaaaa"+JSON.stringify(thisYear['']))
-
-  const dot = toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-
+  console.log(JSON.stringify(thisYear));
+  console.log(thisYear["price"]);
+  console.log("asdfasdfsadfasdfasdfsadfsdahahahahahahah 이바보얌 "+useSelector((state) => state.admin.yearchartState[0])["price"]);
 
   return (
     <>
       <AppAppBar />
-      <div className="container">
+      <div className="container" textAlign="right">
         <Table>
           <br />
           <br />
@@ -46,93 +38,93 @@ const FinancialReports = () => {
           <br />
           <br />
           <Tr>
-            <Td>항목</Td>
-            <Td colSpan="2">당기금액</Td>
-            <Td colSpan="2">전기금액</Td>
+            <Tdword>항목</Tdword>
+            <Tdword colSpan="2">당기금액</Tdword>
+            <Tdword colSpan="2">전기금액</Tdword>
           </Tr>
           <Tr>
-            <Td>매출액</Td>
+            <Tdword>매출액</Tdword>
             <Td></Td>
             <Td>1</Td>
             <Td></Td>
-            <Td>2</Td>
+            <Td>{useSelector((state) => state.admin.yearchartState[0])["price"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
           </Tr>
           <Tr>
-            <Td>매출원가</Td>
+            <Tdword>매출원가</Tdword>
             <Td></Td>
             <Td>1</Td>
             <Td></Td>
-            <Td>2</Td>
+            <Td>{useSelector((state) => state.admin.yearchartState[1])["price"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
           </Tr>
           <Tr>
-            <Td>매출총이익</Td>
+            <Tdword>매출총이익</Tdword>
             <Td></Td>
             <Td>1</Td>
             <Td></Td>
-            <Td>1</Td>
+            <Td>{useSelector((state) => state.admin.yearchartState[2])["price"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
           </Tr>
           <Tr>
-            <Td>판매비와관리비</Td>
+            <Tdword>판매비와관리비</Tdword>
             <Td>1</Td>
             <Td></Td>
-            <Td>1</Td>
-            <Td></Td>
-          </Tr>
-          <Tr>
-            <Td>지급수수료</Td>
-            <Td>1</Td>
-            <Td></Td>
-            <Td>1</Td>
+            <Td>{useSelector((state) => state.admin.yearchartState[3])["price"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
             <Td></Td>
           </Tr>
           <Tr>
-            <Td>영업이익</Td>
-            <Td></Td>
+            <Tdword>지급수수료</Tdword>
             <Td>1</Td>
             <Td></Td>
-            <Td>1</Td>
-          </Tr>
-          <Tr>
-            <Td>기타손익 및 금융손익</Td>
-            <Td></Td>
-            <Td>1</Td>
-            <Td></Td>
-            <Td>1</Td>
-          </Tr>
-          <Tr>
-            <Td>기타수익</Td>
-            <Td>1</Td>
-            <Td></Td>
-            <Td>1</Td>
+            <Td>{useSelector((state) => state.admin.yearchartState[4])["price"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
             <Td></Td>
           </Tr>
           <Tr>
-            <Td>기타비용</Td>
-            <Td>1</Td>
+            <Tdword>영업이익</Tdword>
             <Td></Td>
             <Td>1</Td>
+            <Td></Td>
+            <Td>{useSelector((state) => state.admin.yearchartState[5])["price"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
+          </Tr>
+          <Tr>
+            <Tdword>기타손익 및 금융손익</Tdword>
+            <Td></Td>
+            <Td>1</Td>
+            <Td></Td>
+            <Td>{useSelector((state) => state.admin.yearchartState[6])["price"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
+          </Tr>
+          <Tr>
+            <Tdword>기타수익</Tdword>
+            <Td>1</Td>
+            <Td></Td>
+            <Td>{useSelector((state) => state.admin.yearchartState[7])["price"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
             <Td></Td>
           </Tr>
           <Tr>
-            <Td>금융수익</Td>
+            <Tdword>기타비용</Tdword>
             <Td>1</Td>
             <Td></Td>
-            <Td>1</Td>
-            <Td></Td>
-          </Tr>
-          <Tr>
-            <Td>금융비용</Td>
-            <Td>1</Td>
-            <Td></Td>
-            <Td>1</Td>
+            <Td>{useSelector((state) => state.admin.yearchartState[8])["price"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
             <Td></Td>
           </Tr>
           <Tr>
-            <Td>당기순이익</Td>
+            <Tdword>금융수익</Tdword>
+            <Td>1</Td>
+            <Td></Td>
+            <Td>{useSelector((state) => state.admin.yearchartState[9])["price"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
+            <Td></Td>
+          </Tr>
+          <Tr>
+            <Tdword>금융비용</Tdword>
+            <Td>1</Td>
+            <Td></Td>
+            <Td>{useSelector((state) => state.admin.yearchartState[10])["price"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
+            <Td></Td>
+          </Tr>
+          <Tr>
+            <Tdword>당기순이익</Tdword>
             <Td></Td>
             <Td>1</Td>
             <Td></Td>
-            <Td>1</Td>
+            <Td>{useSelector((state) => state.admin.yearchartState[11])["price"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
           </Tr>
         </Table>
       </div>
@@ -153,8 +145,18 @@ const Table = styled.table`
 const Tr = styled.tr`
   text-align: center;
 `;
+
+const Tdword = styled.td`
+  height: 40px;
+  width: 100px;
+  text-align: center;
+  border: 1px solid black;
+`;
+
 const Td = styled.td`
   height: 40px;
   width: 100px;
+  text-align: right;
   border: 1px solid black;
+  padding-right:1em;
 `;

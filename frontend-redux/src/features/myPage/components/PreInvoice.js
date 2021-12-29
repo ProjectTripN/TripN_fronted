@@ -87,7 +87,6 @@ export default function PreInvoice() {
         </Table>
       </TableContainer>
       <br />
-      <ScheduleAcc />
       <br />
       {/* <VoucherTab/> */}
     </>

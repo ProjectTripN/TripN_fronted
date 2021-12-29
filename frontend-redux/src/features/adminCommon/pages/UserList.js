@@ -21,11 +21,14 @@ const UserList = () => {
   const type = useSelector((state) => state.user.type); // 자바의 레포지토리의 타입
   const keyword = useSelector((state) => state.user.keyword); // 레포지토리의 키
   const [usersearch, setUsersearch] = useState({
+    // type: type,
+    // keyword: keyword, 
+    // page: page,
     name: "NONE",
     birth: "NONE",
-    phone: "NONE"
+    phoneNumber: "NONE"
   });
-  const {name, birth, phone} = usersearch;
+  const {name, birth, phoneNumber} = usersearch;
 
   const page = 1;
   const handleChange = (event) => {
@@ -72,8 +75,8 @@ const UserList = () => {
                   휴대폰번호:
                   <input
                     type="tel"
-                    id="phone"
-                    value={phone}
+                    id="phoneNumber"
+                    value={phoneNumber}
                     onChange={handleChange}
                     pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
                     placeholder="No Hyphen"
@@ -100,9 +103,9 @@ const UserList = () => {
                   <TableRow key={userId}>
                     <TableCell>{i.userId}</TableCell>
                     <TableCell>{i.name}</TableCell>
-                    <TableCell>{i.username}</TableCell>
+                    <TableCell>{i.userName}</TableCell>
                     <TableCell>{i.birth}</TableCell>
-                    <TableCell>{i.phone_number}</TableCell>
+                    <TableCell>{i.phoneNumber}</TableCell>
                     <TableCell>{i.regDate}</TableCell>
                     {/* <TableCell>
                       {moment(users.createdAt).format("DD/MM/YYYY")}

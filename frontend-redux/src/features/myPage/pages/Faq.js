@@ -54,9 +54,9 @@ export default function FAQ(props) {
                   <TableRow key={userId}>
                     <TableCell>{i.userId}</TableCell>
                     <TableCell>{i.name}</TableCell>
-                    <TableCell>{i.username}</TableCell>
+                    <TableCell>{i.userName}</TableCell>
                     <TableCell>{i.birth}</TableCell>
-                    <TableCell>{i.phone_number}</TableCell>
+                    <TableCell>{i.phoneNumber}</TableCell>
                     <TableCell>{i.regDate}</TableCell>
                    
                   </TableRow>

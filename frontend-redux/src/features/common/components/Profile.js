@@ -1,9 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import { Box, Button, CardContent, Typography } from "@material-ui/core";
 import mickey from "../imgs/mickey.png";
 import { Icon } from "@iconify/react";
 
 export default function Profile(props) {
+
+
+  // axios.post("api/uploadfile", formData)
+  //   .then(res => {
+  //     console.log(res);
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //   });
+
+
   return (
     <>
       <Box
@@ -24,17 +35,9 @@ export default function Profile(props) {
             }}
           >
             <img src={mickey} height="100px" width="100px" />
-            <Box sx={{ bgcolor: "#ffff", height: "2.5vh" }} />
+            <Box sx={{ bgcolor: "#ffff", height: "3vh" }} />
             <div>김트립</div>
             <div>tripkim@gmail.com</div>
-            <Button style={{ minWidth: "200px" }}>
-              프로필 사진 변경
-              <Icon
-                icon="fluent:picture-in-picture-exit-20-regular"
-                color="#553830"
-                height={30}
-              />
-            </Button>
           </Box>
         </CardContent>
       </Box>
