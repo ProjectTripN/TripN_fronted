@@ -16,7 +16,7 @@ export function Home() {
           variant="h5"
           sx={{ mb: 12, mt: { sx: 4, sm: 10 } }}
         >
-          TripN은 당신에 의한 당신을 위한 당신의 성향에 의거한 맞춤 여행
+          Trip N 은 당신에 의한 당신을 위한 당신의 성향에 의거한 맞춤 여행
           서비스를 제공합니다.
         </Typography>
         <Button

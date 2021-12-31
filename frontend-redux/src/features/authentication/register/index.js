@@ -1,1 +1,0 @@
-export { default as RegisterForm } from './RegisterForm_D';

@@ -11,7 +11,7 @@ import { ResponsiveRadar } from '@nivo/radar'
 const Chart3 = ({ data /* see data tab */ }) => (
     <ResponsiveRadar
         data={data}
-        keys={[ 'chardonay', 'carmenere', 'syrah' ]}
+        keys={[ '여자', '남자', '합계' ]}
         indexBy="taste"
         maxValue="auto"
         margin={{ top: 70, right: 80, bottom: 40, left: 80 }}

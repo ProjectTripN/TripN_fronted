@@ -28,9 +28,4 @@ export default {
   mbti,
   listModify,
   list,
-  // exist,
-  // detail,
-  // list,
-  // modify,
-  // remove
 };

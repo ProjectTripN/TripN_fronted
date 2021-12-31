@@ -48,8 +48,8 @@ export default function ChatBotTripN() {
     >
       <ChatBot
         headerTitle="TripN"
-        recognitionEnable={{ enable: true, lang: 'ko' }}  // 듣기 해서 받아쓰기 
-        speechSynthesis={{ enable: true, lang: 'ko' }}
+        // recognitionEnable={{ enable: true, lang: 'ko' }}  // 듣기 해서 받아쓰기 
+        // speechSynthesis={{ enable: true, lang: 'ko' }}
         botAvatar={require("../data/user.png").default}
         userAvatar={require("../data/icon.png").default}
         steps={[

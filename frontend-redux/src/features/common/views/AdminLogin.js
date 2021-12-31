@@ -25,7 +25,8 @@ import { LoadingButton } from "@mui/lab";
 import {
   lastSixMonth,
   yearchart,
-  profitSixmonth
+  profitSixmonth,
+  salesItem,
 } from "features/adminCommon/reducer/adminSlice";
 
 const ContentStyle = styled("div")(({ theme }) => ({
@@ -80,7 +81,8 @@ export default function AdminLogin() {
   useEffect(() => {
     dispatch(lastSixMonth());
     dispatch(yearchart()); // financial reports
-    dispatch(profitSixmonth()); // SM - six month reports
+    // dispatch(profitSixmonth()); // SM - six month reports
+    dispatch(salesItem());
 
     console.log("보낸다");
   }, []);

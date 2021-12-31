@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import { Stack, Link, Container, Typography, TextField, Grid, Button } from '@mui/material';
 import * as Yup from 'yup';
 import { useFormik, Form, FormikProvider } from 'formik';
+import { useDispatch } from "react-redux";
 import { LoadingButton } from '@mui/lab';
 import { TripLayout } from 'features/common';
 
@@ -17,24 +18,32 @@ const ContentStyle = styled('div')(({ theme }) => ({
 }));
 
 export default function ForgotPassword() {
+  const dispatch = useDispatch();
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string().email('Email must be a valid email address').required('Email is required'),
-    password: Yup.string().required('Password is required'),
-    number: Yup.number().required('PhoneNumber is required')
+
   });
 
   const formik = useFormik({
     initialValues: {
       email: '',
-      number: '',
-      text: '',
       remember: true
     },
     validationSchema: LoginSchema,
   });
 
-  const { errors, touched, isSubmitting, handleSubmit, getFieldProps } = formik;
+  const { errors, touched, isSubmitting, values, getFieldProps } = formik;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    alert(JSON.stringify(values));
+
+    // await dispatch(login(values));
+  };
+
 
   return (<>
   <TripLayout>
@@ -66,7 +75,8 @@ export default function ForgotPassword() {
             size="large"
             type="submit"
             variant="contained"
-            loading={isSubmitting}> 
+            loading={isSubmitting}
+            > 
             이메일로 링크 보내기 
           </LoadingButton>
         </Form>

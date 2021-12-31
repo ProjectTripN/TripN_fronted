@@ -90,7 +90,7 @@ const MonthReports = (props) => {
       <CardContent>
         <Box
           sx={{
-            height: 400,
+            height: 446,
             position: "relative",
           }}
         >

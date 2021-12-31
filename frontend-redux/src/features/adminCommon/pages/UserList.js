@@ -18,19 +18,12 @@ import {
 const UserList = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.user.usersState);
-  const type = useSelector((state) => state.user.type); // 자바의 레포지토리의 타입
-  const keyword = useSelector((state) => state.user.keyword); // 레포지토리의 키
   const [usersearch, setUsersearch] = useState({
-    // type: type,
-    // keyword: keyword, 
-    // page: page,
     name: "NONE",
     birth: "NONE",
     phoneNumber: "NONE"
   });
   const {name, birth, phoneNumber} = usersearch;
-
-  const page = 1;
   const handleChange = (event) => {
     console.log(event.target.name);
     setUsersearch({ ...usersearch, [event.target.id]: event.target.value });
@@ -45,7 +38,7 @@ const UserList = () => {
   }, []);
 
   console.log(JSON.stringify(users.userId));
-  console.log(type);
+  
 
   return (
     <>

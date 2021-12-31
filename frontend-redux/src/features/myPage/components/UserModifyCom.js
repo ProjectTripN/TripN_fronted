@@ -24,6 +24,7 @@ import * as Yup from "yup";
 import { Link as RouterLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { userModify } from "features/user/reducer/userSlice";
+import { uploadIMG } from "features/myPage/reducer/mypageSlice";
 
 const ContentStyle = styled("div")(({ theme }) => ({
   maxWidth: 480,
@@ -84,7 +85,6 @@ export default function UserModifyCom() {
 
   const { errors, touched, values, isSubmitting, getFieldProps } = formik;
 
-
   //----------------프로필 사진 업로드
   // 담을 state
   const [selectedFile, setSelectedFile] = useState(null);
@@ -93,13 +93,14 @@ export default function UserModifyCom() {
     setSelectedFile(event.target.files[0]);
   };
   // formData라는 instance에 담아 보냄
-  const handleFileUpload = async (e ) => {
+  const handleFileUpload = async (e) => {
     e.preventDefault();
     e.stopPropagation();
 
     const formData = new FormData();
     formData.append("userfile", selectedFile, selectedFile.name);
-    // await dispatch(uploadIMG(formData));
+    console.log("aaaaaaaaaaaa" + "userfile");
+    await dispatch(uploadIMG(formData));
   };
 
   return (
@@ -211,7 +212,7 @@ export default function UserModifyCom() {
                     text="birth"
                     {...getFieldProps("birth")}
                   />
-<Divider sx={{ my: 3 }} />
+                  <Divider sx={{ my: 3 }} />
                   <Typography
                     variant="subtitle1"
                     fontWeight="Bold"
@@ -283,6 +284,8 @@ export default function UserModifyCom() {
                   </Stack>
                 </Stack>
               </Grid>
+              <br />
+              <br />
               <Typography
                 variant="subtitle2"
                 sx={{ mt: 3, textAlign: "center" }}

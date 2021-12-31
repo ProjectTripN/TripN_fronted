@@ -20,9 +20,10 @@ const USERMODIFY = async (x) => {
   console.log(" 값이 돌아온다 뿅뿅뿅 " + JSON.stringify(res.data));
   return res.data;
 };
+
 // const LIST = async ({ page }) => {
 //   console.log("값을 보냈다.")
-//   const res = await userAPI.list(page);
+//   const res = await userAPI.list(page);-0
 //   console.log("값이 왔다.")
 //   return res.data;
 // };
@@ -56,9 +57,10 @@ const LIST = async (x) => {
 export const join = createAsyncThunk("users/join", JOIN);
 export const login = createAsyncThunk("users/login", LOGIN);
 export const mbti = createAsyncThunk("users/modify", MBTI); //mbti
-// console.log("login fulfilled");
 export const userModify = createAsyncThunk("users/update", USERMODIFY); //mbti
 export const list = createAsyncThunk("users/list", LIST);
+// export const ForgotPassword = createAsyncThunk("user/forgotPassword", FORGOT);
+
 
 // export const exist = createAsyncThunk('user/exist', EXIST)
 // export const detail = createAsyncThunk('users/one', DETAIL)
@@ -94,7 +96,7 @@ const userSlice = createSlice({
       regDate: "",
       token: "",
       mbti: "",
-      mbti_list: "",
+      mbtiList: "",
     },
     usersState: [],
     type: "",

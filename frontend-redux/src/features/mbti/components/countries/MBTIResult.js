@@ -18,7 +18,7 @@ const MBTIResult = ({}) => {
   const personMbti = {
     userId: user["userId"],
     mbti: nation.id,
-    mbti_list: localStorage.getItem("mbti"),
+    mbtiList: localStorage.getItem("mbti"),
   };
 
   console.log(personMbti);

@@ -1,144 +1,179 @@
-import { Grid, Container } from "@mui/material";
-import FAQcom from "../components/FAQcom";
+import React, { useEffect } from "react";
 import { MyLayout } from "features/common";
-import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { list } from "features/user/reducer/userSlice";
-import { AppAppBar } from "features/adminCommon";
-import moment from "moment";
-import { v4 as uuid } from "uuid";
-import {
-  Box,
-  Card,
-  Divider,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-} from "@material-ui/core";
+import PropTypes from "prop-types";
+import Box from "@mui/material/Box";
+import Collapse from "@mui/material/Collapse";
+import IconButton from "@mui/material/IconButton";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Typography from "@mui/material/Typography";
+import Paper from "@mui/material/Paper";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { faqList } from "features/myPage/reducer/mypageSlice";
+
+function createData(name, calories, fat, carbs) {
+  return {
+    name,
+    calories,
+    fat,
+    carbs,
+    history: [
+      {
+        date: "2020-01-05",
+      },
+    ],
+  };
+}
+// 애도 왠지 안쓰게될듯
+
+function Row(props) {
+  const { row } = props;
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <React.Fragment>
+      <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
+        <TableCell>
+          <IconButton
+            aria-label="expand row"
+            size="small"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          </IconButton>
+        </TableCell>
+        <TableCell component="th" scope="row">
+          {row.name}
+        </TableCell>
+        <TableCell align="right">{row.calories}</TableCell>
+        <TableCell align="right">{row.fat}</TableCell>
+        <TableCell align="right">{row.carbs}</TableCell>
+        <TableCell align="right">{row.protein}</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <Box sx={{ margin: 1 }}>
+              <Typography
+                variant="h6"
+                gutterBottom
+                component="div"
+              ></Typography>
+              <Table size="small" aria-label="purchases">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>응답</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {/* {users.map((i, userId) => (
+                  <TableRow key={userId}>
+                    <TableCell>{i.userId}</TableCell>
+                    <TableCell>{i.name}</TableCell>
+                    
+                  </TableRow>
+                ))} */}
+
+                  {row.history.map((historyRow) => (
+                    <TableRow key={historyRow.date}>
+                      <TableCell component="th" scope="row">
+                        {historyRow.date + "응답할것이댜댜댣댜댜댷 "}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </Box>
+          </Collapse>
+        </TableCell>
+      </TableRow>
+    </React.Fragment>
+  );
+}
+
+Row.propTypes = {
+  row: PropTypes.shape({
+    calories: PropTypes.number.isRequired,
+    carbs: PropTypes.number.isRequired,
+    fat: PropTypes.number.isRequired,
+    history: PropTypes.arrayOf(
+      PropTypes.shape({
+        date: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    protein: PropTypes.number.isRequired,
+  }).isRequired,
+};
+
+const rows = [
+  createData(
+    "1",
+    "항공권은 어떻게 예약할 수 있나요?",
+    "항공권",
+    "발매 판매 및등등 "
+  ),
+  createData("2", 237, 9.0, 37),
+];
 
 export default function FAQ(props) {
+  const dispatch = useDispatch();
+  const aaa = useSelector((state) => state.mypage.faqListState);
+  useEffect(() => {
+    dispatch(faqList())
+  },[]);
+
+  // const list = useSelector((state) => state.mypage.faqListState);
+  // const type = useSelector((state) => state.mypage.type); // 자바의 레포지토리의 타입
+  // const keyword = useSelector((state) => state.mypage.keyword); // 레포지토리의 키
+  // const page = 1;
+
+  // useEffect(() => {
+  //   const param = { type: type, keyword: keyword, page: page };
+  //   dispatch(faqList(param));
+  //   console.log(param);
+  // }, []);
+
+  console.log(JSON.stringify());
+
   return (
     <>
       <MyLayout>
-      <Card>
-        <h1 align="center">User List</h1>
-        {/* <CardHeader title="User List" align="center" /> */}
-        <Divider />
-        <Box sx={{ minWidth: 800 }}>
-          <Table>
+        <TableContainer component={Paper}>
+          <Table aria-label="collapsible table">
             <TableHead>
-              <TableCell>
-                <label>
-                  이름:
-                  <input type="text" id="name"  />
-                  {/* value={name} onChange={handleChange} */}
-                </label>
-                  {/* <button onClick={()=>{dispatch(list(usersearch));}}>search</button> */}
-              </TableCell>
+              <TableRow>
+                <TableCell />
+                <TableCell align="center">번호</TableCell>
+                <TableCell align="center">질문</TableCell>
+                <TableCell align="center">카테고리</TableCell>
+                <TableCell align="center">항목</TableCell>
+              </TableRow>
             </TableHead>
-          </Table>
-          <div style={{ width: "95%", margin: "10px auto" }}>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>번호</TableCell>
-                  <TableCell>질문 </TableCell>
-                  <TableCell>응답</TableCell>
-                  
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {/* {users.map((i, userId) => (
+            <TableBody>
+              {/* {users.map((i, userId) => (
                   <TableRow key={userId}>
                     <TableCell>{i.userId}</TableCell>
                     <TableCell>{i.name}</TableCell>
                     <TableCell>{i.userName}</TableCell>
                     <TableCell>{i.birth}</TableCell>
-                    <TableCell>{i.phoneNumber}</TableCell>
-                    <TableCell>{i.regDate}</TableCell>
-                   
                   </TableRow>
                 ))} */}
-
-                 {/* <TableCell>
-                      {moment(users.createdAt).format("DD/MM/YYYY")}
-                    </TableCell> */}
-              </TableBody>
-            </Table>
-          </div>
-        </Box>
-      </Card>
-
-
-
-        {/* ---------- */}
-        <Box sx={{ width: "90%", height: "auto" }}>
-          <Container>
-            <Box sx={{ height: "10vh", width: "auto" }} />
-            <Grid container spacing={2}>
-              <Grid>
-                <Divider />
-              </Grid>
-              <FAQcom />
-            </Grid>
-          </Container>
-        </Box>
+              // 얘 말고 위에거 쓸거얌
+              {rows.map((row) => (
+                <Row key={row.name} row={row} />
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </MyLayout>
     </>
   );
 }
-
-
-
-
-
-// -------------
-
-// import React, { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { list } from "features/user/reducer/userSlice";
-// import { AppAppBar } from "features/adminCommon";
-// import moment from "moment";
-// import { v4 as uuid } from "uuid";
-// import {
-//   Box,
-//   Card,
-//   Divider,
-//   Table,
-//   TableBody,
-//   TableCell,
-//   TableHead,
-//   TableRow,
-// } from "@material-ui/core";
-
-
-// const UserList = () => {
-//   const dispatch = useDispatch();
-//   const users = useSelector((state) => state.user.usersState);
-//   const type = useSelector((state) => state.user.type); // 자바의 레포지토리의 타입
-//   const keyword = useSelector((state) => state.user.keyword); // 레포지토리의 키
-//   const [usersearch, setUsersearch] = useState({
-//     name: "NONE",
-//     birth: "NONE",
-//     phone: "NONE"
-//   });
-//   const {name, birth, phone} = usersearch;
-
-//   const page = 1;
-//   const handleChange = (event) => {
-//     console.log(event.target.name);
-//     setUsersearch({ ...usersearch, [event.target.id]: event.target.value });
-//     console.log(usersearch);
-//   };
-
-
-//   useEffect(() => {
-//     dispatch(list(usersearch));
-//   }, []);
-
-//   console.log(JSON.stringify(users.userId));
-//   console.log(type);
-
-

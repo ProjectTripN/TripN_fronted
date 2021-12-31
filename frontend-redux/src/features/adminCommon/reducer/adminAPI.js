@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const SERVER = "http://192.168.0.106:8000/api";
-
+// const SERVER = "http://172.29.208.1:8000/api";
+const SERVER = "http://192.168.0.75:8000/api";
 
 const headers = {
   "Content-type": "application/json",
@@ -12,6 +12,8 @@ const headers = {
 const totalProfit = () => axios.get(`${SERVER}/ledger/profit`);
 const lastSixMonth = () => axios.get(`${SERVER}/reservation/count`);
 const yearchart = () => axios.get(`${SERVER}/fin_reports/show_fin_reports`);
+const profitSixmonth = () => axios.get(`${SERVER}/ledger/6month_cost`);
+const salesItem = () => axios.get(`${SERVER}/reservation/month`);
 
 // const join = (x) =>
 //   axios.post(`${SERVER}/users/join`, JSON.stringify(x), { headers });
@@ -27,4 +29,6 @@ export default {
   totalProfit,
   lastSixMonth,
   yearchart,
+  profitSixmonth,
+  salesItem,
 };

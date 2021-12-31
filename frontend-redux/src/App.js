@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { DashBoard, UserList } from "features/adminCommon";
 import { FinancialReports, SalesManagement } from "features/financial";
 import { Home } from "features/home";
-import { Recommand } from "features/recommand";
+import { ProductCategories, Recommand } from "features/recommand";
 import { TotalValue } from "features/totalValue";
 import { EnterPassword, FAQ, MyPage, Reservation, UserModify } from "features/myPage";
 import { JoinDetail, Join, Login, ForgotPassword } from "features/user";
@@ -57,6 +57,8 @@ function App() {
           {/* test */}
           <Route path="/test" element={<TestA />} />
           <Route path="/testbbb" element={<TestB />} />
+          <Route path="/testcategor" element={<ProductCategories />} />
+          
         </Routes>
       </div>
     </>

@@ -12,3 +12,8 @@ export { default as EnterPassword } from "features/myPage/pages/EnterPassword";
 export { default as UserModify } from "features/myPage/pages/UserModify";
 export { default as Reservation } from "features/myPage/pages/Reservation";
 export { default as FAQ } from "features/myPage/pages/Faq";
+
+
+//reducer
+export { default as mypageAPI } from "features/myPage/reducer/mypageAPI";
+export { default as mypageSlice } from "features/myPage/reducer/mypageSlice";
