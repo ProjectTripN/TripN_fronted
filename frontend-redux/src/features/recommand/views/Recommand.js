@@ -66,25 +66,21 @@ export function Recommand() {
     //  olle: [olle['id']],
   };
 
- 
   const accomImages = [
     {
-      url:
-      `${JSON.stringify(acc_1["url"])}`,
+      url: `${JSON.stringify(acc_1["url"])}`,
       title: "Snorkeling",
       width: "30%",
     },
 
     {
-      url:
-      `${JSON.stringify(acc_2["url"])}`,
+      url: `${JSON.stringify(acc_2["url"])}`,
       title: "Tour",
       width: "30%",
     },
 
     {
-      url:
-      `${JSON.stringify(acc_3["url"])}`,
+      url: `${JSON.stringify(acc_3["url"])}`,
       title: "Reading",
       width: "30%",
     },
@@ -92,22 +88,19 @@ export function Recommand() {
 
   const activity1Images = [
     {
-      url:
-      `${JSON.stringify(act_1["url"])}`,
+      url: `${JSON.stringify(act_1["url"])}`,
       title: "Snorkeling",
       width: "30%",
     },
 
     {
-      url:
-      `${JSON.stringify(act_2["url"])}`,
+      url: `${JSON.stringify(act_2["url"])}`,
       title: "Tour",
       width: "30%",
     },
 
     {
-      url:
-      `${JSON.stringify(act_3["url"])}`,
+      url: `${JSON.stringify(act_3["url"])}`,
       title: "Reading",
       width: "30%",
     },
@@ -119,8 +112,7 @@ export function Recommand() {
       width: "30%",
     },
     {
-      url:
-      `${JSON.stringify(act_5["url"])}`,
+      url: `${JSON.stringify(act_5["url"])}`,
       title: "Tour",
       width: "30%",
     },
@@ -462,9 +454,9 @@ export function Recommand() {
           <Button></Button>
           <Button></Button>
           <Button></Button>
-          <Button></Button>
           <br />
-          Activity {activity1["name"]}과(와) {activity2["name"]} 이(가) 선택되었습니다
+          Activity {activity1["name"]}과(와) {activity2["name"]} 이(가)
+          선택되었습니다
           {window.localStorage.setItem("activty1", result.activity1)}
           {window.localStorage.setItem("activty2", result.activity2)}
         </div>

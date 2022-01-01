@@ -18,6 +18,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import styles from "features/recReservation/styles/RecReservation.module.scss";
 import { recommandSave } from "features/recommand/reducer/recommandSlice";
 import EventMarkerContainer from "../components/EventMarkerContainer";
+import { width } from "@mui/system";
 
 export function RecommandReservation() {
   const dispatch = useDispatch();
@@ -275,6 +276,8 @@ export function RecommandReservation() {
                       <br />
                       추천 메뉴 : {plan[`0day-${acc["name"]}`][0]["recommend"]}
                       <br />
+                      {/* <div style={{width:'30px', height:'30px'}} src={plan[`0day-${acc["name"]}`][0]["url"]}></div> */}
+                      {/* <img style={{height:"30px", width:"30px", background_image: plan[`0day-${acc["name"]}`][0]["url"]}}></img> */}
                     </div>
                     <div>
                       <h4>추천 식당 2</h4>
@@ -364,24 +367,27 @@ export function RecommandReservation() {
                   <>
                     <Map
                       center={{
-                        lat: 33.3469026219773,
-                        lng: 126.535454418798,
+                        lat: plan[`day-${activity[0]}`][0]["lat"],
+                        lng: plan[`day-${activity[0]}`][0]["log"],
                       }}
                       style={{
                         width: "1000px",
                         height: "600px",
                       }}
-                      level={10}
+                      level={8}
                       onCreate={setMap}
                     >
                       <MapMarker
-                        position={{ lat: acc["lat"], lng: acc["log"] }}
+                        position={{
+                          lat: plan[`day-${activity[0]}`][0]["lat"],
+                          lng: plan[`day-${activity[0]}`][0]["log"],
+                        }}
                         // title='현재 위치'
                         image={{
                           // 무료 마커이미지의 주소: https://www.flaticon.com/kr/
                           // src: "https://cdn-icons.flaticon.com/png/512/5693/premium/5693914.png?token=exp=1637741898~hmac=fada3fe37d0197cf397c5d7713400e95",
                           src:
-                            "https://cdn-icons-png.flaticon.com/512/5717/5717316.png",
+                            "https://cdn-icons-png.flaticon.com/512/5717/5717262.png",
                           size: {
                             width: 45,
                             height: 45,
@@ -399,7 +405,7 @@ export function RecommandReservation() {
                       >
                         {isOpen && (
                           <div style={{ padding: "5px", color: "#000" }}>
-                            숙소 위치
+                            {plan[`day-${activity[0]}`][0]["name"]}
                           </div>
                         )}
                       </MapMarker>
@@ -559,24 +565,27 @@ export function RecommandReservation() {
                   <>
                     <Map
                       center={{
-                        lat: 33.3469026219773,
-                        lng: 126.535454418798,
+                        lat: plan[`day-${activity[1]}`][0]["lat"],
+                        lng: plan[`day-${activity[1]}`][0]["log"],
                       }}
                       style={{
                         width: "1000px",
                         height: "600px",
                       }}
-                      level={10}
+                      level={8}
                       onCreate={setMap}
                     >
                       <MapMarker
-                        position={{ lat: acc["lat"], lng: acc["log"] }}
+                        position={{
+                          lat: plan[`day-${activity[1]}`][0]["lat"],
+                          lng: plan[`day-${activity[1]}`][0]["log"],
+                        }}
                         // title='현재 위치'
                         image={{
                           // 무료 마커이미지의 주소: https://www.flaticon.com/kr/
                           // src: "https://cdn-icons.flaticon.com/png/512/5693/premium/5693914.png?token=exp=1637741898~hmac=fada3fe37d0197cf397c5d7713400e95",
                           src:
-                            "https://cdn-icons-png.flaticon.com/512/5717/5717316.png",
+                            "https://cdn-icons-png.flaticon.com/512/5717/5717262.png",
                           size: {
                             width: 45,
                             height: 45,
@@ -594,7 +603,7 @@ export function RecommandReservation() {
                       >
                         {isOpen && (
                           <div style={{ padding: "5px", color: "#000" }}>
-                            숙소 위치
+                            {plan[`day-${activity[1]}`][0]["name"]}
                           </div>
                         )}
                       </MapMarker>

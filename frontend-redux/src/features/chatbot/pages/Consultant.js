@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 import { Button, Typography } from "@mui/material";
 import { TripLayout } from "features/common";
 import { Chat } from "..";
-import { tour } from "../reducer/chatSlice";
 import { useDispatch } from "react-redux";
 
 export function Consultant() {
-  const dispatch = useDispatch();
   return (
     <TripLayout>
       <div align="center" style={{ margin: "30px" }}>
@@ -15,23 +13,6 @@ export function Consultant() {
         <br />
         <br />
         <br />
-        <button
-          onClick={() => {
-            dispatch(
-              tour({
-                date1: "2021-02-18",
-                date2: "2021-02-22",
-                start: "GMP",
-                Number: 5,
-                user: 16,
-                mbti: "eeinnntftjjj",
-                relationship: "가족",
-              })
-            );
-          }}
-        >
-          gggggggggggggggg
-        </button>
         <Button
           component={Link}
           to="/recommand"

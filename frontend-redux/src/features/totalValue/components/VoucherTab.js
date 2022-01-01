@@ -11,22 +11,23 @@ export default function LabTabs() {
   const [value, setValue] = React.useState("1");
 
   const Voucher = useSelector((state) => state.recommandSlice.saveState[0]);
-  const plan = Voucher[1];
-  const plane = Voucher[2]["plane"];
-  const acc = Voucher[3]["acc"];
-  const activity = Voucher[4]["activity"];
-  const day1 = plan[`day-${activity[0]}`];
-  const day2 = plan[`day-${activity[1]}`];
+  const plan = Voucher["schedule"];
+  const plane = Voucher["plane_detail"];
+  const acc = Voucher["acc_detail"];
+  const activity = Voucher["activity_name"];
+  const day1 = plan[`0day-${acc[0]["name"]}`];
+  const day2 = plan[`day-${activity[0]}`];
+  const day3 = plan[`day-${activity[1]}`];
   console.log(
     `Voucher 0 =========== ${JSON.stringify(
-      JSON.parse(JSON.stringify(Voucher[0]))
+      JSON.parse(JSON.stringify(activity))
     )}`
   );
-  console.log(`Voucher 1 =========== ${JSON.stringify(Voucher[1])}`);
-  console.log(`dkkkkkkkkkkkkkkkkkk   ${plan[`day-${activity[0]}`]}`);
-  console.log(`Voucher 2 =========== ${JSON.stringify(Voucher[2])}`); // 비행기
-  console.log(`Voucher 3 =========== ${JSON.stringify(Voucher[3])}`); // 숙소
-  console.log(`Voucher 4 =========== ${JSON.stringify(activity)}`); // 액티비티 name
+  // console.log(`Voucher 1 =========== ${JSON.stringify(Voucher)}`);
+  // console.log(`dkkkkkkkkkkkkkkkkkk   ${plan[`day-${acc[0]['name']}`]}`);
+  // console.log(`Voucher 2 =========== ${JSON.stringify(plane)}`); // 비행기
+  // console.log(`Voucher 3 =========== ${JSON.stringify(acc)}`); // 숙소
+  // console.log(`Voucher 4 =========== ${JSON.stringify(activity)}`); // 액티비티 name
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -72,28 +73,28 @@ export default function LabTabs() {
           </TabPanel>
           <TabPanel value="3">
             {" 엑티비티 "}
-            이름 : {day1[0]["name"]}
-            <br />
-            영업시간 : {day1[0]["start_business_time"]} -{" "}
-            {day1[0]["end_business_time"]}
-            <br />
-            체험시간 : {day1[0]["time"]}
-            <br />
-            주소 : {day1[0]["loc"]}
-            <br />
-            가격 : ₩ {day1[0]["price"]} <br />
-            <br />
-            <br />
             이름 : {day2[0]["name"]}
             <br />
             영업시간 : {day2[0]["start_business_time"]} -{" "}
-            {day2[0]["end_business_time"]}
+            {day1[0]["end_business_time"]}
             <br />
             체험시간 : {day2[0]["time"]}
             <br />
             주소 : {day2[0]["loc"]}
             <br />
-            가격 : ₩ {day2[0]["price"]} <br />
+            가격 : ₩ {day2[0]["price"]}/인당 <br />
+            <br />
+            <br />
+            이름 : {day3[0]["name"]}
+            <br />
+            영업시간 : {day3[0]["start_business_time"]} -{" "}
+            {day3[0]["end_business_time"]}
+            <br />
+            체험시간 : {day3[0]["time"]}
+            <br />
+            주소 : {day3[0]["loc"]}
+            <br />
+            가격 : ₩ {day3[0]["price"]}/인당 <br />
           </TabPanel>
         </TabContext>
       </Box>

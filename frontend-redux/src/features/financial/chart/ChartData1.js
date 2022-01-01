@@ -1,18 +1,18 @@
-// ---------- 사용안함! 
+// ---------- 사용안함!
 
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { profitSixmonth } from "features/adminCommon/reducer/adminSlice";
+import { costSixmonth } from "features/adminCommon/reducer/adminSlice";
 
 // const ChartDataOne = () => {
 //   const dispatch = useDispatch();
 //   console.log("sixmonttttttt====ttttasfdasdfasd");
-//   const a = useSelector((state) => state.admin.profitSixmonthState[0]);
+//   const a = useSelector((state) => state.admin.costSixmonthState[0]);
 //   console.log("sixmontttttttttttasfdasdfasd" + JSON.stringify(a));
 //   alert("sixmontttttttttttasfdasdfasd" + JSON.stringify(a));
 
 //   useEffect(() => {
-//     dispatch(profitSixmonth());
+//     dispatch(costSixmonth());
 //     console.log("+++++++++++++보낸다");
 //   }, []);
 

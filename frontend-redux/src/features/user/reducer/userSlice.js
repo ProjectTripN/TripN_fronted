@@ -28,9 +28,9 @@ const USERMODIFY = async (x) => {
 //   return res.data;
 // };
 const LIST = async (x) => {
-  console.log("값을 보냈다.")
+  console.log("값을 보냈다.");
   const res = await userAPI.list(x);
-  console.log("값이 왔다.")
+  console.log("값이 왔다.");
   return res.data;
 };
 // const EXIST = async (x) => {
@@ -60,7 +60,6 @@ export const mbti = createAsyncThunk("users/modify", MBTI); //mbti
 export const userModify = createAsyncThunk("users/update", USERMODIFY); //mbti
 export const list = createAsyncThunk("users/list", LIST);
 // export const ForgotPassword = createAsyncThunk("user/forgotPassword", FORGOT);
-
 
 // export const exist = createAsyncThunk('user/exist', EXIST)
 // export const detail = createAsyncThunk('users/one', DETAIL)
@@ -117,7 +116,7 @@ const userSlice = createSlice({
         alert(`${payload.userName}님 환영합니다`);
         window.localStorage.setItem("sessionUser", JSON.stringify(payload)); // window 전역
         window.localStorage.setItem("userId", JSON.stringify(payload.userId));
-        window.localStorage.setItem("user_mbti", JSON.stringify( payload.mbti));
+        window.localStorage.setItem("user_mbti", JSON.stringify(payload.mbti));
 
         window.location.href = `/`;
         // window.location.href = `/users/detail`; - 이전페이지로 이동 가능
