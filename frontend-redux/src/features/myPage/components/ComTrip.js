@@ -1,9 +1,12 @@
-import React from "react";
-import { ReactDOM } from "react";
-import { Box, Grid, Divider, Typography } from "@mui/material";
-import { element } from "prop-types";
+// import React from "react";
+// import { ReactDOM } from "react";
+// import { Box, Grid, Divider, Typography } from "@mui/material";
+// import { element } from "prop-types";
 
-export default function ComTrip(props) {
+// export default function ComTrip(props) {
+
+
+
   // D-day
 
   // function dday() {
@@ -34,20 +37,24 @@ export default function ComTrip(props) {
 
   // -> useEffect
 
-  return (
-    <>
-      <Box sx={{ width: "100vh", height: "auto" }}>
-        <Grid>
-          <Typography color="textPrimary" gutterBottom variant="h4" align="">
-            다가오는 여행
-          </Typography>
-          <Divider sx={{ my: 3 }} />
-          <Typography color="textPrimary" gutterBottom variant="body1">
-            <h4 id="count" />
-          </Typography>
-          <h1>바우처 / 스케줄 넣어주기 </h1>
-        </Grid>
-      </Box>
-    </>
-  );
-}
+
+
+  
+
+//   return (
+//     <>
+//       <Box sx={{ width: "100vh", height: "auto" }}>
+//         <Grid>
+//           <Typography color="textPrimary" gutterBottom variant="h4" align="">
+//             다가오는 여행
+//           </Typography>
+//           <Divider sx={{ my: 3 }} />
+//           <Typography color="textPrimary" gutterBottom variant="body1">
+//             <h4 id="count" />
+//           </Typography>
+//           <h1>바우처 / 스케줄 넣어주기 </h1>
+//         </Grid>
+//       </Box>
+//     </>
+//   );
+// }

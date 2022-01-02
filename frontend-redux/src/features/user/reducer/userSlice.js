@@ -21,18 +21,18 @@ const USERMODIFY = async (x) => {
   return res.data;
 };
 
-// const LIST = async ({ page }) => {
-//   console.log("값을 보냈다.")
-//   const res = await userAPI.list(page);-0
-//   console.log("값이 왔다.")
-//   return res.data;
-// };
 const LIST = async (x) => {
   console.log("값을 보냈다.");
   const res = await userAPI.list(x);
   console.log("값이 왔다.");
   return res.data;
 };
+
+const FORGOT = async (x) => {
+  const res = await userAPI.forgotPassword(x);
+  return res.data;
+};
+
 // const EXIST = async (x) => {
 //   const res = await userAPI.exist(x)
 //   return res.data
@@ -59,7 +59,7 @@ export const login = createAsyncThunk("users/login", LOGIN);
 export const mbti = createAsyncThunk("users/modify", MBTI); //mbti
 export const userModify = createAsyncThunk("users/update", USERMODIFY); //mbti
 export const list = createAsyncThunk("users/list", LIST);
-// export const ForgotPassword = createAsyncThunk("user/forgotPassword", FORGOT);
+export const forgotPassword = createAsyncThunk("user/forgotPassword", FORGOT);
 
 // export const exist = createAsyncThunk('user/exist', EXIST)
 // export const detail = createAsyncThunk('users/one', DETAIL)
@@ -151,6 +151,10 @@ const userSlice = createSlice({
       state.usersState = payload;
     },
 
+    [forgotPassword.fulfilled]: (state, action) => {
+      state.userState = action.payload; 
+      
+    },
     // [detailPage.fulfilled]: ( state, {meta, payload} ) => { state.userState = payload },
     // [listPage.fulfilled]: ( state, {meta, payload} ) => {
     //      state.userState = payload },

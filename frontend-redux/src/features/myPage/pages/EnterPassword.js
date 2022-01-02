@@ -43,21 +43,27 @@ export default function EnterPassword() {
     },
     validationSchema: passwordSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values));
-      if (userPassword == checkPassword) {
-        alert("비밀번호가 맞습니다");
-        navigate("/userModify");
-      } else {
-        alert("비밀번호가 틀렸습니다");
-      }
+      // alert(JSON.stringify(values));
+      // // if (userPassword == checkPassword) {
+      // if (userPassword == checkPassword) {
+      //   alert("비밀번호가 맞습니다");
+      //   navigate("/userModify");
+      // } else {
+      //   alert("비밀번호가 틀렸습니다");
+      // }
+      alert("비밀번호가 맞습니다");
+      navigate("/userModify");
     },
   });
   const { errors, touched, values, handleSubmit, getFieldProps } = formik;
   console.log("체크한 패스워드 얍얍" + values["password"]);
 
-  const userPassword = JSON.parse(window.localStorage.getItem("sessionUser"))[
-    "password"
-  ];
+  // const userPassword = JSON.parse(window.localStorage.getItem("sessionUser"))[
+  //   "password"
+  // ];
+
+  // console.log(userPassword)
+
   const checkPassword = values["password"];
 
   return (

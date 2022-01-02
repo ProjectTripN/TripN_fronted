@@ -4,9 +4,9 @@ import { Link as RouterLink } from "react-router-dom";
 
 export default function AppAppBar() {
   const handleSubmit = (e) => {
-    e.preventDefault()
-    window.location.href = "/"
-  }
+    e.preventDefault();
+    window.location.href = "/";
+  };
   return (
     <div>
       <AppBar position="fixed">
@@ -18,7 +18,9 @@ export default function AppAppBar() {
           }}
         >
           <Box sx={{ justifyContent: "flex-start" }}>
-            <div onClick={handleSubmit} ><h1>Trip N Admin</h1></div>
+            <div onClick={handleSubmit}>
+              <h1>Trip N Admin</h1>
+            </div>
           </Box>
           <Box sx={{ justifyContent: "flex-end" }}>
             <span sx={{ margin: 2 }}>
@@ -54,7 +56,7 @@ export default function AppAppBar() {
                 color="inherit"
                 to="/an/sales-management"
               >
-                {"Sales Management"}
+                {"Management"}
               </Link>
             </span>
             <span sx={{ margin: 2 }}>

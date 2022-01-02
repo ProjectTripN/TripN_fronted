@@ -13,53 +13,57 @@ const Chart1 = ({ data /* see data tab */ }) => (
     data={data}
     // keys={[ 'hot dog', 'burger', 'sandwich', 'kebab', 'fries', 'donut' ]}
     keys={[
-      "매출원가",
+      // "매출원가",
       "판매비와 관리비",
       "지급 수수료",
       "기타비용",
       "금융비용",
     ]}
     indexBy="Month"
-    margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+    margin={{ top: 50, right: 130, bottom: 50, left: 75 }}
     padding={0.3}
     valueScale={{ type: "linear" }}
     indexScale={{ type: "band", round: true }}
     valueFormat={{ format: "", enabled: true }}
     colors={{ scheme: "nivo" }}
-    defs={[
-      {
-        id: "dots",
-        type: "patternDots",
-        background: "inherit",
-        color: "#38bcb2",
-        size: 4,
-        padding: 1,
-        stagger: true,
-      },
-      {
-        id: "lines",
-        type: "patternLines",
-        background: "inherit",
-        color: "#eed312",
-        rotation: -45,
-        lineWidth: 6,
-        spacing: 10,
-      },
-    ]}
-    fill={[
-      {
-        match: {
-          id: "fries",
-        },
-        id: "dots",
-      },
-      {
-        match: {
-          id: "sandwich",
-        },
-        id: "lines",
-      },
-    ]}
+    defs={
+      [
+        // {
+        //   id: "dots",
+        //   type: "patternDots",
+        //   background: "inherit",
+        //   color: "#38bcb2",
+        //   size: 4,
+        //   padding: 1,
+        //   stagger: true,
+        // },
+        // {
+        //   id: "lines",
+        //   type: "patternLines",
+        //   background: "inherit",
+        //   color: "#eed312",
+        //   rotation: -45,
+        //   lineWidth: 6,
+        //   spacing: 10,
+        // },
+      ]
+    }
+    fill={
+      [
+        // {
+        //   match: {
+        //     id: "fries",
+        //   },
+        //   id: "dots",
+        // },
+        // {
+        //   match: {
+        //     id: "sandwich",
+        //   },
+        //   id: "lines",
+        // },
+      ]
+    }
     borderColor={{ from: "color", modifiers: [["darker", 1.6]] }}
     axisTop={null}
     axisRight={null}
@@ -75,7 +79,7 @@ const Chart1 = ({ data /* see data tab */ }) => (
       tickSize: 5,
       tickPadding: 5,
       tickRotation: 0,
-      legend: "price",
+      legend: "",
       legendPosition: "middle",
       legendOffset: -40,
     }}

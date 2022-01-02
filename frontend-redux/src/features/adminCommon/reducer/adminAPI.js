@@ -12,10 +12,10 @@ const headers = {
 //dashboard
 const totalProfit = () => axios.get(`${SERVER}/ledger/profit`);
 const lastSixMonth = () => axios.get(`${SERVER}/reservation/count`);
-const yearchart = () => axios.get(`${SERVER}/fin_reports/show_fin_reports`);
+const yearchart = () => axios.get(`${SERVER}/fin_reports/show_fin`);
 const salesItem = () => axios.get(`${SERVER}/reservation/month`);
 //sales managements
-const costSixmonth = () => axios.get(`${SERVER}/ledger/6month_cost`);
+const costSixmonth = () => axios.get(`${SERVER}/ledger/6month`);
 const costDetails = () => axios.get(`${SERVER}/ledger/month_cost`);
 
 // const join = (x) =>

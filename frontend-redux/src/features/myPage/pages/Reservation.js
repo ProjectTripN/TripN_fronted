@@ -27,8 +27,8 @@ export default function Reservation(props) {
               {/* <ScheduleAcc class='ScheduleAcc'/>
                 <VoucherTab class='VoucherTab'/> */}
               <div style={{ margin: "30px" }}>
-                <Invoice/>
-                <VoucherTab/>
+                {/* <Invoice/>
+                <VoucherTab/> */}
               </div>
               <div style={{ alignItems: "center" }}></div>
             </Grid>

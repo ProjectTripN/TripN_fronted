@@ -11,10 +11,10 @@ export default function LabTabs() {
   const [value, setValue] = React.useState("1");
 
   const Voucher = useSelector((state) => state.recommandSlice.saveState[0]);
-  const plan = Voucher["schedule"];
-  const plane = Voucher["plane_detail"];
-  const acc = Voucher["acc_detail"];
-  const activity = Voucher["activity_name"];
+  const plan = Voucher[0]["schedule"];
+  const plane = Voucher[0]["plane_detail"];
+  const acc = Voucher[0]["acc_detail"];
+  const activity = Voucher[0]["activity_name"];
   const day1 = plan[`0day-${acc[0]["name"]}`];
   const day2 = plan[`day-${activity[0]}`];
   const day3 = plan[`day-${activity[1]}`];

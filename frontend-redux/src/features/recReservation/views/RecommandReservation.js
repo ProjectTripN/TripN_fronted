@@ -18,7 +18,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import styles from "features/recReservation/styles/RecReservation.module.scss";
 import { recommandSave } from "features/recommand/reducer/recommandSlice";
 import EventMarkerContainer from "../components/EventMarkerContainer";
-import { width } from "@mui/system";
 
 export function RecommandReservation() {
   const dispatch = useDispatch();
@@ -26,46 +25,13 @@ export function RecommandReservation() {
   const recommandlist = useSelector(
     (state) => state.recommandSlice.recommandState[0]
   );
-  console.log(`recommandlist====${JSON.stringify(recommandlist)}`);
   const plane = recommandlist[0]["plane"];
   const acc = recommandlist[1]["acc"][0];
   const activity = recommandlist[2]["activity"];
   const plan = recommandlist[3];
-  console.log(`activity ========================= ${JSON.stringify(activity)}`);
   console.log(
-    `plan ==================== ${JSON.stringify(plan[`day-${activity[0]}`])}`
-  );
-  console.log(`plane ==================== ${JSON.stringify(plane)}`);
-  console.log(`acc ==================== ${JSON.stringify(acc)}`);
-  // console.log(`${`day-${acc['name']}`} 0=============${JSON.stringify(plan[`0day-${acc['name']}`][0])}`)
-  // console.log(`${`day-${acc['name']}`} 1=============${JSON.stringify(plan[`0day-${acc['name']}`][1])}`)
-  // console.log(`${`day-${acc['name']}`} 2=============${JSON.stringify(plan[`0day-${acc['name']}`][2])}`)
-  // console.log(`${`day-${acc['name']}`} 3=============${JSON.stringify(plan[`0day-${acc['name']}`][3])}`)
-
-  console.log(
-    `${`day-${activity[0]}`} 0=============${JSON.stringify(
-      plan[`day-${activity[0]}`][0]
-    )}`
-  );
-  console.log(
-    `${`day-${activity[0]}`} 1=============${JSON.stringify(
-      plan[`day-${activity[0]}`][1]
-    )}`
-  );
-  console.log(
-    `${`day-${activity[0]}`} 2=============${JSON.stringify(
-      plan[`day-${activity[0]}`][2]
-    )}`
-  );
-  console.log(
-    `${`day-${activity[0]}`} 3=============${JSON.stringify(
-      plan[`day-${activity[0]}`][3]
-    )}`
-  );
-  console.log(
-    `${`day-${activity[0]}`} 3=============${JSON.stringify(
-      plan[`day-${activity[0]}`][3]
-    )}`
+    "-----------------------------------" +
+      JSON.stringify(plan[`day-${activity[1]}`][1]["url"])
   );
 
   useEffect(() => {
@@ -119,44 +85,47 @@ export function RecommandReservation() {
       <br />
       <TripLayout>
         {/* <VoucherTab /> */}
-        <div>
+        <div alignItems={"center"}>
           <h1> Travel Plan </h1>
-          <Box component={Paper} sx={{ width: "100%", typography: "body1" }}>
-            <Accordion sx={{ minWidth: 700 }}>
+          <Box component={Paper} sx={{ maxWidth: 1550, typography: "body1" }}>
+            <Accordion sx={{ minWidth: 700, maxWidth: 1570 }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>Plane</Typography>
+                <Typography variant="h5">비행편</Typography>
               </AccordionSummary>
               <Divider />
               <AccordionDetails>
-                <div className={styles.accor_container}>
-                  출발편 <br />
-                  비행편명 : {plane[0]["vihicleId"]}
-                  <br />
-                  비행시간 : {plane[0]["depPlandTime"]} -{" "}
-                  {plane[0]["arrPlandTime"]} <br />
-                  요금 : ₩{" "}
-                  {plane[0]["economyCharge"]
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                  <br />
-                  예약 : {window.localStorage.getItem("number")} 좌석 <br />
-                  <br />
-                  도착편
-                  <br />
-                  비행편명: {plane[1]["vihicleId"]}
-                  <br />
-                  비행시간: {plane[1]["depPlandTime"]} -{" "}
-                  {plane[1]["arrPlandTime"]} <br />
-                  요금: ₩{" "}
-                  {plane[1]["economyCharge"]
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                  <br />
-                  예약 : {window.localStorage.getItem("number")} 좌석 <br />
+                <div>
+                  <div className={styles.box}>
+                    <Typography variant="h6">출발편</Typography>
+                    비행편명 : {plane[0]["vihicleId"]}
+                    <br />
+                    비행시간 : {plane[0]["depPlandTime"]} -{" "}
+                    {plane[0]["arrPlandTime"]} <br />
+                    요금 : ₩{" "}
+                    {plane[0]["economyCharge"]
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                    <br />
+                    예약 : {window.localStorage.getItem("number")} 좌석 <br />
+                  </div>
+                  <Divider />
+                  <div className={styles.box}>
+                    <Typography variant="h6">도착편</Typography>
+                    비행편명: {plane[1]["vihicleId"]}
+                    <br />
+                    비행시간: {plane[1]["depPlandTime"]} -{" "}
+                    {plane[1]["arrPlandTime"]} <br />
+                    요금: ₩{" "}
+                    {plane[1]["economyCharge"]
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                    <br />
+                    예약 : {window.localStorage.getItem("number")} 좌석
+                  </div>
                 </div>
               </AccordionDetails>
             </Accordion>
@@ -166,44 +135,52 @@ export function RecommandReservation() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>ACC</Typography>
+                <Typography variant="h5">숙소</Typography>
               </AccordionSummary>
               <Divider />
               <AccordionDetails>
-                <div className={styles.accor_container}>
-                  {"숙소"}
-                  전경 : {acc["image_id"]}
-                  <br />
-                  이름 : {acc["name"]}
-                  <br />
-                  주소 : {acc["loc"]}
-                  <br />
-                  {acc["standard_number"]}인실 박당가격 :{" "}
-                  {acc["price"]
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                  ₩/박 <br />
-                  예약 : {window.localStorage.getItem("day")} 박 ,{" "}
-                  {window.localStorage.getItem("number")} 인<br />
+                <div className={styles.activity}>
+                  <div className={styles.box}>
+                    <img
+                      width={"500vh"}
+                      height={"400vh"}
+                      src={`${acc["url"]}?w=161&fit=crop&auto=format`}
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className={styles.box}>
+                    <br />
+                    이름 : {acc["name"]}
+                    <br />
+                    주소 : {acc["loc"]}
+                    <br />
+                    {acc["standard_number"]}인실 박당가격 :{" "}
+                    {acc["price"]
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    ₩/박 <br />
+                    예약 : {window.localStorage.getItem("day")} 박 ,{" "}
+                    {window.localStorage.getItem("number")} 인<br />
+                  </div>
                 </div>
               </AccordionDetails>
             </Accordion>
           </Box>
           <br />
-          <br />
-          <Box component={Paper} sx={{ width: "100%", typography: "body1" }}>
-            <Accordion sx={{ minWidth: 700 }}>
+          {/* ----------------------------------------------------------------------------------------------------------------------------- */}
+          <Box component={Paper} sx={{ maxWidth: 1550, typography: "body1" }}>
+            <Accordion sx={{ minWidth: 700, maxWidth: 1570 }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>DAY 1</Typography>
+                <Typography variant="h5">DAY 1</Typography>
               </AccordionSummary>
               <Divider />
               <AccordionDetails>
                 <div className={styles.accor_container}>
-                  <>
+                  <div className={styles.mapBox}>
                     <Map
                       center={{
                         lat: acc["lat"],
@@ -213,17 +190,20 @@ export function RecommandReservation() {
                         width: "1000px",
                         height: "600px",
                       }}
-                      level={7}
+                      level={8}
                       onCreate={setMap}
                     >
                       <MapMarker
-                        position={{ lat: acc["lat"], lng: acc["log"] }}
+                        position={{
+                          lat: acc["lat"],
+                          lng: acc["log"],
+                        }}
                         // title='현재 위치'
                         image={{
                           // 무료 마커이미지의 주소: https://www.flaticon.com/kr/
                           // src: "https://cdn-icons.flaticon.com/png/512/5693/premium/5693914.png?token=exp=1637741898~hmac=fada3fe37d0197cf397c5d7713400e95",
                           src:
-                            "https://cdn-icons-png.flaticon.com/512/5717/5717316.png",
+                            "https://cdn-icons-png.flaticon.com/512/5717/5717262.png",
                           size: {
                             width: 45,
                             height: 45,
@@ -241,7 +221,7 @@ export function RecommandReservation() {
                       >
                         {isOpen && (
                           <div style={{ padding: "5px", color: "#000" }}>
-                            숙소 위치
+                            {acc["name"]}
                           </div>
                         )}
                       </MapMarker>
@@ -253,72 +233,64 @@ export function RecommandReservation() {
                         />
                       ))}
                     </Map>
-                  </>
-                  <div className={styles.activity}>
-                    <div>
-                      <h4>추천 식당 1</h4>
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          left: 0,
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center 40%",
-                          // backgroundImage: `url(${image.url})`,
-                          // marginTop: '-30px'
-                        }}
+                  </div>
+
+                  <div className={styles.box}>
+                    <div className={styles.restaurant}>
+                      <div className={styles.box}>
+                        <Typography variant="h6">추천 식당 1</Typography>
+                        {/* <img
+                        width={"500vh"}
+                        height={"400vh"}
+                        src={`${
+                          plan[`0day-${acc["name"]}`][2]["url"]
+                        }?w=161&fit=crop&auto=format`}
+                        loading="lazy"
                       />
-                      이름 : {plan[`0day-${acc["name"]}`][0]["name"]}
-                      <br />
-                      주소 : {plan[`0day-${acc["name"]}`][0]["loc"]}
-                      <br />
-                      추천 메뉴 : {plan[`0day-${acc["name"]}`][0]["recommend"]}
-                      <br />
-                      {/* <div style={{width:'30px', height:'30px'}} src={plan[`0day-${acc["name"]}`][0]["url"]}></div> */}
-                      {/* <img style={{height:"30px", width:"30px", background_image: plan[`0day-${acc["name"]}`][0]["url"]}}></img> */}
-                    </div>
-                    <div>
-                      <h4>추천 식당 2</h4>
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          left: 0,
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center 40%",
-                          // backgroundImage: `url(${image.url})`,
-                          // marginTop: '-30px'
-                        }}
-                      />
-                      이름 : {plan[`0day-${acc["name"]}`][1]["name"]}
-                      <br />
-                      주소 : {plan[`0day-${acc["name"]}`][1]["loc"]}
-                      <br />
-                      추천 메뉴 : {plan[`0day-${acc["name"]}`][1]["recommend"]}
-                      <br />
+
+<img
+                        width={"500vh"}
+                        height={"400vh"}
+                        src={`${
+                          plan[`0day-${acc["name"]}`][0]["url"]
+                        }?w=161&fit=crop&auto=format`}
+                        loading="lazy"
+                      /> */}
+
+                        <div>
+                          이름 : {plan[`0day-${acc["name"]}`][0]["name"]}
+                          <br />
+                          주소 : {plan[`0day-${acc["name"]}`][0]["loc"]}
+                          <br />
+                          추천 메뉴 :{" "}
+                          {plan[`0day-${acc["name"]}`][0]["recommend"]}
+                          <br />
+                        </div>
+                      </div>
+                      <div className={styles.box}>
+                        <Typography variant="h6">추천 식당 2</Typography>
+                        이름 : {plan[`0day-${acc["name"]}`][1]["name"]}
+                        <br />
+                        주소 : {plan[`0day-${acc["name"]}`][1]["loc"]}
+                        <br />
+                        추천 메뉴 :{" "}
+                        {plan[`0day-${acc["name"]}`][1]["recommend"]}
+                      </div>
                     </div>
                   </div>
 
-                  <div className={styles.restaurant}>
-                    <div>
-                      <h4>추천 관광지 1</h4>
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          left: 0,
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center 40%",
-                          // backgroundImage: `url(${image.url})`,
-                          // marginTop: '-30px'
-                        }}
+                  <div className={styles.tourist}>
+                    <div className={styles.imageBox}>
+                      <Typography variant="h6">추천 관광지 1</Typography>
+                      <img
+                        width={"500vh"}
+                        height={"400vh"}
+                        src={`${
+                          plan[`0day-${acc["name"]}`][2]["url"]
+                        }?w=161&fit=crop&auto=format`}
+                        loading="lazy"
                       />
+                      <br />
                       이름 : {plan[`0day-${acc["name"]}`][2]["name"]}
                       <br />
                       주소 : {plan[`0day-${acc["name"]}`][2]["address"]}
@@ -326,21 +298,17 @@ export function RecommandReservation() {
                       설명 : {plan[`0day-${acc["name"]}`][2]["explanation"]}
                       <br />
                     </div>
-                    <div>
-                      <h4>추천 관광지 2</h4>
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          left: 0,
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center 40%",
-                          // backgroundImage: `url(${image.url})`,
-                          // marginTop: '-30px'
-                        }}
+                    <div className={styles.imageBox}>
+                      <Typography variant="h6">추천 관광지 2</Typography>
+                      <img
+                        width={"500vh"}
+                        height={"400vh"}
+                        src={`${
+                          plan[`0day-${acc["name"]}`][3]["url"]
+                        }?w=161&fit=crop&auto=format`}
+                        loading="lazy"
                       />
+                      <br />
                       이름 : {plan[`0day-${acc["name"]}`][3]["name"]}
                       <br />
                       주소 : {plan[`0day-${acc["name"]}`][3]["address"]}
@@ -352,19 +320,19 @@ export function RecommandReservation() {
                 </div>
               </AccordionDetails>
             </Accordion>
-
-            <Accordion sx={{ minWidth: 700 }}>
+            {/* ---------------------------------------------------------------------------------------------------- */}
+            <Accordion sx={{ minWidth: 700, maxWidth: 1570 }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>DAY 2</Typography>
+                <Typography variant="h5">DAY 2</Typography>
               </AccordionSummary>
               <Divider />
               <AccordionDetails>
                 <div className={styles.accor_container}>
-                  <>
+                  <div className={styles.mapBox}>
                     <Map
                       center={{
                         lat: plan[`day-${activity[0]}`][0]["lat"],
@@ -417,106 +385,78 @@ export function RecommandReservation() {
                         />
                       ))}
                     </Map>
-                  </>
+                  </div>
+                  <Typography variant="h6">추천 체험</Typography>
                   <div className={styles.activity}>
-                    <h4>추천 체험</h4>
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        left: 0,
-                        right: 0,
-                        top: 0,
-                        bottom: 0,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center 40%",
-                        // backgroundImage: `url(${image.url})`,
-                        // marginTop: '-30px'
-                      }}
-                    />
-                    이름 : {plan[`day-${activity[0]}`][0]["name"]}
-                    <br />
-                    영업시간 :{" "}
-                    {
-                      plan[`day-${activity[0]}`][0]["start_business_time"]
-                    } - {plan[`day-${activity[0]}`][0]["end_business_time"]}{" "}
-                    <br />
-                    체험시간 : {plan[`day-${activity[0]}`][0]["time"]}
-                    <br />
-                    주소 : {plan[`day-${activity[0]}`][0]["loc"]}
-                    <br />
-                    금액 : ₩{" "}
-                    {plan[`day-${activity[0]}`][0]["price"]
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                    / 인당
+                    <div className={styles.box}>
+                      <img
+                        width={"500vh"}
+                        height={"400vh"}
+                        src={`${
+                          plan[`day-${activity[0]}`][0]["url"]
+                        }?w=161&fit=crop&auto=format`}
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className={styles.box}>
+                      이름 : {plan[`day-${activity[0]}`][0]["name"]}
+                      <br />
+                      영업시간 :{" "}
+                      {
+                        plan[`day-${activity[0]}`][0]["start_business_time"]
+                      } - {plan[`day-${activity[0]}`][0]["end_business_time"]}{" "}
+                      <br />
+                      체험시간 : {plan[`day-${activity[0]}`][0]["time"]}
+                      <br />
+                      주소 : {plan[`day-${activity[0]}`][0]["loc"]}
+                      <br />
+                      금액 : ₩{" "}
+                      {plan[`day-${activity[0]}`][0]["price"]
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                      / 인당
+                    </div>
                     <br />
                   </div>
 
-                  <div className={styles.restaurant}>
-                    <div>
-                      <h4>추천 식당 1</h4>
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          left: 0,
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center 40%",
-                          // backgroundImage: `url(${image.url})`,
-                          // marginTop: '-30px'
-                        }}
-                      />
-                      이름 : {plan[`day-${activity[0]}`][1]["name"]}
-                      <br />
-                      주소 : {plan[`day-${activity[0]}`][1]["loc"]}
-                      <br />
-                      추천 메뉴 : {plan[`day-${activity[0]}`][1]["recommend"]}
-                      <br />
-                    </div>
-                    <div>
-                      <h4>추천 식당 2</h4>
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          left: 0,
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center 40%",
-                          // backgroundImage: `url(${image.url})`,
-                          // marginTop: '-30px'
-                        }}
-                      />
-                      이름 : {plan[`day-${activity[0]}`][2]["name"]}
-                      <br />
-                      주소 : {plan[`day-${activity[0]}`][2]["loc"]}
-                      <br />
-                      추천 메뉴 : {
-                        plan[`day-${activity[0]}`][2]["recommend"]
-                      }{" "}
-                      <br />
+                  <div className={styles.box}>
+                    <div className={styles.restaurant}>
+                      <div className={styles.box}>
+                        <Typography variant="h6">추천 식당 1</Typography>
+
+                        <div>
+                          이름 : {plan[`day-${activity[0]}`][1]["name"]}
+                          <br />
+                          주소 : {plan[`day-${activity[0]}`][1]["loc"]}
+                          <br />
+                          추천 메뉴 :{" "}
+                          {plan[`day-${activity[0]}`][1]["recommend"]}
+                          <br />
+                        </div>
+                      </div>
+                      <div className={styles.box}>
+                        <Typography variant="h6">추천 식당 2</Typography>
+                        이름 : {plan[`day-${activity[0]}`][2]["name"]}
+                        <br />
+                        주소 : {plan[`day-${activity[0]}`][2]["loc"]}
+                        <br />
+                        추천 메뉴 : {plan[`day-${activity[0]}`][2]["recommend"]}
+                      </div>
                     </div>
                   </div>
 
                   <div className={styles.tourist}>
-                    <div>
-                      <h4>추천 관광지 1</h4>
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          left: 0,
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center 40%",
-                          // backgroundImage: `url(${image.url})`,
-                          // marginTop: '-30px'
-                        }}
+                    <div className={styles.imageBox}>
+                      <Typography variant="h6">추천 관광지 1</Typography>
+                      <img
+                        width={"500vh"}
+                        height={"400vh"}
+                        src={`${
+                          plan[`day-${activity[0]}`][3]["url"]
+                        }?w=161&fit=crop&auto=format`}
+                        loading="lazy"
                       />
+                      <br />
                       이름 : {plan[`day-${activity[0]}`][3]["name"]}
                       <br />
                       주소 : {plan[`day-${activity[0]}`][3]["address"]}
@@ -524,21 +464,17 @@ export function RecommandReservation() {
                       설명 : {plan[`day-${activity[0]}`][3]["explanation"]}
                       <br />
                     </div>
-                    <div>
-                      <h4>추천 관광지 2</h4>
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          left: 0,
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center 40%",
-                          // backgroundImage: `url(${image.url})`,
-                          // marginTop: '-30px'
-                        }}
+                    <div className={styles.imageBox}>
+                      <Typography variant="h6">추천 관광지 2</Typography>
+                      <img
+                        width={"500vh"}
+                        height={"400vh"}
+                        src={`${
+                          plan[`day-${activity[0]}`][4]["url"]
+                        }?w=161&fit=crop&auto=format`}
+                        loading="lazy"
                       />
+                      <br />
                       이름 : {plan[`day-${activity[0]}`][4]["name"]}
                       <br />
                       주소 : {plan[`day-${activity[0]}`][4]["address"]}
@@ -551,18 +487,19 @@ export function RecommandReservation() {
               </AccordionDetails>
             </Accordion>
 
-            <Accordion sx={{ minWidth: 700 }}>
+            {/* --------------------------------------------------------------------- */}
+            <Accordion sx={{ minWidth: 700, maxWidth: 1570 }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>DAY 3</Typography>
+                <Typography variant="h5">DAY 3</Typography>
               </AccordionSummary>
               <Divider />
               <AccordionDetails>
                 <div className={styles.accor_container}>
-                  <>
+                  <div className={styles.mapBox}>
                     <Map
                       center={{
                         lat: plan[`day-${activity[1]}`][0]["lat"],
@@ -580,10 +517,7 @@ export function RecommandReservation() {
                           lat: plan[`day-${activity[1]}`][0]["lat"],
                           lng: plan[`day-${activity[1]}`][0]["log"],
                         }}
-                        // title='현재 위치'
                         image={{
-                          // 무료 마커이미지의 주소: https://www.flaticon.com/kr/
-                          // src: "https://cdn-icons.flaticon.com/png/512/5693/premium/5693914.png?token=exp=1637741898~hmac=fada3fe37d0197cf397c5d7713400e95",
                           src:
                             "https://cdn-icons-png.flaticon.com/512/5717/5717262.png",
                           size: {
@@ -615,106 +549,78 @@ export function RecommandReservation() {
                         />
                       ))}
                     </Map>
-                  </>
+                  </div>
+                  {/* ----------------------------------------------------------------- */}
+                  <Typography variant="h6">추천 체험</Typography>
                   <div className={styles.activity}>
-                    <h4>추천 체험</h4>
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        left: 0,
-                        right: 0,
-                        top: 0,
-                        bottom: 0,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center 40%",
-                        // backgroundImage: `url(${image.url})`,
-                        // marginTop: '-30px'
-                      }}
-                    />
-                    이름 : {plan[`day-${activity[1]}`][0]["name"]}
-                    <br />
-                    영업시간 :{" "}
-                    {
-                      plan[`day-${activity[1]}`][0]["start_business_time"]
-                    } - {plan[`day-${activity[1]}`][0]["end_business_time"]}{" "}
-                    <br />
-                    체험시간 : {plan[`day-${activity[1]}`][0]["time"]}
-                    <br />
-                    주소 : {plan[`day-${activity[1]}`][0]["loc"]}
-                    <br />
-                    금액 : ₩{" "}
-                    {plan[`day-${activity[1]}`][0]["price"]
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                    / 인당
+                    <div className={styles.box}>
+                      <img
+                        width={"500vh"}
+                        height={"400vh"}
+                        src={`${
+                          plan[`day-${activity[1]}`][0]["url"]
+                        }?w=161&fit=crop&auto=format`}
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className={styles.box}>
+                      이름 : {plan[`day-${activity[1]}`][0]["name"]}
+                      <br />
+                      영업시간 :{" "}
+                      {
+                        plan[`day-${activity[1]}`][0]["start_business_time"]
+                      } - {plan[`day-${activity[1]}`][0]["end_business_time"]}{" "}
+                      <br />
+                      체험시간 : {plan[`day-${activity[1]}`][0]["time"]}
+                      <br />
+                      주소 : {plan[`day-${activity[1]}`][0]["loc"]}
+                      <br />
+                      금액 : ₩{" "}
+                      {plan[`day-${activity[1]}`][0]["price"]
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                      / 인당
+                    </div>
                     <br />
                   </div>
 
-                  <div className={styles.restaurant}>
-                    <div>
-                      <h4>추천 식당 1</h4>
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          left: 0,
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center 40%",
-                          // backgroundImage: `url(${image.url})`,
-                          // marginTop: '-30px'
-                        }}
-                      />
-                      이름 : {plan[`day-${activity[1]}`][1]["name"]}
-                      <br />
-                      주소 : {plan[`day-${activity[1]}`][1]["loc"]}
-                      <br />
-                      추천 메뉴 : {plan[`day-${activity[1]}`][1]["recommend"]}
-                      <br />
-                    </div>
-                    <div>
-                      <h4>추천 식당 2</h4>
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          left: 0,
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center 40%",
-                          // backgroundImage: `url(${image.url})`,
-                          // marginTop: '-30px'
-                        }}
-                      />
-                      이름 : {plan[`day-${activity[1]}`][2]["name"]}
-                      <br />
-                      주소 : {plan[`day-${activity[1]}`][2]["loc"]}
-                      <br />
-                      추천 메뉴 : {
-                        plan[`day-${activity[1]}`][2]["recommend"]
-                      }{" "}
-                      <br />
+                  <div className={styles.box}>
+                    <div className={styles.restaurant}>
+                      <div className={styles.box}>
+                        <Typography variant="h6">추천 식당 1</Typography>
+                        <div>
+                          이름 : {plan[`day-${activity[1]}`][1]["name"]}
+                          <br />
+                          주소 : {plan[`day-${activity[1]}`][1]["loc"]}
+                          <br />
+                          추천 메뉴 :{" "}
+                          {plan[`day-${activity[1]}`][1]["recommend"]}
+                          <br />
+                        </div>
+                      </div>
+                      <div className={styles.box}>
+                        <Typography variant="h6">추천 식당 2</Typography>
+                        이름 : {plan[`day-${activity[1]}`][2]["name"]}
+                        <br />
+                        주소 : {plan[`day-${activity[1]}`][2]["loc"]}
+                        <br />
+                        추천 메뉴 : {plan[`day-${activity[1]}`][2]["recommend"]}
+                      </div>
                     </div>
                   </div>
 
                   <div className={styles.tourist}>
-                    <div>
-                      <h4>추천 관광지 1</h4>
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          left: 0,
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center 40%",
-                          // backgroundImage: `url(${image.url})`,
-                          // marginTop: '-30px'
-                        }}
+                    <div className={styles.imageBox}>
+                      <Typography variant="h6">추천 관광지 1</Typography>
+                      <img
+                        width={"500vh"}
+                        height={"400vh"}
+                        src={`${
+                          plan[`day-${activity[1]}`][3]["url"]
+                        }?w=161&fit=crop&auto=format`}
+                        loading="lazy"
                       />
+                      <br />
                       이름 : {plan[`day-${activity[1]}`][3]["name"]}
                       <br />
                       주소 : {plan[`day-${activity[1]}`][3]["address"]}
@@ -722,21 +628,17 @@ export function RecommandReservation() {
                       설명 : {plan[`day-${activity[1]}`][3]["explanation"]}
                       <br />
                     </div>
-                    <div>
-                      <h4>추천 관광지 2</h4>
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          left: 0,
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center 40%",
-                          // backgroundImage: `url(${image.url})`,
-                          // marginTop: '-30px'
-                        }}
+                    <div className={styles.imageBox}>
+                      <Typography variant="h6">추천 관광지 2</Typography>
+                      <img
+                        width={"500vh"}
+                        height={"400vh"}
+                        src={`${
+                          plan[`day-${activity[1]}`][4]["url"]
+                        }?w=161&fit=crop&auto=format`}
+                        loading="lazy"
                       />
+                      <br />
                       이름 : {plan[`day-${activity[1]}`][4]["name"]}
                       <br />
                       주소 : {plan[`day-${activity[1]}`][4]["address"]}
@@ -748,33 +650,14 @@ export function RecommandReservation() {
                 </div>
               </AccordionDetails>
             </Accordion>
-            {/* <Accordion disabled>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3a-content"
-            id="panel3a-header"
-          >
-            <Typography>Disabled Accordion</Typography>
-          </AccordionSummary>
-        </Accordion> */}
           </Box>
-
-          {/* <Container
-          component="section"
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            my: 9,
-          }}
-        > */}
-          <div style={{ alignItems: "center" }}>
+          <br />
+          <br />
+          <div align={"center"}>
             <Button
               onClick={() => {
                 navigate("/invoice");
               }}
-              // component={Link}
-              // to="/invoice"
               sx={{
                 border: "4px solid currentColor",
                 borderRadius: 0,
@@ -791,7 +674,6 @@ export function RecommandReservation() {
             <Typography variant="subtitle1" sx={{ my: 3 }}>
               버튼을 누르시면 결제창으로 이동합니다.
             </Typography>
-            {/* </Container> */}
           </div>
         </div>
       </TripLayout>

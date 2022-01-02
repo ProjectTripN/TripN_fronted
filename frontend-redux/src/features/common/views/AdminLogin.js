@@ -53,13 +53,12 @@ export default function AdminLogin() {
 
   const formik = useFormik({
     initialValues: {
-      email: "admin@gmail.com",
-      password: "admin",
+      email: "",
+      password: "",
       remember: true,
     },
     validationSchema: LoginSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values));
       alert(JSON.stringify(values.name) + "님 환영합니다.");
       navigate("/an/dash-board");
     },

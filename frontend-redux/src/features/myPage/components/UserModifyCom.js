@@ -4,7 +4,6 @@ import {
   Box,
   Grid,
   Stack,
-  Link,
   Typography,
   TextField,
   IconButton,
@@ -14,14 +13,11 @@ import {
   Button,
   FormControl,
   Divider,
-  Radio,
 } from "@mui/material";
 import { useFormik, Form, FormikProvider } from "formik";
 import { useDispatch } from "react-redux";
 import eyeFill from "@iconify/icons-eva/eye-fill";
 import eyeOffFill from "@iconify/icons-eva/eye-off-fill";
-import * as Yup from "yup";
-import { Link as RouterLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { userModify } from "features/user/reducer/userSlice";
 import { uploadIMG } from "features/myPage/reducer/mypageSlice";
@@ -105,15 +101,20 @@ export default function UserModifyCom() {
 
   return (
     <>
-      <Box sx={{ width: "100vh", height: "170vh" }}>
+      <Box sx={{ width: "100vh", height: "190vh" }}>
         <ContentStyle>
-          <Box sx={{ mb: -5 }} />
+          <Box sx={{ mb: -3 }} />
           <Typography variant="h4">회원정보 수정</Typography>
           <Divider sx={{ my: 3 }} />
           <Typography variant="subtitle1" fontWeight="Bold" align="left" />
+
           <FormikProvider value={formik}>
             <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
-              <Stack spacing={3}>
+              <Typography variant="subtitle1" fontWeight="Bold" align="left">
+                비밀번호 수정
+              </Typography>
+              <br />
+              <Stack spacing={2}>
                 <TextField
                   fullWidth
                   type={showPassword ? "text" : "password"}
@@ -155,13 +156,56 @@ export default function UserModifyCom() {
                   helperText={touched.password && errors.password}
                 />
               </Stack>
+              <Typography
+                variant="subtitle2"
+                sx={{ mt: 3, textAlign: "center" }}
+              >
+                <Button
+                  size="large"
+                  type="submit"
+                  variant="contained"
+                  loading={isSubmitting}
+                >
+                  비밀번호 수정 완료
+                </Button>
+              </Typography>
+            </Form>
+          </FormikProvider>
+          <Divider sx={{ my: 3 }} />
+
+          <Typography variant="subtitle1" fontWeight="Bold" align="left">
+            프로필 사진 변경
+          </Typography>
+          <input
+            alignItems="center"
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+          />
+          <Typography variant="subtitle2" sx={{ mt: 3, textAlign: "center" }}>
+            <Button
+              size="large"
+              type="submit"
+              variant="contained"
+              onClick={handleFileUpload}
+            >
+              프로필 수정 완료
+            </Button>
+          </Typography>
+
+          <Divider sx={{ my: 3 }} />
+
+          <FormikProvider value={formik}>
+            <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
               <Grid>
                 <Stack spacing={3}>
                   <Typography
                     variant="subtitle1"
                     fontWeight="Bold"
                     align="left"
-                  ></Typography>
+                  >
+                    개인정보 수정
+                  </Typography>
                   <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
                     <TextField
                       fullWidth
@@ -183,7 +227,7 @@ export default function UserModifyCom() {
                     />
                     <TextField
                       fullWidth
-                      label="영문 성 "
+                      label="영문 이름 "
                       text="firstName"
                       {...getFieldProps("firstName")}
                       error={Boolean(touched.lastName && errors.lastName)}
@@ -212,31 +256,7 @@ export default function UserModifyCom() {
                     text="birth"
                     {...getFieldProps("birth")}
                   />
-                  <Divider sx={{ my: 3 }} />
-                  <Typography
-                    variant="subtitle1"
-                    fontWeight="Bold"
-                    align="left"
-                  >
-                    프로필 사진 변경
-                  </Typography>
-                  <input
-                    alignItems="center"
-                    type="file"
-                    accept="image/*"
-                    onChange={handleFileChange}
-                  />
-                  <Button
-                    onClick={handleFileUpload}
-                    style={{ minWidth: "200px" }}
-                  >
-                    프로필 사진 변경
-                    <Icon
-                      icon="fluent:picture-in-picture-exit-20-regular"
-                      color="#553830"
-                      height={30}
-                    />
-                  </Button>
+
                   <Divider />
                   {/* 결제 수단 관리 */}
                   <Typography
@@ -246,7 +266,7 @@ export default function UserModifyCom() {
                   >
                     결제 수단
                   </Typography>
-                  <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+                  <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
                     <Box sx={{ minWidth: 100 }}>
                       <FormControl fullWidth>
                         <InputLabel

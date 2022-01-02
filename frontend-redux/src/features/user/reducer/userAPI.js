@@ -17,6 +17,8 @@ const listModify = (x) =>
   axios.put(`${SERVER}/users/update`, JSON.stringify(x), { headers });
 const list = (x) =>
   axios.post(`${SERVER}/users/userSearch`, JSON.stringify(x), { headers });
+const forgotPassword = (x) =>
+  axios.post(`${SERVER}/mail/sendmail`, JSON.stringify(x), { headers });
 //   const exist = x => axios.get(`${SERVER}/users/exist/${x}`)
 //   const detail = x => axios.get(`${SERVER}/users/${x.userId}`)
 //   const list = x => axios.get(`${SERVER}/users/list/${x}`)
@@ -29,4 +31,5 @@ export default {
   mbti,
   listModify,
   list,
+  forgotPassword,
 };
