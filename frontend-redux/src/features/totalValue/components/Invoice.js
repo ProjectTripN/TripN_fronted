@@ -43,10 +43,6 @@ import { useSelector } from "react-redux";
 export default function Invoice() {
   const value = useSelector((state) => state.recommandSlice.saveState[0]);
   const payment = value[1];
-  // console.log("ddjdjdjdjdjdjdjdj" + JSON.stringify(payment));
-  // console.log("ddjdjdjdjdjdjdjdj" + payment["people"]);
-
-  const dot = toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
   return (
     <div>

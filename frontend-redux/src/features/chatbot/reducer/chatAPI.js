@@ -2,7 +2,8 @@
 import axios from "axios";
 // const SERVER = 'http://127.0.0.1:8000/api/'
 // const SERVER = "http://192.168.0.106:8000/api/";
-const SERVER = "http://192.168.0.106:8001/api/"; //노블
+// const SERVER = "http://192.168.0.106:8001/api/"; //노블
+const SERVER = "http://192.168.0.35:8001/api/"; //학원
 
 const headers = {
   "Content-Type": "application/json",

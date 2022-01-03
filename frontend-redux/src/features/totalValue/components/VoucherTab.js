@@ -9,8 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function LabTabs() {
   const [value, setValue] = React.useState("1");
-
   const Voucher = useSelector((state) => state.recommandSlice.saveState[0]);
+  
   const plan = Voucher[0]["schedule"];
   const plane = Voucher[0]["plane_detail"];
   const acc = Voucher[0]["acc_detail"];
@@ -18,6 +18,7 @@ export default function LabTabs() {
   const day1 = plan[`0day-${acc[0]["name"]}`];
   const day2 = plan[`day-${activity[0]}`];
   const day3 = plan[`day-${activity[1]}`];
+
   console.log(
     `Voucher 0 =========== ${JSON.stringify(
       JSON.parse(JSON.stringify(activity))

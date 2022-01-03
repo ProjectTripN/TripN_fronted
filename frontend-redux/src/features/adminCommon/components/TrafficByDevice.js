@@ -16,18 +16,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { salesItem } from "../reducer/adminSlice";
 
 const TrafficByDevice = (props) => {
-  const theme = useTheme();
-  const dispatch = useDispatch();
+
   const plane = useSelector((state) => state.admin.salesItemState["plane12"]);
   const acc = useSelector((state) => state.admin.salesItemState["acc12"]);
   const activity = useSelector(
     (state) => state.admin.salesItemState["activity12"]
   );
-  console.log("항목별 매출 찾아오기 항공, 엑티비티, 숙박!!" + plane);
 
+
+  const theme = useTheme();
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(salesItem());
-    console.log("보낸다");
   }, []);
 
   // // 퍼 계산

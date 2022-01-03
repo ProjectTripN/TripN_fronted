@@ -15,21 +15,9 @@ import {
 
 const SalesManagement = () => {
   const costSix = useSelector((state) => state.admin.costSixmonthState[0]);
-  // const costDetails = useSelector((state) => state.admin.costDetailsState[0]);
-  // console.log("aaaaaaaaaaaaa" + JSON.parse(costSix[0]["월"]));
-  // console.log("sixmontttttttttttasfdasdfasd" + JSON.parse(costSix[0]["월"]));
-  // useEffect(() => {
-  //   dispatch(costSixmonth());
-  //   console.log("+++++++++++++보낸다");
-  // }, []);
+
 
   const ChartData2 = [
-    // {
-    //   id: "매출원가",
-    //   label: "매출원가",
-    //   value: 148,
-    //   color: "hsl(224, 70%, 50%)",
-    // },
     {
       id: "판매비와 관리비",
       label: "판매비와 관리비",

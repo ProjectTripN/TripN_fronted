@@ -5,7 +5,13 @@ import { FinancialReports, SalesManagement } from "features/financial";
 import { Home } from "features/home";
 import { ProductCategories, Recommand } from "features/recommand";
 import { TotalValue } from "features/totalValue";
-import { EnterPassword, FAQ, MyPage, Reservation, UserModify } from "features/myPage";
+import {
+  EnterPassword,
+  FAQ,
+  MyPage,
+  Reservation,
+  UserModify,
+} from "features/myPage";
 import { JoinDetail, Join, Login, ForgotPassword } from "features/user";
 import TestA from "features/a--test/TestA";
 import { Consultant } from "features/chatbot/pages/Consultant";
@@ -38,14 +44,14 @@ function App() {
 
           {/* user */}
           <Route path="/login" element={<Login />} />
-          <Route path="/forgotPassword" element={<ForgotPassword />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/join" element={<Join />} />
-          <Route path="/joinDetail" element={<JoinDetail />} />
+          <Route path="/join-detail" element={<JoinDetail />} />
 
           {/* mypage */}
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/enter-password" element={<EnterPassword />} />
-          <Route path="/userModify" element={<UserModify />} />
+          <Route path="/user-modify" element={<UserModify />} />
           <Route path="/reservation" element={<Reservation />} />
           <Route path="/faq" element={<FAQ />} />
 
@@ -58,7 +64,6 @@ function App() {
           <Route path="/test" element={<TestA />} />
           <Route path="/testbbb" element={<TestB />} />
           <Route path="/testcategor" element={<ProductCategories />} />
-          
         </Routes>
       </div>
     </>

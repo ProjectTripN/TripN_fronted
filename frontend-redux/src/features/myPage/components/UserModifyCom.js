@@ -101,7 +101,7 @@ export default function UserModifyCom() {
 
   return (
     <>
-      <Box sx={{ width: "100vh", height: "190vh" }}>
+      <Box sx={{ width: "100vh", height: "135vh" }}>
         <ContentStyle>
           <Box sx={{ mb: -3 }} />
           <Typography variant="h4">회원정보 수정</Typography>
@@ -176,6 +176,7 @@ export default function UserModifyCom() {
           <Typography variant="subtitle1" fontWeight="Bold" align="left">
             프로필 사진 변경
           </Typography>
+          <br />
           <input
             alignItems="center"
             type="file"

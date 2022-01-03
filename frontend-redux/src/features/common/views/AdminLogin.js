@@ -44,6 +44,15 @@ export default function AdminLogin() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
+
+  useEffect(() => {
+    dispatch(lastSixMonth());
+    dispatch(yearchart()); 
+    dispatch(salesItem());
+    dispatch(costSixmonth());
+  }, []);
+
+
   const LoginSchema = Yup.object().shape({
     email: Yup.string()
       .email("Email must be a valid email address")
@@ -77,13 +86,7 @@ export default function AdminLogin() {
     setShowPassword((show) => !show);
   };
 
-  useEffect(() => {
-    dispatch(lastSixMonth());
-    dispatch(yearchart()); // financial reports
-    // dispatch(costSixmonth()); // SM - six month reports
-    dispatch(salesItem());
-    dispatch(costSixmonth());
-  }, []);
+
 
   return (
     <>

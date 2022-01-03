@@ -52,7 +52,7 @@ export default function EnterPassword() {
       //   alert("비밀번호가 틀렸습니다");
       // }
       alert("비밀번호가 맞습니다");
-      navigate("/userModify");
+      navigate("/user-modify");
     },
   });
   const { errors, touched, values, handleSubmit, getFieldProps } = formik;

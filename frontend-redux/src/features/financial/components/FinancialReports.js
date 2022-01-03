@@ -5,14 +5,7 @@ import { useSelector } from "react-redux";
 
 const FinancialReports = () => {
   const thisYear = useSelector((state) => state.admin.yearchartState[0]);
-  const a = toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-  console.log(JSON.stringify(thisYear));
-  // console.log(thisYear["price"]);
-  console.log(
-    "asdfasdfsadfasdfasdfsadfsdahahahahahahah 이바보얌 " +
-      useSelector((state) => state.admin.yearchartState[0])["price"]
-  );
+  
 
   return (
     <>

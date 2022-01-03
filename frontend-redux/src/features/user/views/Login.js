@@ -74,7 +74,7 @@ export default function Login() {
 
     alert(JSON.stringify(values));
 
-    await dispatch(login(values));
+    dispatch(login(values));
   };
 
   const { errors, touched, values, isSubmitting, getFieldProps } = formik;

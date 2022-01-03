@@ -7,24 +7,19 @@ const JOIN = async (x) => {
 };
 const LOGIN = async (x) => {
   const res = await userAPI.login(x);
-  console.log("login fulfilled22222");
   return res.data;
 };
 const MBTI = async (x) => {
   const res = await userAPI.mbti(x);
-  console.log(" 값이 돌아온다 뿅뿅뿅 " + JSON.stringify(res.data));
   return res.data;
 };
 const USERMODIFY = async (x) => {
   const res = await userAPI.userModify(x);
-  console.log(" 값이 돌아온다 뿅뿅뿅 " + JSON.stringify(res.data));
   return res.data;
 };
 
 const LIST = async (x) => {
-  console.log("값을 보냈다.");
   const res = await userAPI.list(x);
-  console.log("값이 왔다.");
   return res.data;
 };
 

@@ -29,10 +29,7 @@ export function RecommandReservation() {
   const acc = recommandlist[1]["acc"][0];
   const activity = recommandlist[2]["activity"];
   const plan = recommandlist[3];
-  console.log(
-    "-----------------------------------" +
-      JSON.stringify(plan[`day-${activity[1]}`][1]["url"])
-  );
+
 
   useEffect(() => {
     dispatch(
@@ -41,8 +38,10 @@ export function RecommandReservation() {
         date2: localStorage.getItem("end"),
         start: localStorage.getItem("airstart"),
         Number: localStorage.getItem("number"),
+        // user: localStorage.getItem("userId"),
+        // mbti: localStorage.getItem("user_mbti"),
         user: 5,
-        mbti: "iiesnsfttppp",
+        mbti: "eeesnsttfjpp",
         relationship: localStorage.getItem("relationship"),
         plane: [
           localStorage.getItem("depplane"),

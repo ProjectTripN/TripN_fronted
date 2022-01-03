@@ -36,8 +36,8 @@ export default function Profile(props) {
           >
             <img src={mickey} height="100px" width="100px" />
             <Box sx={{ bgcolor: "#ffff", height: "3vh" }} />
-            <div>김트립</div>
-            <div>tripkim@gmail.com</div>
+            <div>김트립</div><br/>
+            <div>protipn@gmail.com</div>
           </Box>
         </CardContent>
       </Box>

@@ -11,9 +11,7 @@ const RECOMMANDSAVE = async (x) => {
   return [res.data, payment.data];
 };
 const MYRESERVATION = async () => {
-  console.log(`서버 들어 가고 있다!!!!!!!!!!! ${JSON.stringify()} `);
   const res = await recommandAPI.myReservation();
-  console.log(`아아아아아아앙 들어온 값이야 : ${JSON.stringify(res.data)}`);
   return res.data;
 };
 
