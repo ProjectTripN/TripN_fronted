@@ -4,11 +4,12 @@ import { AppAppBar, Navigation } from "features/adminCommon";
 import { useSelector } from "react-redux";
 
 const FinancialReports = () => {
-  const thisYear = useSelector((state) => state.admin.yearchartState[0]);
-  
+  const lastYear = useSelector((state) => state.admin.yearchartState[0]);
+  const thisYear = useSelector((state) => state.admin.yearchartState[1]);
 
   return (
     <>
+      aaaaaa
       <AppAppBar />
       <div className="container" textAlign="right">
         <Table>
@@ -39,54 +40,66 @@ const FinancialReports = () => {
           <Tr>
             <Tdword>매출액</Tdword>
             <Td></Td>
-            <Td>1</Td>
+            <Td>
+              {thisYear[0]["price"]
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            </Td>
             <Td></Td>
             <Td>
-              {useSelector((state) => state.admin.yearchartState[0])
-                ["price"].toString()
+              {lastYear[0]["price"]
+                .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </Td>
           </Tr>
           <Tr>
             <Tdword>매출원가</Tdword>
             <Td></Td>
-            <Td>1</Td>
+            <Td> {thisYear[1]["price"]
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
             <Td></Td>
             <Td>
-              {useSelector((state) => state.admin.yearchartState[1])
-                ["price"].toString()
+              {lastYear[1]["price"]
+                .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </Td>
           </Tr>
           <Tr>
             <Tdword>매출총이익</Tdword>
             <Td></Td>
-            <Td>1</Td>
+            <Td> {thisYear[2]["price"]
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
             <Td></Td>
             <Td>
-              {useSelector((state) => state.admin.yearchartState[2])
-                ["price"].toString()
+              {lastYear[2]["price"]
+                .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </Td>
           </Tr>
           <Tr>
             <Tdword>판매비와관리비</Tdword>
-            <Td>1</Td>
+            <Td> {thisYear[3]["price"]
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
             <Td></Td>
             <Td>
-              {useSelector((state) => state.admin.yearchartState[3])
-                ["price"].toString()
+              {lastYear[3]["price"]
+                .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </Td>
             <Td></Td>
           </Tr>
           <Tr>
             <Tdword>지급수수료</Tdword>
-            <Td>1</Td>
+            <Td> {thisYear[4]["price"]
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
             <Td></Td>
             <Td>
-              {useSelector((state) => state.admin.yearchartState[4])
-                ["price"].toString()
+              {lastYear[4]["price"]
+                .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </Td>
             <Td></Td>
@@ -94,65 +107,77 @@ const FinancialReports = () => {
           <Tr>
             <Tdword>영업이익</Tdword>
             <Td></Td>
-            <Td>1</Td>
+            <Td> {thisYear[5]["price"]
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
             <Td></Td>
             <Td>
-              {useSelector((state) => state.admin.yearchartState[5])
-                ["price"].toString()
+              {lastYear[5]["price"]
+                .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </Td>
           </Tr>
           <Tr>
             <Tdword>기타손익 및 금융손익</Tdword>
             <Td></Td>
-            <Td>1</Td>
+            <Td> {thisYear[6]["price"]
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
             <Td></Td>
             <Td>
-              {useSelector((state) => state.admin.yearchartState[6])
-                ["price"].toString()
+              {lastYear[6]["price"]
+                .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </Td>
           </Tr>
           <Tr>
             <Tdword>기타수익</Tdword>
-            <Td>1</Td>
+            <Td> {thisYear[7]["price"]
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
             <Td></Td>
             <Td>
-              {useSelector((state) => state.admin.yearchartState[7])
-                ["price"].toString()
+              {lastYear[7]["price"]
+                .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </Td>
             <Td></Td>
           </Tr>
           <Tr>
             <Tdword>기타비용</Tdword>
-            <Td>1</Td>
+            <Td> {thisYear[8]["price"]
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
             <Td></Td>
             <Td>
-              {useSelector((state) => state.admin.yearchartState[8])
-                ["price"].toString()
+              {lastYear[8]["price"]
+                .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </Td>
             <Td></Td>
           </Tr>
           <Tr>
             <Tdword>금융수익</Tdword>
-            <Td>1</Td>
+            <Td> {thisYear[9]["price"]
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
             <Td></Td>
             <Td>
-              {useSelector((state) => state.admin.yearchartState[9])
-                ["price"].toString()
+              {lastYear[9]["price"]
+                .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </Td>
             <Td></Td>
           </Tr>
           <Tr>
             <Tdword>금융비용</Tdword>
-            <Td>1</Td>
+            <Td> {thisYear[10]["price"]
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
             <Td></Td>
             <Td>
-              {useSelector((state) => state.admin.yearchartState[10])
-                ["price"].toString()
+              {lastYear[10]["price"]
+                .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </Td>
             <Td></Td>
@@ -160,11 +185,13 @@ const FinancialReports = () => {
           <Tr>
             <Tdword>당기순이익</Tdword>
             <Td></Td>
-            <Td>1</Td>
+            <Td> {thisYear[11]["price"]
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Td>
             <Td></Td>
             <Td>
-              {useSelector((state) => state.admin.yearchartState[11])
-                ["price"].toString()
+              {lastYear[11]["price"]
+                .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </Td>
           </Tr>

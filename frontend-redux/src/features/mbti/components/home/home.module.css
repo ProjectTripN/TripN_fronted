@@ -27,13 +27,13 @@
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  background-color: #ed6174;
+  background-color: #45c27d;
   color: #fff;
 }
 
 .start__button:active {
   color: #fff;
-  background-color: #f54269;
+  background-color: #45c27d;
   transform: scale(0.95);
   transition: 10ms;
   border: none;

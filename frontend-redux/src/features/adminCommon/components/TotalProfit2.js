@@ -7,10 +7,10 @@ const TotalProfit = (props) => (
       <Grid container spacing={3} sx={{ justifyContent: "space-between" }}>
         <Grid item>
           <Typography color="textSecondary" gutterBottom variant="h6">
-            예상방문객수
+            제주도 예상 방문객수(당별)
           </Typography>
           <Typography color="textPrimary" variant="h4">
-            100명
+            1,204,344명
           </Typography>
         </Grid>
         <Grid item>

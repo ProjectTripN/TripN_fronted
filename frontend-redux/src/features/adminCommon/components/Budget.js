@@ -12,7 +12,7 @@ const Budget = (props) => (
               방문자수
             </Typography>
             <Typography color="textPrimary" variant="h4">
-              24
+              389
             </Typography>
           </Grid>
           <Grid item>

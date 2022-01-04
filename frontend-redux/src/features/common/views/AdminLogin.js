@@ -44,14 +44,12 @@ export default function AdminLogin() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
-
   useEffect(() => {
     dispatch(lastSixMonth());
-    dispatch(yearchart()); 
+    dispatch(yearchart());
     dispatch(salesItem());
     dispatch(costSixmonth());
   }, []);
-
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string()
@@ -68,7 +66,7 @@ export default function AdminLogin() {
     },
     validationSchema: LoginSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values.name) + "님 환영합니다.");
+      alert("admin 님 환영합니다.");
       navigate("/an/dash-board");
     },
   });
@@ -85,8 +83,6 @@ export default function AdminLogin() {
   const handleShowPassword = () => {
     setShowPassword((show) => !show);
   };
-
-
 
   return (
     <>

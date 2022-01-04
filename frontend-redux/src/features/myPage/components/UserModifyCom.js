@@ -74,7 +74,9 @@ export default function UserModifyCom() {
 
     // console.log(JSON.stringify(values));
 
-    alert(JSON.stringify(values));
+    alert("정보가 변경되었습니다");
+    
+    
 
     await dispatch(userModify(values));
   };

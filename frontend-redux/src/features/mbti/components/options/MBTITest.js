@@ -2,6 +2,7 @@ import React, { createRef, useEffect, useState } from "react";
 import styles from "./option.module.css";
 import { useNavigate } from "react-router-dom";
 import Questions from "../../api/questionsApi.json";
+import jejuimgages from "../../api/questionsApi.json";
 
 const MBTITest = () => {
   const [loading, setLoading] = useState(false);
@@ -64,14 +65,14 @@ const MBTITest = () => {
                 return (
                   <div className={styles.content} key={item.id}>
                     <div className={styles.top}>
-                      <div className={styles.mbti__counter}>
+                      {/* <div className={styles.mbti__counter}>
                         <span className={styles.mbti__progress__color}>
                           {currentSlide}
                         </span>
                         <span className={styles.mbti__end__color}>
                           /{TOTAL_SLIDES}
                         </span>
-                      </div>
+                      </div> */}
                       <h1 className={styles.mbti__question}>{item.question}</h1>
                     </div>
                     <article className={styles.mbti__btn__box}>
@@ -96,11 +97,7 @@ const MBTITest = () => {
         )}
         {loading && (
           <div className={styles.loading__container}>
-            <img
-              className={styles.ticket}
-              src="img/flying.png"
-              alt="e-ticket"
-            />
+            {/* <img className={styles.ticket} src={jejuimgages} alt="e-ticket" /> */}
             <div className={styles.loading}></div>
           </div>
         )}

@@ -17,53 +17,63 @@ import {
 const orders = [
   {
     id: uuid(),
-    ref: "CDD1049",
-    amount: 30.5,
-    customer: {
-      name: "Ekaterina Tankova",
-    },
-    createdAt: 1555016400000,
-    status: "pending",
-  },
-  {
-    id: uuid(),
-    ref: "CDD1049",
-    amount: 30.5,
-    customer: {
-      name: "Ekaterina Tankova",
-    },
-    createdAt: 1555016400000,
-    status: "pending",
-  },
-  {
-    id: uuid(),
-    ref: "CDD1049",
-    amount: 30.5,
-    customer: {
-      name: "Ekaterina Tankova",
-    },
-    createdAt: 1555016400000,
-    status: "pending",
-  },
-  {
-    id: uuid(),
-    ref: "CDD1048",
+    ref: "admin",
     amount: 25.1,
     customer: {
-      name: "Cao Yu",
+      name: "1,458,329",
     },
     createdAt: 1555016400000,
     status: "delivered",
   },
   {
     id: uuid(),
-    ref: "CDD1047",
-    amount: 10.99,
+    ref: "jihye yu",
+    amount: 30.5,
     customer: {
-      name: "Alexa Richardson",
+      name: "1,213,982",
     },
-    createdAt: 1554930000000,
-    status: "refunded",
+    createdAt: 1555016400000,
+    status: "pending",
+  },
+  {
+    id: uuid(),
+    ref: "Ekaterina Tankova",
+    amount: 30.5,
+    customer: {
+      name: "937,384",
+    },
+    createdAt: 1555016400000,
+    status: "pending",
+  },
+  {
+    id: uuid(),
+    ref: "minji Kim",
+    amount: 30.5,
+    customer: {
+      name: "3,800,544",
+    },
+    createdAt: 1555016400000,
+    status: "pending",
+  },
+  {
+    id: uuid(),
+    ref: "yeojin youn",
+    amount: 30.5,
+    customer: {
+      name: "4,789,000",
+    },
+    createdAt: 1555016400000,
+    status: "pending",
+  },
+  {
+    id: uuid(),
+    ref: "youngeun lee",
+    amount: 30.5,
+    customer: {
+      name: "19,980,000",
+    },
+    createdAt: 1555016400000,
+    status: "pending",
   },
 ];
 
@@ -86,9 +96,7 @@ const LatestOrders = (props) => (
               <TableRow hover key={order.id}>
                 <TableCell>{order.ref}</TableCell>
                 <TableCell>{order.customer.name}</TableCell>
-                <TableCell>
-                  {moment(order.createdAt).format("DD/MM/YYYY")}
-                </TableCell>
+                <TableCell>22/01/04</TableCell>
               </TableRow>
             ))}
           </TableBody>
