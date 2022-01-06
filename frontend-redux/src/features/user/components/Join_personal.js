@@ -66,7 +66,7 @@ export default function JoinTab1() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    alert(JSON.stringify(signup));
+    // alert(JSON.stringify(signup));
 
     await dispatch(join(signup));
     alert(JSON.stringify(signup.name) + "님 회원가입을 환영합니다.");

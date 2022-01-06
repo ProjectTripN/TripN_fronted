@@ -16,7 +16,7 @@ function Join_button() {
     >
       <Button
         color="success"
-        to="/joinDetail"
+        to="/join-detail"
         component={RouterLink}
         sx={{
           border: "4px solid currentColor",

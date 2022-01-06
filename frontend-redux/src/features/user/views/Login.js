@@ -72,7 +72,8 @@ export default function Login() {
     e.preventDefault();
     e.stopPropagation();
 
-    alert(JSON.stringify(values));
+    // alert(JSON.stringify(values));
+    
 
     dispatch(login(values));
   };

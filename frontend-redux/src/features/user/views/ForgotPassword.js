@@ -41,7 +41,7 @@ export default function ForgotPassword() {
     e.preventDefault();
     e.stopPropagation();
 
-    alert(JSON.stringify(values));
+    // alert(JSON.stringify(values));
 
     dispatch(forgotPassword(values));
   };

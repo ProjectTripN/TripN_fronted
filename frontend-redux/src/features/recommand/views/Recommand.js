@@ -486,8 +486,8 @@ export function Recommand() {
                 date2: localStorage.getItem("end"),
                 start: localStorage.getItem("airstart"),
                 Number: localStorage.getItem("number"),
-                user: 5,
-                mbti: "iiesnsfttppp",
+                user: 2,
+                mbti: "iiessstffpjp",
                 relationship: localStorage.getItem("relationship"),
                 plane: [
                   localStorage.getItem("depplane"),

@@ -28,7 +28,7 @@ const MBTIResult = ({}) => {
     e.stopPropagation();
 
     await dispatch(mbti(personMbti));
-    alert(JSON.stringify(personMbti));
+    // alert(JSON.stringify(personMbti));
 
     // await dispatch(join(signup));
     // alert(JSON.stringify(nation.id) + "구나 너는!");
@@ -37,6 +37,21 @@ const MBTIResult = ({}) => {
 
   return (
     <>
+      <br />
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <div className={styles.wrapper} key={nation.id}>
         <div className={styles.container}>
           <div className={styles.result__type}>

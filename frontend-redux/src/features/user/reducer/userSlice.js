@@ -128,7 +128,7 @@ const userSlice = createSlice({
         // } else {
         //   alert("로그인 실패 사이트로 문의해주세요");
       } else if (payload.token === "" && payload.mbti !== null) {
-        alert("에이 요 웰컴브로 사이트가 이상행 깔깔깔");
+        // alert("에이 요 웰컴브로 사이트가 이상행 깔깔깔");
         changeNull(["userName", "password"]);
       }
     },

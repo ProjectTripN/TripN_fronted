@@ -161,8 +161,10 @@ export function End(props) {
     date2: localStorage.getItem("end"),
     start: localStorage.getItem("airstart"),
     Number: localStorage.getItem("number"),
-    user: JSON.parse(window.localStorage.getItem("user_id")),
-    mbti: JSON.parse(window.localStorage.getItem("user_mbti")),
+    user: 2,
+    // user: JSON.parse(window.localStorage.getItem("user_id")),
+    // mbti: JSON.parse(window.localStorage.getItem("user_mbti")),
+    mbti: "iiessstffpjp",
     relationship: localStorage.getItem("relationship"),
   });
   return (

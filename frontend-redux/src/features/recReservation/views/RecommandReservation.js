@@ -30,7 +30,6 @@ export function RecommandReservation() {
   const activity = recommandlist[2]["activity"];
   const plan = recommandlist[3];
 
-
   useEffect(() => {
     dispatch(
       recommandSave({
@@ -40,8 +39,8 @@ export function RecommandReservation() {
         Number: localStorage.getItem("number"),
         // user: localStorage.getItem("userId"),
         // mbti: localStorage.getItem("user_mbti"),
-        user: 5,
-        mbti: "eeesnsttfjpp",
+        user: 2,
+        mbti: "iiessstffpjp",
         relationship: localStorage.getItem("relationship"),
         plane: [
           localStorage.getItem("depplane"),
