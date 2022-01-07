@@ -1,10 +1,10 @@
 import axios from "axios";
 
-// const SERVER = "http://172.29.208.1:8000/api";
+const SERVER = "http://172.29.208.1:8000/api";
 // const SERVER = "http://192.168.0.75:8000/api";
 // const SERVER = "http://192.168.0.107:8000/api";
 // const SERVER = "http://192.168.0.42:8000/api";
-const SERVER = "http://192.168.0.4:8000/api";
+// const SERVER = "http://192.168.0.4:8000/api";
 
 const headers = {
   "Content-type": "application/json",
@@ -16,6 +16,7 @@ const totalProfit = () => axios.get(`${SERVER}/ledger/profit`);
 const lastSixMonth = () => axios.get(`${SERVER}/reservation/count`);
 const yearchart = () => axios.get(`${SERVER}/fin_reports/show_fin`);
 const salesItem = () => axios.get(`${SERVER}/reservation/month`);
+
 //sales managements
 const costSixmonth = () => axios.get(`${SERVER}/ledger/6month`);
 const costDetails = () => axios.get(`${SERVER}/ledger/month_cost`);

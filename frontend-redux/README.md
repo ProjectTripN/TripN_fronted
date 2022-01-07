@@ -1,44 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=300&section=header&text=TripN_README🎨&fontSize=70)
 
-## Available Scripts
+<div align=center>
 
-In the project directory, you can run:
+# ✨ TripN ✨
 
-### `yarn start`
+</div>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> ### [🔗 TripN 사이트 바로가기](http://.com/)
+>
+> ### [🔗 TripN Project Notion 바로가기](http://www.notion.so/projectripn//)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<br />
 
-### `yarn test`
+## 🎨 프로젝트 소개
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 프로젝트명은 "여행엔" 이라는 생각에서 시작하여 TripN으로 정하게 되었습니다.
+  인공지능을 활용하여, 여행자가 직접 찾아보고 고민할 필요 없이 몇번의 클릭으로, 개인의 특색에 맞추어 제주도를 경험할 수 있는 서비스를 제공합니다.
 
-### `yarn build`
+ <br />
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 파트 소개
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Predictive Analytics
+- Personalization
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  <br />
 
-### `yarn eject`
+## 📅 개발 기간
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 2021. 11. 01 ~ 12. 31 (6~7주)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 1 주 차 : 담당 페이지 UI 컴포넌트 레이아웃 마크업 작업
+- 2-3 주 차 : ERD 작성 및 DB 구축
+- 4-5 주 차 : 데이터 수집 및 분류화 작업
+- 5-6 주 차 : 개인화 추천 시스템 구현
+- 7 주 차 : DOCKER
+- 8 주 차 : AWS 연결
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<br />
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🌹 t e c h 🌹
 
-## Learn More
+| 라이브러리 | <img src="https://img.shields.io/badge/ReduxToolkit-764ABC?style=flat-square&logo=Redux&logoColor=white"/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| 사용 언어 | <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/>
+<img src="https://img.shields.io/badge/Html-E34F26?style=flat-square&logo=Html5&logoColor=white"/>
+<img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white"/>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| 개발 툴 | <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flat-square&logo=Visual Studio Code&logoColor=white"/>
+
+<br>
+
+## 👩🏻‍🎤 팀 소개
+
+| 팀명   | TripN             | part                     |
+| ------ | ----------------- | ------------------------ |
+| 프론트 | 이영은 (테크리더) | FRONTEND                 |
+| 백엔드 | 김민지 (팀 리더)  | 💬 챗봇, 👍 추천         |
+| 백엔드 | 유지혜 (테크리더) | 📊 admin, 💰 결제        |
+| 백엔드 | 윤여진 (테크리더) | 📜 게시판, 🔐 user(보안) |
+
+<br>
