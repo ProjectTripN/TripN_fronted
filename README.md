@@ -1,8 +1,8 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=300&section=header&text=TripN_README:airplane:&fontSize=70)
+![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=300&section=header&text=TripN_README✨&fontSize=70)
 
 <div align=center>
 
-# ✨ TripN ✨
+# ✨ Trip N ✨
 
 </div>
 
@@ -38,7 +38,7 @@
 
 <br />
 
-## 🌹 t e c h 🌹
+## 🔧 t e c h
 
 | 라이브러리 | <img src="https://img.shields.io/badge/ReduxToolkit-764ABC?style=flat-square&logo=Redux&logoColor=white"/>
 <img src="https://img.shields.io/badge/Scss-green?style=flat&logo=Sass&logoColor=CC6699"/>
@@ -53,7 +53,7 @@
 
 <br>
 
-## 👩🏻‍🎤 팀 소개
+## 🏄 팀 소개
 
 | 팀명   | TripN            | part                     |
 | ------ | ---------------- | ------------------------ |
