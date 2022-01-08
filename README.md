@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=300&section=header&text=Trip N_README✨&fontSize=70)
+![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=300&section=header&text=TripN_README✨&fontSize=70)
 
 <div align=center>
 
@@ -55,7 +55,7 @@
 
 ## 🏄 팀 소개
 
-| 팀명   | Trip N            | part                     |
+| 팀명   | Trip N           | part                     |
 | ------ | ---------------- | ------------------------ |
 | 프론트 | 이영은 (프론트)  | FRONTEND                 |
 | 백엔드 | 김민지 (팀 리더) | 💬 챗봇, 👍 추천         |
